@@ -1,0 +1,50 @@
+{
+    "name": "astura",
+    "version": "1.0.0",
+    "description": "The official Discord bot for the Astura Studios Discord community server.",
+    "main": "index.js",
+    "scripts": {
+        "eslint": "eslint 'src/**/*.ts'",
+        "eslint:fix": "eslint --fix 'src/**/*.ts'",
+        "prettier": "prettier 'src/**/*.ts'",
+        "prettier:fix": "prettier --write 'src/**/*.ts'",
+        "test": "node dist/Index.js"
+    },
+    "keywords": [
+        "Discord",
+        "Bot",
+        "discord.js",
+        "Astura",
+        "NodeJS"
+    ],
+    "author": "Ascendus",
+    "license": "ISC",
+    "dependencies": {
+        "@discordjs/collection": "^0.2.1",
+        "discord.js": "^13.2.0",
+        "dotenv": "^10.0.0",
+        "typescript": "^4.4.4"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "5.2.0",
+        "@typescript-eslint/parser": "5.2.0",
+        "eslint": "7.32.0",
+        "eslint-config-airbnb": "18.2.1",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-prettier": "4.0.0",
+        "husky": "7.0.4",
+        "lint-staged": "11.2.6",
+        "prettier": "^2.4.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.ts": [
+            "eslint --fix",
+            "git add"
+        ]
+    }
+}
