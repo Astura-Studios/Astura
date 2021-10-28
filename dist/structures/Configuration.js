@@ -9,5 +9,7 @@ class Configuration {
         this.owners = options.owners;
         this.token = options.token;
     }
+    ;
 }
 exports.Configuration = Configuration;
+;

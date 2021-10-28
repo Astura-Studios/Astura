@@ -21,12 +21,12 @@ exports.configOptions = {
             discord_js_1.Intents.FLAGS.GUILD_MESSAGE_TYPING,
             discord_js_1.Intents.FLAGS.GUILD_PRESENCES,
             discord_js_1.Intents.FLAGS.GUILD_VOICE_STATES,
-            discord_js_1.Intents.FLAGS.GUILD_WEBHOOKS,
+            discord_js_1.Intents.FLAGS.GUILD_WEBHOOKS
         ],
-        makeCache: discord_js_1.Options.cacheEverything(),
+        makeCache: discord_js_1.Options.cacheEverything()
     },
     clientSecret: process.env.CLIENT_SECRET,
     databaseName: "AsturaDB",
     owners: ["760995822120468511", "752114457202917436"],
-    token: process.env.TOKEN,
+    token: process.env.TOKEN
 };

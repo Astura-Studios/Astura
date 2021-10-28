@@ -8,5 +8,7 @@ class Category {
         this.id = id;
         this.type = options.type;
     }
+    ;
 }
 exports.Category = Category;
+;
