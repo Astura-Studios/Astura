@@ -9,7 +9,7 @@
         "eslint:fix": "eslint --fix",
         "prettier": "prettier dist",
         "prettier:fix": "prettier --write dist",
-        "push": "tsc && git add . && git commit -m $message && git push origin main",
+        "push": "tsc && git add . && git commit -m %message% && git push origin main",
         "test": "node dist/Index.js"
     },
     "repository": {
