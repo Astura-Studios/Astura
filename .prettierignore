@@ -1,3 +1,16 @@
 node_modules
-dist
+
 .env
+.husky
+startup.sh
+
+tsconfig.json
+.eslintrc.json
+.prettierrc.json
+
+.gitignore
+LICENSE
+README.md
+
+package.json
+package-lock.json

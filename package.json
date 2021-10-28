@@ -5,10 +5,10 @@
     "main": "dist/Index.js",
     "scripts": {
         "dev": "tsc && node dist/Index.js",
-        "eslint": "eslint 'src/**/*.ts'",
-        "eslint:fix": "eslint --fix 'src/**/*.ts'",
-        "prettier": "prettier 'src/**/*.ts'",
-        "prettier:fix": "prettier --write 'src/**/*.ts'",
+        "eslint": "eslint",
+        "eslint:fix": "eslint --fix",
+        "prettier": "prettier dist",
+        "prettier:fix": "prettier --write dist",
         "test": "node dist/Index.js"
     },
     "repository": {
