@@ -38,9 +38,11 @@
         "@mikro-orm/sqlite": "^4.5.9",
         "discord.js": "^13.2.0",
         "dotenv": "^10.0.0",
+        "express": "^4.17.1",
         "typescript": "^4.4.4"
     },
     "devDependencies": {
+        "@types/express": "^4.17.13",
         "@typescript-eslint/eslint-plugin": "5.2.0",
         "@typescript-eslint/parser": "5.2.0",
         "eslint": "7.32.0",

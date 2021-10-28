@@ -41,6 +41,7 @@ export class AsturaClient extends Client {
         // this.commandHandler.load();
         this.listenerHandler.load();
 
+        await this.db.init();
         await this.db.connect();
     };
 
