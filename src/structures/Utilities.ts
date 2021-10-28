@@ -1,12 +1,12 @@
+import { AsturaClient } from "../client/Client";
+import { Command } from "./Command";
+import { ErrorEmbed } from "./ErrorEmbed";
+import { ErrorEmbedOptions, UtilityDefaults } from "./util/Interfaces";
+import { ExtendedDate } from "../extensions/Date";
+import { ExtendedString } from "../extensions/String";
 import { MessageEmbed, MessageEmbedOptions } from "discord.js";
-import { ErrorEmbedOptions, UtilityDefaults } from "./Interfaces";
 
-import AsturaClient from "../client/Client";
-import ErrorEmbed from "./ErrorEmbed";
-import ExtendedDate from "../extensions/Date";
-import ExtendedString from "../extensions/String";
-
-export default class Utilities {
+export class Utilities {
     public client: AsturaClient;
     public date: ExtendedDate;
     public defaults: UtilityDefaults;
@@ -32,9 +32,9 @@ export default class Utilities {
 
         switch (options.type) {
             case "INVALID_ARGS":
-                return errorEmbed.invalidArguments(options.client, options.command, options.message, options.errorMessage);
+                return errorEmbed.invalidArguments(options.client, options.command as Command, options.message, options.errorMessage);
             case "MISSING_ARGS":
-                return errorEmbed.missingAruments(options.client, options.command, options.message, options.errorMessage);
+                return errorEmbed.missingAruments(options.client, options.command as Command, options.message, options.errorMessage);
             case "CLIENT_PERMISSIONS_MISSING":
                 return errorEmbed.clientPermissionsMissing(options.client, options.errorMessage, options.message);
             case "USER_PERMISSIONS_MISSING":
@@ -46,7 +46,7 @@ export default class Utilities {
 
 
     public pages(arr: any[], itemsPerPage: number, page: number = 1): any[] | null {
-        const maxPages = Math.ceil(arr.length / itemsPerPage);
+        const maxPages: number = Math.ceil(arr.length / itemsPerPage);
         if (page < 1 || page > maxPages) return null;
         return arr.slice((page - 1) * itemsPerPage, page * itemsPerPage);
     }

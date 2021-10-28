@@ -1,7 +1,7 @@
 import { ClientOptions } from "discord.js";
-import { ConfigurationOptions } from "./Interfaces";
+import { ConfigurationOptions } from "./util/Interfaces";
 
-export default class Configuration {
+export class Configuration {
     public clientOptions: ClientOptions;
     public clientSecret: string;
     public databaseName: string;

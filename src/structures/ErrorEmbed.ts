@@ -1,9 +1,8 @@
+import { AsturaClient } from "../client/Client";
+import { Command } from "./Command";
 import { Message, MessageEmbed } from "discord.js";
 
-import AsturaClient from "../client/Client";
-import Command from "./Command";
-
-export default class ErrorEmbed {
+export class ErrorEmbed {
     public invalidArguments(client: AsturaClient, command: Command, message: Message, errorMessage: string): MessageEmbed {
         return client.util.embed({
             color: client.util.defaults.embed.color,
@@ -42,7 +41,7 @@ export default class ErrorEmbed {
             color: client.util.defaults.embed.color,
             author: {
                 name: "Looks like I'm missing permissions in the server! Party time's over.",
-                icon_url: message.author.displayAvatarURL({ dynamic: true})
+                icon_url: message.author.displayAvatarURL({ dynamic: true })
             },
             description: errorMessage
         })

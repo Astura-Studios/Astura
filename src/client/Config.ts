@@ -1,5 +1,5 @@
-import { ConfigurationOptions } from "../structures/Interfaces";
-import { Intents } from "discord.js";
+import { ConfigurationOptions } from "../structures/util/Interfaces";
+import { Intents, Options } from "discord.js";
 import { config } from "dotenv";
 
 config();
@@ -22,7 +22,8 @@ export const configOptions: ConfigurationOptions = {
             Intents.FLAGS.GUILD_PRESENCES,
             Intents.FLAGS.GUILD_VOICE_STATES,
             Intents.FLAGS.GUILD_WEBHOOKS
-        ]
+        ],
+        makeCache: Options.cacheEverything()
     },
     clientSecret: process.env.CLIENT_SECRET as string,
     databaseName: "AsturaDB",

@@ -1,4 +1,4 @@
-export default class ExtendedDate extends Date {
+export class ExtendedDate extends Date {
     public getDateString(): string {
         return `${this.getUTCDay()} ${this.getUTCDay()}${this.getDateSuffix(this.getUTCDay())} of ${this.getUTCMonth()} ${this.getUTCFullYear()}`;
     }

@@ -33,6 +33,9 @@
     "license": "ISC",
     "dependencies": {
         "@discordjs/collection": "^0.2.1",
+        "@mikro-orm/core": "^4.5.9",
+        "@mikro-orm/reflection": "^4.5.9",
+        "@mikro-orm/sqlite": "^4.5.9",
         "discord.js": "^13.2.0",
         "dotenv": "^10.0.0",
         "typescript": "^4.4.4"
