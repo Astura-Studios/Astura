@@ -29,4 +29,4 @@ export const configOptions: ConfigurationOptions = {
     databaseName: "AsturaDB",
     owners: ["760995822120468511", "752114457202917436"], // Ascendus, lucaslah,
     token: process.env.TOKEN as string
-}
+};

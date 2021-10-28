@@ -11,5 +11,5 @@ export class Database extends MikroORM {
             metadataProvider: TsMorphMetadataProvider,
             type: "sqlite"
         });
-    }
-}
+    };
+};

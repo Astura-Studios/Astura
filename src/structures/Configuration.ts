@@ -14,5 +14,5 @@ export class Configuration {
         this.databaseName = options.databaseName;
         this.owners = options.owners;
         this.token = options.token;
-    }
-}
+    };
+};
