@@ -14,16 +14,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Database = void 0;
 const core_1 = require("@mikro-orm/core");
-const reflection_1 = require("@mikro-orm/reflection");
+const mikro_orm_config_1 = __importDefault(require("./mikro-orm.config"));
 const express_1 = __importDefault(require("express"));
 class Database extends core_1.MikroORM {
-    constructor(options) {
+    constructor() {
         super({
-            dbName: options.dbName,
-            entities: ["../../../dist/structures/database/entities/**/*.js"],
-            entitiesTs: ["./entities/**/*.ts"],
-            metadataProvider: reflection_1.TsMorphMetadataProvider,
-            type: "sqlite"
+            dbName: mikro_orm_config_1.default.dbName,
+            entities: mikro_orm_config_1.default.entities,
+            entitiesTs: mikro_orm_config_1.default.entitiesTs,
+            metadataProvider: mikro_orm_config_1.default.metadataProvider,
+            type: mikro_orm_config_1.default.type
         });
         this.app = (0, express_1.default)();
         this.app.use((_req, _res, next) => {
@@ -36,7 +36,7 @@ class Database extends core_1.MikroORM {
      */
     init() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield Database.init();
+            yield Database.init(mikro_orm_config_1.default);
         });
     }
     ;

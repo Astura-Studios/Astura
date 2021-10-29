@@ -2,7 +2,8 @@ import { Client } from "discord.js";
 import { Configuration } from "../structures/Configuration";
 import { Database } from "../structures/database/Database";
 import { ListenerHandler } from "../handlers/ListenerHandler";
-import { Utilities } from "../structures/Utilities";
+import { Markdown } from "../structures/util/Markdown";
+import { Utilities } from "../structures/util/Utilities";
 
 import { configOptions } from "./Config";
 import { join } from "path";
@@ -12,6 +13,7 @@ declare module "discord.js" {
         config: Configuration;
         db: Database;
         listenerHandler: ListenerHandler;
+        markdown: Markdown;
         util: Utilities;
     }
 };
@@ -19,22 +21,21 @@ declare module "discord.js" {
 export class AsturaClient extends Client {
     public config: Configuration;
     public db: Database;
+    public listenerHandler: ListenerHandler;
+    public markdown: Markdown;
     public util: Utilities;
 
     public constructor() {
         super(configOptions.clientOptions);
 
         this.config = new Configuration(configOptions);
-
-        this.db = new Database({
-            dbName: this.config.databaseName
-        });
+        this.db = new Database();
+        this.markdown = new Markdown();
+        this.util = new Utilities(this);
 
         this.listenerHandler = new ListenerHandler(this, {
-            directory: join(__dirname, "..", "commands"),
+            directory: join(__dirname, "..", "listeners")
         });
-
-        this.util = new Utilities(this);
     };
 
     private async init() {

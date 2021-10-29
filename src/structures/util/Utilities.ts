@@ -1,9 +1,9 @@
-import { AsturaClient } from "../client/Client";
-import { CategoryDescriptions, ErrorEmbedOptions, UtilityDefaults } from "./util/Interfaces";
-import { Command } from "./Command";
-import { ErrorEmbed } from "./ErrorEmbed";
-import { ExtendedDate } from "../extensions/Date";
-import { ExtendedString } from "../extensions/String";
+import { AsturaClient } from "../../client/Client";
+import { CategoryDescriptions, ErrorEmbedOptions, UtilityDefaults } from "./Interfaces";
+import { Command } from "../Command";
+import { ErrorEmbed } from "../ErrorEmbed";
+import { ExtendedDate } from "../../extensions/Date";
+import { ExtendedString } from "../../extensions/String";
 import { MessageEmbed, MessageEmbedOptions } from "discord.js";
 
 export class Utilities {
@@ -62,4 +62,4 @@ export class Utilities {
         const permissionString: string = permission.replace(/_/g, " ").toLowerCase().replace(/guild/g, "server").split(" ").map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(" ");
         return permissionString;
     };
-}
+};

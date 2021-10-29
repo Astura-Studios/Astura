@@ -14,7 +14,8 @@ const discord_js_1 = require("discord.js");
 const Configuration_1 = require("../structures/Configuration");
 const Database_1 = require("../structures/database/Database");
 const ListenerHandler_1 = require("../handlers/ListenerHandler");
-const Utilities_1 = require("../structures/Utilities");
+const Markdown_1 = require("../structures/util/Markdown");
+const Utilities_1 = require("../structures/util/Utilities");
 const Config_1 = require("./Config");
 const path_1 = require("path");
 ;
@@ -22,13 +23,12 @@ class AsturaClient extends discord_js_1.Client {
     constructor() {
         super(Config_1.configOptions.clientOptions);
         this.config = new Configuration_1.Configuration(Config_1.configOptions);
-        this.db = new Database_1.Database({
-            dbName: this.config.databaseName
-        });
-        this.listenerHandler = new ListenerHandler_1.ListenerHandler(this, {
-            directory: (0, path_1.join)(__dirname, "..", "commands"),
-        });
+        this.db = new Database_1.Database();
+        this.markdown = new Markdown_1.Markdown();
         this.util = new Utilities_1.Utilities(this);
+        this.listenerHandler = new ListenerHandler_1.ListenerHandler(this, {
+            directory: (0, path_1.join)(__dirname, "..", "listeners")
+        });
     }
     ;
     init() {
