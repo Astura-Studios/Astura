@@ -18,7 +18,7 @@ export class ListenerHandler {
         this.listeners = new Collection();
     };
 
-    public load(): void {
+    public async load(): Promise<void> {
         try {
             const categories: string[] = [];
 

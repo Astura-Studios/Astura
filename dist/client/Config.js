@@ -23,7 +23,13 @@ exports.configOptions = {
             discord_js_1.Intents.FLAGS.GUILD_VOICE_STATES,
             discord_js_1.Intents.FLAGS.GUILD_WEBHOOKS
         ],
-        makeCache: discord_js_1.Options.cacheEverything()
+        makeCache: discord_js_1.Options.cacheEverything(),
+        partials: ["CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION", "USER"],
+        ws: {
+            properties: {
+                $browser: "discord.js"
+            }
+        }
     },
     clientSecret: process.env.CLIENT_SECRET,
     databaseName: "AsturaDB",

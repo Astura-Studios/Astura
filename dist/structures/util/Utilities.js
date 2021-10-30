@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Utilities = void 0;
+const discord_js_1 = require("discord.js");
 const ErrorEmbed_1 = require("../ErrorEmbed");
 const Date_1 = require("../../extensions/Date");
 const String_1 = require("../../extensions/String");
-const discord_js_1 = require("discord.js");
 class Utilities {
     constructor(client) {
         this.categoryDescriptions = {
@@ -31,15 +31,15 @@ class Utilities {
         const errorEmbed = new ErrorEmbed_1.ErrorEmbed();
         switch (options.type) {
             case "INVALID_ARGS":
-                return errorEmbed.invalidArguments(options.client, options.command, options.message, options.errorMessage);
+                return errorEmbed.invalidArguments(options.client, options.command, options.interaction, options.errorMessage);
             case "MISSING_ARGS":
-                return errorEmbed.missingAruments(options.client, options.command, options.message, options.errorMessage);
+                return errorEmbed.missingAruments(options.client, options.command, options.interaction, options.errorMessage);
             case "CLIENT_PERMISSIONS_MISSING":
-                return errorEmbed.clientPermissionsMissing(options.client, options.errorMessage, options.message);
+                return errorEmbed.clientPermissionsMissing(options.client, options.errorMessage, options.interaction);
             case "USER_PERMISSIONS_MISSING":
-                return errorEmbed.userPermissionsMissing(options.client, options.errorMessage, options.message);
+                return errorEmbed.userPermissionsMissing(options.client, options.errorMessage, options.interaction);
             case "OWNER_ONLY":
-                return errorEmbed.ownerOnly(options.client, options.errorMessage, options.message);
+                return errorEmbed.ownerOnly(options.client, options.errorMessage, options.interaction);
         }
         ;
     }

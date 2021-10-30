@@ -1,10 +1,10 @@
 import { AsturaClient } from "../../client/Client";
 import { CategoryDescriptions, ErrorEmbedOptions, UtilityDefaults } from "./Interfaces";
 import { Command } from "../Command";
+import { CommandInteraction, MessageEmbed, MessageEmbedOptions } from "discord.js";
 import { ErrorEmbed } from "../ErrorEmbed";
 import { ExtendedDate } from "../../extensions/Date";
 import { ExtendedString } from "../../extensions/String";
-import { MessageEmbed, MessageEmbedOptions } from "discord.js";
 
 export class Utilities {
     public categoryDescriptions: CategoryDescriptions;
@@ -39,15 +39,15 @@ export class Utilities {
 
         switch (options.type) {
             case "INVALID_ARGS":
-                return errorEmbed.invalidArguments(options.client, options.command as Command, options.message, options.errorMessage);
+                return errorEmbed.invalidArguments(options.client, options.command as Command, options.interaction, options.errorMessage);
             case "MISSING_ARGS":
-                return errorEmbed.missingAruments(options.client, options.command as Command, options.message, options.errorMessage);
+                return errorEmbed.missingAruments(options.client, options.command as Command, options.interaction, options.errorMessage);
             case "CLIENT_PERMISSIONS_MISSING":
-                return errorEmbed.clientPermissionsMissing(options.client, options.errorMessage, options.message);
+                return errorEmbed.clientPermissionsMissing(options.client, options.errorMessage, options.interaction);
             case "USER_PERMISSIONS_MISSING":
-                return errorEmbed.userPermissionsMissing(options.client, options.errorMessage, options.message);
+                return errorEmbed.userPermissionsMissing(options.client, options.errorMessage, options.interaction);
             case "OWNER_ONLY":
-                return errorEmbed.ownerOnly(options.client, options.errorMessage, options.message);
+                return errorEmbed.ownerOnly(options.client, options.errorMessage, options.interaction);
         };
     };
 

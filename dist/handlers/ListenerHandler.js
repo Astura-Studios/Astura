@@ -22,50 +22,52 @@ class ListenerHandler {
     }
     ;
     load() {
-        try {
-            const categories = [];
-            for (const category of (0, fs_1.readdirSync)(this.directory)) {
-                categories.push(category.toLowerCase());
-            }
-            ;
-            categories.forEach((category) => __awaiter(this, void 0, void 0, function* () {
-                const categoryName = this.client.util.string.capitalize(category);
-                this.categories.set(categoryName, new Category_1.Category(categoryName, {
-                    content: null,
-                    description: "",
-                    type: "listener"
-                }));
-            }));
-            for (const category of categories.values()) {
-                for (const listenerFileName of (0, fs_1.readdirSync)(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
-                    const listenerFile = require(`${this.directory}/${category}/${listenerFileName}`).default;
-                    const listener = new listenerFile();
-                    this.listeners.set(listener.name, listener);
-                    switch (listener.emitter) {
-                        case "client":
-                            this.client.on(listener.name, listener.exec.bind(null, this.client));
-                        case "process":
-                            process.on(listener.name, listener.exec.bind(null, process));
-                    }
-                    ;
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const categories = [];
+                for (const category of (0, fs_1.readdirSync)(this.directory)) {
+                    categories.push(category.toLowerCase());
                 }
                 ;
-                const categoryName = this.client.util.string.capitalize(category);
-                const categoryListeners = this.listeners.filter(listener => listener.category.toLowerCase() === category.toLowerCase());
-                this.categories.set(categoryName, new Category_1.Category(categoryName, {
-                    content: categoryListeners,
-                    description: this.client.util.categoryDescriptions.listeners[category.toLowerCase()],
-                    type: "listener"
+                categories.forEach((category) => __awaiter(this, void 0, void 0, function* () {
+                    const categoryName = this.client.util.string.capitalize(category);
+                    this.categories.set(categoryName, new Category_1.Category(categoryName, {
+                        content: null,
+                        description: "",
+                        type: "listener"
+                    }));
                 }));
-                console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Events ] Loaded ${(0, fs_1.readdirSync)(`${this.directory}/${category}`).length} listener event(s)`);
+                for (const category of categories.values()) {
+                    for (const listenerFileName of (0, fs_1.readdirSync)(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
+                        const listenerFile = require(`${this.directory}/${category}/${listenerFileName}`).default;
+                        const listener = new listenerFile();
+                        this.listeners.set(listener.name, listener);
+                        switch (listener.emitter) {
+                            case "client":
+                                this.client.on(listener.name, listener.exec.bind(null, this.client));
+                            case "process":
+                                process.on(listener.name, listener.exec.bind(null, process));
+                        }
+                        ;
+                    }
+                    ;
+                    const categoryName = this.client.util.string.capitalize(category);
+                    const categoryListeners = this.listeners.filter(listener => listener.category.toLowerCase() === category.toLowerCase());
+                    this.categories.set(categoryName, new Category_1.Category(categoryName, {
+                        content: categoryListeners,
+                        description: this.client.util.categoryDescriptions.listeners[category.toLowerCase()],
+                        type: "listener"
+                    }));
+                    console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Events ] Loaded ${(0, fs_1.readdirSync)(`${this.directory}/${category}`).length} listener event(s)`);
+                }
+                ;
+                return console.log(`${this.client.util.date.getLocalTime()} | [ Listener Handler ] Loaded ${this.listeners.size} listener event(s)`);
+            }
+            catch (error) {
+                return console.log(`${this.client.util.date.getLocalTime()} | [ Listener Handler ] ${error.stack}`);
             }
             ;
-            return console.log(`${this.client.util.date.getLocalTime()} | [ Listener Handler ] Loaded ${this.listeners.size} listener event(s)`);
-        }
-        catch (error) {
-            return console.log(`${this.client.util.date.getLocalTime()} | [ Listener Handler ] ${error.stack}`);
-        }
-        ;
+        });
     }
     ;
 }

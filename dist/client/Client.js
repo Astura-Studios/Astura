@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AsturaClient = void 0;
 const discord_js_1 = require("discord.js");
+const CommandHandler_1 = require("../handlers/CommandHandler");
 const Configuration_1 = require("../structures/Configuration");
 const Database_1 = require("../structures/database/Database");
 const ListenerHandler_1 = require("../handlers/ListenerHandler");
@@ -26,6 +27,20 @@ class AsturaClient extends discord_js_1.Client {
         this.db = new Database_1.Database(this);
         this.markdown = new Markdown_1.Markdown();
         this.util = new Utilities_1.Utilities(this);
+        this.commandHandler = new CommandHandler_1.CommandHandler(this, {
+            allowDirectMessages: true,
+            blockBots: true,
+            directory: (0, path_1.join)(__dirname, "..", "commands"),
+            warnings: {
+                dmOnly: (interaction) => `${this.markdown.userMention(interaction.user.id)}, you can only use this command in servers!`,
+                guildOnly: (interaction) => `${this.markdown.userMention(interaction.user.id)}, you can only use this command in direct message channels!`,
+                ownerOnly: (interaction) => `${this.markdown.userMention(interaction.user.id)}, only owners can use this command!`,
+                clientMissingPermissions: (client, interaction, permissions, command) => `Hey there **${interaction.user.username}**. Unfortunately ${client.user.username} was unable to run the **${command.id}** command as it is missing the following permissions in this server: ${permissions}. If you do not have authorization to do change permissions, let a staff member know.`,
+                missingSendPermissions: (interaction) => `${this.markdown.userMention(interaction.user.id)}, I am missing the following permission(s): \`Send Messages\``,
+                userMissingPermissions: (client, interaction, permissions, command) => `Hey there **${interaction.user.username}**. Unfortunately ${client.user.username} was unable to run the **${command.id}** command as you are missing the following permissions in this server: ${permissions}. If you do not have authorization to do change permissions, let a staff member know.`,
+                cooldownWarning: (interaction, remaining, command) => `${this.markdown.userMention(interaction.user.id)}, please wait **${remaining}** seconds before reusing the \`${command.id}\` command!`
+            }
+        });
         this.listenerHandler = new ListenerHandler_1.ListenerHandler(this, {
             directory: (0, path_1.join)(__dirname, "..", "listeners")
         });
@@ -33,8 +48,8 @@ class AsturaClient extends discord_js_1.Client {
     ;
     init() {
         return __awaiter(this, void 0, void 0, function* () {
-            // this.commandHandler.load();
-            this.listenerHandler.load();
+            yield this.commandHandler.load();
+            yield this.listenerHandler.load();
             //await this.db.init();
             //await this.db.connect();
         });

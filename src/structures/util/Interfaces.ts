@@ -3,7 +3,7 @@ import { Argument } from "../Argument";
 import { AsturaClient } from "../../client/Client";
 import { CategoryType, CommandChannel, Emitter, ErrorEmbedType } from "./Types";
 import { ClientOptions, ColorResolvable, Message, PermissionString } from "discord.js";
-import { Collection } from "discord.js";
+import { Collection, CommandInteraction } from "discord.js";
 import { Command } from "../Command";
 import { EntityClass, EntityClassGroup } from "@mikro-orm/core/typings";
 import { Listener } from "../Listener";
@@ -26,6 +26,25 @@ export interface CategoryOptions {
 export interface CommandExceptions {
     ignoreCooldown: string[];
     ignorePermissions: string[];
+};
+
+export interface CommandHandlerOptions {
+    allowDirectMessages: boolean;
+    blockBots: boolean;
+    directory: string;
+    warnings: CommandHandlerWarnings;
+};
+
+export interface CommandHandlerWarnings {
+    dmOnly(interaction: CommandInteraction): string;
+    guildOnly(interaction: CommandInteraction): string;
+    ownerOnly(minteraction: CommandInteraction): string;
+
+    clientMissingPermissions(client: AsturaClient, interaction: CommandInteraction, permissions: string, command: Command): string;
+    missingSendPermissions(interaction: CommandInteraction): string
+    userMissingPermissions(client: AsturaClient, interaction: CommandInteraction, permissions: string, command: Command): string;
+
+    cooldownWarning(interaction: CommandInteraction, remaining: string, command: Command): string;
 };
 
 export interface CommandOptions {
@@ -70,7 +89,7 @@ export interface ErrorEmbedOptions {
     type: ErrorEmbedType;
     client: AsturaClient;
     command?: Command | undefined;
-    message: Message;
+    interaction: CommandInteraction;
     errorMessage: string;
 };
 
