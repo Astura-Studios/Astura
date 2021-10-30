@@ -31,16 +31,24 @@ class ReadyListener extends Listener_1.Listener {
                     "invisible": "Offline"
                 };
                 console.log(`${client.util.date.getLocalTime()} | [ discord.js ] discord.js Version: ${discord_js_1.version}`);
-                client.user.setPresence({
-                    activities: [
-                        {
-                            name: `${client.users.cache.size}} users | a.help`,
-                            type: "WATCHING"
-                        }
-                    ],
-                    status: "online"
+                const setActivity = new Promise((resolve, reject) => {
+                    resolve(client.user.setPresence({
+                        activities: [
+                            {
+                                name: `${client.users.cache.size} users | /help`,
+                                type: "WATCHING"
+                            }
+                        ],
+                        status: "online"
+                    }));
                 });
-                return console.log(`${client.util.date.getTime()} | [ Astura Client ] ${client.user.tag} is ready and online | Status: ${statuses[client.user.presence.status]} | Websocket Ping: ${client.ws.ping.toFixed(2)}ms`);
+                setActivity
+                    .then((presence) => {
+                    return console.log(`${client.util.date.getLocalTime()} | [ Astura Client ] ${client.user.tag} is ready and online | Status: ${statuses[presence.status]} | Websocket Ping: ${client.ws.ping.toFixed(2)}ms`);
+                })
+                    .catch((error) => {
+                    return console.log(`${client.util.date.getLocalTime()} | [ Ready Listener ] ${error.stack}`);
+                });
             }
             catch (error) {
                 return console.log(`${client.util.date.getLocalTime()} | [ Ready Listener ] ${error.stack}`);

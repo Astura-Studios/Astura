@@ -17,7 +17,7 @@ const core_1 = require("@mikro-orm/core");
 const mikro_orm_config_1 = __importDefault(require("./mikro-orm.config"));
 const express_1 = __importDefault(require("express"));
 class Database extends core_1.MikroORM {
-    constructor() {
+    constructor(client) {
         super({
             dbName: mikro_orm_config_1.default.dbName,
             entities: mikro_orm_config_1.default.entities,
@@ -26,6 +26,7 @@ class Database extends core_1.MikroORM {
             type: mikro_orm_config_1.default.type
         });
         this.app = (0, express_1.default)();
+        this.client = client;
         this.app.use((_req, _res, next) => {
             core_1.RequestContext.create(this.em, next);
         });
@@ -36,7 +37,13 @@ class Database extends core_1.MikroORM {
      */
     init() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield Database.init(mikro_orm_config_1.default);
+            yield Database.init(mikro_orm_config_1.default)
+                .then((_connection) => {
+                return console.log(`${this.client.util.date.getLocalTime()} | [ MikroORM ] Successfully initialized MikroORM database connection to SQLite`);
+            })
+                .catch((error) => {
+                return console.log(`${this.client.util.date.getLocalTime()} | [ MikroORM ] ${error.stack}`);
+            });
         });
     }
     ;

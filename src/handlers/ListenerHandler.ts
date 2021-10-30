@@ -60,9 +60,11 @@ export class ListenerHandler {
                     description: this.client.util.categoryDescriptions.listeners[category.toLowerCase() as "client" | "process"],
                     type: "listener"
                 }));
+
+                console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Events ] Loaded ${readdirSync(`${this.directory}/${category}`).length} listener event(s)`); 
             };
 
-            return console.log(`${this.client.util.date.getLocalTime()} | [ Listener Handler ] Loaded ${readdirSync(this.directory).length} listener event(s)`);
+            return console.log(`${this.client.util.date.getLocalTime()} | [ Listener Handler ] Loaded ${this.listeners.size} listener event(s)`);
         } catch (error) {
             return console.log(`${this.client.util.date.getLocalTime()} | [ Listener Handler ] ${(error as Error).stack}`);
         };

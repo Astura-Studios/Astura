@@ -29,7 +29,7 @@ export class AsturaClient extends Client {
         super(configOptions.clientOptions);
 
         this.config = new Configuration(configOptions);
-        this.db = new Database();
+        this.db = new Database(this);
         this.markdown = new Markdown();
         this.util = new Utilities(this);
 
@@ -42,8 +42,8 @@ export class AsturaClient extends Client {
         // this.commandHandler.load();
         this.listenerHandler.load();
 
-        await this.db.init();
-        await this.db.connect();
+        //await this.db.init();
+        //await this.db.connect();
     };
 
     public async start(): Promise<string | void> {

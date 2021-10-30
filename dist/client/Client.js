@@ -23,7 +23,7 @@ class AsturaClient extends discord_js_1.Client {
     constructor() {
         super(Config_1.configOptions.clientOptions);
         this.config = new Configuration_1.Configuration(Config_1.configOptions);
-        this.db = new Database_1.Database();
+        this.db = new Database_1.Database(this);
         this.markdown = new Markdown_1.Markdown();
         this.util = new Utilities_1.Utilities(this);
         this.listenerHandler = new ListenerHandler_1.ListenerHandler(this, {
@@ -35,8 +35,8 @@ class AsturaClient extends discord_js_1.Client {
         return __awaiter(this, void 0, void 0, function* () {
             // this.commandHandler.load();
             this.listenerHandler.load();
-            yield this.db.init();
-            yield this.db.connect();
+            //await this.db.init();
+            //await this.db.connect();
         });
     }
     ;

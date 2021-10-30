@@ -1,5 +1,5 @@
 import { AsturaClient } from "../../client/Client";
-import { ClientUser, PresenceStatus, version } from "discord.js";
+import { ClientUser, Presence, version } from "discord.js";
 import { Listener } from "../../structures/Listener";
 import { Statuses } from "../../structures/util/Interfaces";
 
@@ -24,17 +24,27 @@ export default class ReadyListener extends Listener {
 
             console.log(`${client.util.date.getLocalTime()} | [ discord.js ] discord.js Version: ${version}`);
 
-            (client.user as ClientUser).setPresence({
-                activities: [
-                    {
-                        name: `${client.users.cache.size}} users | a.help`,
-                        type: "WATCHING"
-                    }
-                ],
-                status: "online"
+            const setActivity: Promise<Presence> = new Promise((resolve, reject) => {
+                resolve(
+                    (client.user as ClientUser).setPresence({
+                        activities: [
+                            {
+                                name: `${client.users.cache.size} users | /help`,
+                                type: "WATCHING"
+                            }
+                        ],
+                        status: "online"
+                    })
+                );
             });
 
-            return console.log(`${client.util.date.getTime()} | [ Astura Client ] ${(client.user as ClientUser).tag} is ready and online | Status: ${statuses[(client.user as ClientUser).presence.status as PresenceStatus]} | Websocket Ping: ${client.ws.ping.toFixed(2)}ms`);
+            setActivity
+                .then((presence: Presence) => {
+                    return console.log(`${client.util.date.getLocalTime()} | [ Astura Client ] ${(client.user as ClientUser).tag} is ready and online | Status: ${statuses[presence.status]} | Websocket Ping: ${client.ws.ping.toFixed(2)}ms`);
+                })
+                .catch((error: Error) => {
+                    return console.log(`${client.util.date.getLocalTime()} | [ Ready Listener ] ${(error as Error).stack}`);
+                });
         } catch (error) {
             return console.log(`${client.util.date.getLocalTime()} | [ Ready Listener ] ${(error as Error).stack}`);
         };
