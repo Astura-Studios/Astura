@@ -41,7 +41,7 @@
         "@mikro-orm/reflection": "^4.5.9",
         "@mikro-orm/sqlite": "^4.5.9",
         "discord-api-types": "^0.23.1",
-        "discord.js": "^13.2.0",
+        "discord.js": "^13.4.0-dev.1635552294.761a901",
         "dotenv": "^10.0.0",
         "express": "^4.17.1",
         "node-fetch": "^2.6.5",
