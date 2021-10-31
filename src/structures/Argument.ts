@@ -1,3 +1,4 @@
+import { ArgumentOptions } from "./util/Interfaces";
 import { ArgumentType } from "./util/Types";
 
 export class Argument {
@@ -6,10 +7,10 @@ export class Argument {
     public required: boolean;
     public type: ArgumentType;
 
-    public constructor(name: string, description: string, required: boolean, type: ArgumentType) {
-        this.name = name;
-        this.description = description;
-        this.required = required;
-        this.type = type;
+    public constructor(options: ArgumentOptions) {
+        this.name = options.name;
+        this.description = options.description;
+        this.required = options.required;
+        this.type = options.type;
     };
 };

@@ -5,8 +5,8 @@
     "main": "dist/Index.js",
     "scripts": {
         "dev": "tsc && node dist/Index.js",
-        "eslint": "eslint",
-        "eslint:fix": "eslint --fix",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix",
         "prettier": "prettier dist",
         "prettier:fix": "prettier --write dist",
         "push": "node push.js",
@@ -40,6 +40,7 @@
         "@mikro-orm/core": "^4.5.9",
         "@mikro-orm/reflection": "^4.5.9",
         "@mikro-orm/sqlite": "^4.5.9",
+        "common-tags": "^1.8.0",
         "discord-api-types": "^0.24.0",
         "discord.js": "^13.4.0-dev.1635552294.761a901",
         "dotenv": "^10.0.0",
@@ -50,6 +51,7 @@
         "url": "^0.11.0"
     },
     "devDependencies": {
+        "@types/common-tags": "^1.8.1",
         "@types/continuation-local-storage": "^3.2.3",
         "@types/dotenv": "^8.2.0",
         "@types/express": "^4.17.13",

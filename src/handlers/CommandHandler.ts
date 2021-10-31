@@ -73,9 +73,6 @@ export class CommandHandler {
 
         console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
 
-        /**return this.rest.put(Routes.applicationCommands(clientID), {
-            body: this.commands.toJSON()
-        })**/
         return this.rest.put(Routes.applicationGuildCommands(clientID, "760659394370994197"), {
             body: this.commands.toJSON()
         })
@@ -89,11 +86,17 @@ export class CommandHandler {
 
     private runPermissionChecks(command: Command, interaction: CommandInteraction): Promise<void> | Promise<Message> | undefined {
         if ((interaction.channel as TextBasedChannels).type === "DM" && !this.allowDirectMessages === false && command.channel === "guild") {
-            return interaction.reply(this.warnings.dmOnly(interaction));
+            return interaction.reply({
+                content: this.warnings.dmOnly(interaction),
+                ephemeral: true
+            });
         };
 
         if ((interaction.channel as TextBasedChannels).type === "GUILD_TEXT" && command.channel === "dm") {
-            return interaction.reply(this.warnings.guildOnly(interaction));
+            return interaction.reply({ 
+                content: this.warnings.guildOnly(interaction),
+                ephemeral: true
+            });
         };
 
         if (command.ownerOnly && !this.client.config.owners.includes((interaction.user.id))) {
@@ -107,7 +110,8 @@ export class CommandHandler {
                         interaction: interaction,
                         errorMessage: missingPermissionsMessage
                     })
-                ]
+                ],
+                ephemeral: true
             });
         };
 
@@ -137,7 +141,8 @@ export class CommandHandler {
                         interaction: interaction,
                         errorMessage: missingPermissionsMessage
                     })
-                ]
+                ],
+                ephemeral: true
             });
         };
 
@@ -154,13 +159,15 @@ export class CommandHandler {
                         interaction: interaction,
                         errorMessage: missingPermissionsMessage
                     })
-                ]
+                ],
+                ephemeral: true
             });
         };
     };
 
     public async load(): Promise<void> {
         this.client.on("interactionCreate", async (interaction: Interaction) => {
+            if (interaction.guild?.id !== "760659394370994197") return;
             if (interaction.user.bot && this.blockBots) return;
             if (!interaction.isCommand()) return;
 

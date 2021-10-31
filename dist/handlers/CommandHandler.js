@@ -65,9 +65,6 @@ class CommandHandler {
         }
         ;
         console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
-        /**return this.rest.put(Routes.applicationCommands(clientID), {
-            body: this.commands.toJSON()
-        })**/
         return this.rest.put(v9_1.Routes.applicationGuildCommands(clientID, "760659394370994197"), {
             body: this.commands.toJSON()
         })
@@ -81,11 +78,17 @@ class CommandHandler {
     ;
     runPermissionChecks(command, interaction) {
         if (interaction.channel.type === "DM" && !this.allowDirectMessages === false && command.channel === "guild") {
-            return interaction.reply(this.warnings.dmOnly(interaction));
+            return interaction.reply({
+                content: this.warnings.dmOnly(interaction),
+                ephemeral: true
+            });
         }
         ;
         if (interaction.channel.type === "GUILD_TEXT" && command.channel === "dm") {
-            return interaction.reply(this.warnings.guildOnly(interaction));
+            return interaction.reply({
+                content: this.warnings.guildOnly(interaction),
+                ephemeral: true
+            });
         }
         ;
         if (command.ownerOnly && !this.client.config.owners.includes((interaction.user.id))) {
@@ -98,7 +101,8 @@ class CommandHandler {
                         interaction: interaction,
                         errorMessage: missingPermissionsMessage
                     })
-                ]
+                ],
+                ephemeral: true
             });
         }
         ;
@@ -127,7 +131,8 @@ class CommandHandler {
                         interaction: interaction,
                         errorMessage: missingPermissionsMessage
                     })
-                ]
+                ],
+                ephemeral: true
             });
         }
         ;
@@ -143,7 +148,8 @@ class CommandHandler {
                         interaction: interaction,
                         errorMessage: missingPermissionsMessage
                     })
-                ]
+                ],
+                ephemeral: true
             });
         }
         ;
@@ -152,6 +158,9 @@ class CommandHandler {
     load() {
         return __awaiter(this, void 0, void 0, function* () {
             this.client.on("interactionCreate", (interaction) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
+                if (((_a = interaction.guild) === null || _a === void 0 ? void 0 : _a.id) !== "760659394370994197")
+                    return;
                 if (interaction.user.bot && this.blockBots)
                     return;
                 if (!interaction.isCommand())

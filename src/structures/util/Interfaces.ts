@@ -1,11 +1,18 @@
 import { AnyEntity, Connection, Configuration, EntitySchema, IDatabaseDriver, MetadataProvider } from "@mikro-orm/core";
 import { Argument } from "../Argument";
+import { ArgumentType, CategoryType, CommandChannel, Emitter, ErrorEmbedType } from "./Types";
 import { AsturaClient } from "../../client/Client";
-import { CategoryType, CommandChannel, Emitter, ErrorEmbedType } from "./Types";
 import { ClientOptions, Collection, ColorResolvable, CommandInteraction, PermissionString } from "discord.js";
 import { Command } from "../Command";
 import { EntityClass, EntityClassGroup } from "@mikro-orm/core/typings";
 import { Listener } from "../Listener";
+
+export interface ArgumentOptions {
+    name: string;
+    description: string;
+    required: boolean;
+    type: ArgumentType;
+};
 
 export interface CategoryDescriptions {
     listeners: CategoryListenerDescriptions;
@@ -37,7 +44,7 @@ export interface CommandHandlerOptions {
 export interface CommandHandlerWarnings {
     dmOnly(interaction: CommandInteraction): string;
     guildOnly(interaction: CommandInteraction): string;
-    ownerOnly(minteraction: CommandInteraction): string;
+    ownerOnly(interaction: CommandInteraction): string;
 
     clientMissingPermissions(client: AsturaClient, interaction: CommandInteraction, permissions: string, command: Command): string;
     missingSendPermissions(interaction: CommandInteraction): string
