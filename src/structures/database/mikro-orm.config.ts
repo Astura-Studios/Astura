@@ -1,7 +1,7 @@
 import { DatabaseOptions } from "../util/Interfaces";
 import { TsMorphMetadataProvider } from "@mikro-orm/reflection";
 
-export default {
+export const databaseOptions: DatabaseOptions = {
     dbName: "AsturaDB",
     entities: [
         "./entities/Prefix"
@@ -11,4 +11,4 @@ export default {
     ],
     metadataProvider: TsMorphMetadataProvider,
     type: "sqlite" as "sqlite" | "mongo" | "mysql" | "mariadb" | "postgresql" | undefined
-} as DatabaseOptions;   
+}; 

@@ -5,6 +5,7 @@ const discord_js_1 = require("discord.js");
 const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
 exports.configOptions = {
+    clientID: process.env.CLIENT_ID,
     clientOptions: {
         intents: [
             discord_js_1.Intents.FLAGS.DIRECT_MESSAGES,

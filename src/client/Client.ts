@@ -60,6 +60,7 @@ export class AsturaClient extends Client {
     };
 
     private async init() {
+        await this.commandHandler.registerCommands(this.config.clientID);
         await this.commandHandler.load();
         await this.listenerHandler.load();
 

@@ -1,7 +1,8 @@
 import { ClientOptions } from "discord.js";
 import { ConfigurationOptions } from "./util/Interfaces";
 
-export class Configuration {
+export class Configuration {   
+    public clientID: string;
     public clientOptions: ClientOptions;
     public clientSecret: string;
     public databaseName: string;
@@ -9,6 +10,7 @@ export class Configuration {
     public token: string;
 
     public constructor(options: ConfigurationOptions) {
+        this.clientID = options.clientID;
         this.clientOptions = options.clientOptions;
         this.clientSecret = options.clientSecret;
         this.databaseName = options.databaseName;

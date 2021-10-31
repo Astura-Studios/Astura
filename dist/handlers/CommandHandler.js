@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommandHandler = void 0;
-const discord_api_types_1 = require("discord-api-types");
+const v9_1 = require("discord-api-types/v9");
 const Category_1 = require("../structures/Category");
 const discord_js_1 = require("discord.js");
 const rest_1 = require("@discordjs/rest");
@@ -30,8 +30,45 @@ class CommandHandler {
         this.rest = new rest_1.REST({ version: "9" }).setToken(this.client.config.token);
     }
     ;
-    registerCommands() {
-        return this.rest.put(discord_api_types_1.Routes.applicationCommands(this.client.user.id), {
+    registerCommands(clientID) {
+        const categories = [];
+        for (const category of (0, fs_1.readdirSync)(this.directory)) {
+            categories.push(category.toLowerCase());
+        }
+        ;
+        categories.forEach((category) => __awaiter(this, void 0, void 0, function* () {
+            const categoryName = this.client.util.string.capitalize(category);
+            this.categories.set(categoryName, new Category_1.Category(categoryName, {
+                content: null,
+                description: "",
+                type: "command"
+            }));
+        }));
+        for (const category of categories.values()) {
+            for (const commandFileName of (0, fs_1.readdirSync)(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
+                const commandFile = require(`${this.directory}/${category}/${commandFileName}`).default;
+                const command = new commandFile();
+                this.commands.set(command.id, command);
+                if (command.aliases)
+                    for (const alias of command.aliases) {
+                        this.aliases.set(alias, command);
+                    }
+                ;
+            }
+            ;
+            this.categories.set(this.client.util.string.capitalize(category), new Category_1.Category(this.client.util.string.capitalize(category), {
+                content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
+                description: "",
+                type: "command"
+            }));
+            console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Module ] Loaded ${(0, fs_1.readdirSync)(`${this.directory}/${category}`).length} command(s)`);
+        }
+        ;
+        console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
+        /**return this.rest.put(Routes.applicationCommands(clientID), {
+            body: this.commands.toJSON()
+        })**/
+        return this.rest.put(v9_1.Routes.applicationGuildCommands(clientID, "760659394370994197"), {
             body: this.commands.toJSON()
         })
             .then(() => {
@@ -114,51 +151,15 @@ class CommandHandler {
     ;
     load() {
         return __awaiter(this, void 0, void 0, function* () {
-            const categories = [];
-            for (const category of (0, fs_1.readdirSync)(this.directory)) {
-                categories.push(category.toLowerCase());
-            }
-            ;
-            categories.forEach((category) => __awaiter(this, void 0, void 0, function* () {
-                const categoryName = this.client.util.string.capitalize(category);
-                this.categories.set(categoryName, new Category_1.Category(categoryName, {
-                    content: null,
-                    description: "",
-                    type: "command"
-                }));
-            }));
-            for (const category of categories.values()) {
-                for (const commandFileName of (0, fs_1.readdirSync)(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
-                    const commandFile = require(`${this.directory}/${category}/${commandFileName}`).default;
-                    const command = new commandFile();
-                    this.commands.set(command.id, command);
-                    if (command.aliases)
-                        for (const alias of command.aliases) {
-                            this.aliases.set(alias, command);
-                        }
-                    ;
-                }
-                ;
-                this.categories.set(this.client.util.string.capitalize(category), new Category_1.Category(this.client.util.string.capitalize(category), {
-                    content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
-                    description: "",
-                    type: "command"
-                }));
-                console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Module ] Loaded ${(0, fs_1.readdirSync)(`${this.directory}/${category}`).length} command(s)`);
-            }
-            ;
-            console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
             this.client.on("interactionCreate", (interaction) => __awaiter(this, void 0, void 0, function* () {
-                var _a;
                 if (interaction.user.bot && this.blockBots)
                     return;
                 if (!interaction.isCommand())
                     return;
-                const command = this.commands.get((_a = interaction.command) === null || _a === void 0 ? void 0 : _a.name);
+                const command = this.commands.get(interaction.commandName);
                 if (!command)
                     return;
                 yield this.runPermissionChecks(command, interaction);
-                yield this.registerCommands();
                 return command.exec(this.client, interaction);
             }));
         });

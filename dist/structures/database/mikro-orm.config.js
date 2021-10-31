@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.databaseOptions = void 0;
 const reflection_1 = require("@mikro-orm/reflection");
-exports.default = {
+exports.databaseOptions = {
     dbName: "AsturaDB",
     entities: [
         "./entities/Prefix"

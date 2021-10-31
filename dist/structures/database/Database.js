@@ -14,16 +14,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Database = void 0;
 const core_1 = require("@mikro-orm/core");
-const mikro_orm_config_1 = __importDefault(require("./mikro-orm.config"));
+const mikro_orm_config_1 = require("./mikro-orm.config");
 const express_1 = __importDefault(require("express"));
 class Database extends core_1.MikroORM {
     constructor(client) {
         super({
-            dbName: mikro_orm_config_1.default.dbName,
-            entities: mikro_orm_config_1.default.entities,
-            entitiesTs: mikro_orm_config_1.default.entitiesTs,
-            metadataProvider: mikro_orm_config_1.default.metadataProvider,
-            type: mikro_orm_config_1.default.type
+            dbName: mikro_orm_config_1.databaseOptions.dbName,
+            entities: mikro_orm_config_1.databaseOptions.entities,
+            entitiesTs: mikro_orm_config_1.databaseOptions.entitiesTs,
+            metadataProvider: mikro_orm_config_1.databaseOptions.metadataProvider,
+            type: mikro_orm_config_1.databaseOptions.type
         });
         this.app = (0, express_1.default)();
         this.client = client;
@@ -37,7 +37,7 @@ class Database extends core_1.MikroORM {
      */
     init() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield Database.init(mikro_orm_config_1.default)
+            yield Database.init(mikro_orm_config_1.databaseOptions)
                 .then((_connection) => {
                 return console.log(`${this.client.util.date.getLocalTime()} | [ MikroORM ] Successfully initialized MikroORM database connection to SQLite`);
             })

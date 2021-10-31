@@ -5,6 +5,7 @@ import { config } from "dotenv";
 config();
 
 export const configOptions: ConfigurationOptions = {
+    clientID: process.env.CLIENT_ID as string,
     clientOptions: {
         intents: [
             Intents.FLAGS.DIRECT_MESSAGES,

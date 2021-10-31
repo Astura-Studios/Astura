@@ -2,8 +2,7 @@ import { AnyEntity, Connection, Configuration, EntitySchema, IDatabaseDriver, Me
 import { Argument } from "../Argument";
 import { AsturaClient } from "../../client/Client";
 import { CategoryType, CommandChannel, Emitter, ErrorEmbedType } from "./Types";
-import { ClientOptions, ColorResolvable, Message, PermissionString } from "discord.js";
-import { Collection, CommandInteraction } from "discord.js";
+import { ClientOptions, Collection, ColorResolvable, CommandInteraction, PermissionString } from "discord.js";
 import { Command } from "../Command";
 import { EntityClass, EntityClassGroup } from "@mikro-orm/core/typings";
 import { Listener } from "../Listener";
@@ -70,6 +69,7 @@ export interface CommandPermissions {
 };
 
 export interface ConfigurationOptions {
+    clientID: string;
     clientOptions: ClientOptions;
     clientSecret: string;
     databaseName: string;

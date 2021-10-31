@@ -1,7 +1,7 @@
 import { AsturaClient } from "../client/Client";
-import { APIInteractionGuildMember, Routes } from "discord-api-types";
+import { Routes } from "discord-api-types/v9";
 import { Category } from "../structures/Category";
-import { ClientUser, Collection, CommandInteraction, GuildMember, Interaction, Message, PermissionString, TextBasedChannels, TextChannel } from "discord.js";
+import { Collection, CommandInteraction, GuildMember, Interaction, Message, PermissionString, TextBasedChannels, TextChannel } from "discord.js";
 import { Command } from "../structures/Command";
 import { CommandHandlerOptions, CommandHandlerWarnings } from "../structures/util/Interfaces";
 import { REST } from "@discordjs/rest";
@@ -33,16 +33,58 @@ export class CommandHandler {
         this.rest = new REST({ version: "9" }).setToken(this.client.config.token);
     };
 
-    public registerCommands(): Promise<unknown> {
-        return this.rest.put(Routes.applicationCommands((this.client.user as ClientUser).id), {
+    public registerCommands(clientID: string): Promise<unknown> {
+        const categories: string[] = [];
+
+        for (const category of readdirSync(this.directory)) {
+            categories.push(category.toLowerCase());
+        };
+
+        categories.forEach(async category => {
+            const categoryName: string = this.client.util.string.capitalize(category);
+
+            this.categories.set(categoryName, new Category(categoryName, {
+                content: null,
+                description: "",
+                type: "command"
+            }));
+        });
+
+        for (const category of categories.values()) {
+            for (const commandFileName of readdirSync(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
+                const commandFile = require(`${this.directory}/${category}/${commandFileName}`).default;
+                const command: Command = new commandFile();
+
+                this.commands.set(command.id, command);
+
+                if (command.aliases) for (const alias of command.aliases) {
+                    this.aliases.set(alias, command);
+                };
+            };
+
+            this.categories.set(this.client.util.string.capitalize(category), new Category(this.client.util.string.capitalize(category), {
+                content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
+                description: "",
+                type: "command"
+            }));
+
+            console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Module ] Loaded ${readdirSync(`${this.directory}/${category}`).length} command(s)`);
+        };
+
+        console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
+
+        /**return this.rest.put(Routes.applicationCommands(clientID), {
+            body: this.commands.toJSON()
+        })**/
+        return this.rest.put(Routes.applicationGuildCommands(clientID, "760659394370994197"), {
             body: this.commands.toJSON()
         })
-        .then(() => {
-            return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Successfully registered ${this.commands.toJSON().length} slash commands`);
-        })
-        .catch((error: Error) => {
-            return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] ${error.stack}`);
-        });
+            .then(() => {
+                return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Successfully registered ${this.commands.toJSON().length} slash commands`);
+            })
+            .catch((error: Error) => {
+                return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] ${error.stack}`);
+            });
     };
 
     private runPermissionChecks(command: Command, interaction: CommandInteraction): Promise<void> | Promise<Message> | undefined {
@@ -118,54 +160,14 @@ export class CommandHandler {
     };
 
     public async load(): Promise<void> {
-        const categories: string[] = [];
-
-        for (const category of readdirSync(this.directory)) {
-            categories.push(category.toLowerCase());
-        };
-
-        categories.forEach(async category => {
-            const categoryName: string = this.client.util.string.capitalize(category);
-
-            this.categories.set(categoryName, new Category(categoryName, {
-                content: null,
-                description: "",
-                type: "command"
-            }));
-        });
-
-        for (const category of categories.values()) {
-            for (const commandFileName of readdirSync(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
-                const commandFile = require(`${this.directory}/${category}/${commandFileName}`).default;
-                const command: Command = new commandFile();
-
-                this.commands.set(command.id, command);
-
-                if (command.aliases) for (const alias of command.aliases) {
-                    this.aliases.set(alias, command);
-                };
-            };
-
-            this.categories.set(this.client.util.string.capitalize(category), new Category(this.client.util.string.capitalize(category), {
-                content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
-                description: "",
-                type: "command"
-            }));
-
-            console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Module ] Loaded ${readdirSync(`${this.directory}/${category}`).length} command(s)`);
-        };
-
-        console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
-
         this.client.on("interactionCreate", async (interaction: Interaction) => {
             if (interaction.user.bot && this.blockBots) return;
             if (!interaction.isCommand()) return;
-            
-            const command: Command = this.commands.get(interaction.command?.name as string) as Command;
+
+            const command: Command = this.commands.get(interaction.commandName as string) as Command;
             if (!command) return;
 
             await this.runPermissionChecks(command, interaction);
-            await this.registerCommands();
 
             return command.exec(this.client, interaction);
         });
