@@ -14,7 +14,7 @@ export default class EvalCommand extends Command {
                 new Argument({
                     name: "input",
                     description: "The JavaScript code to be executed.",
-                    required: false,
+                    required: true,
                     type: "string"
                 })
             ],
@@ -53,6 +53,7 @@ export default class EvalCommand extends Command {
             const start: [number, number] = process.hrtime();
             let output: string = eval(code);
             const difference: [number, number] = process.hrtime(start);
+
             if (typeof output !== "string") output = inspect(output, {
                 depth: 2
             });
@@ -66,7 +67,7 @@ export default class EvalCommand extends Command {
         } catch (error) {
             return interaction.reply(stripIndents`
                 	**An errror occcured while attempting to evaluate the given code:**
-                \`${(error as Error).stack}\`
+                    ${client.markdown.codeBlock((error as Error).stack as string)}
             `);
         };
     };

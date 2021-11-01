@@ -1,18 +1,27 @@
 import { AnyEntity, Connection, Configuration, EntitySchema, IDatabaseDriver, MetadataProvider } from "@mikro-orm/core";
 import { Argument } from "../Argument";
-import { ArgumentType, CategoryType, CommandChannel, Emitter, ErrorEmbedType } from "./Types";
+import { ArgumentType, CategoryType, CommandChannel, Emitter, ErrorEmbedType, ListenerCategory, ListenerType } from "./Types";
 import { AsturaClient } from "../../client/Client";
 import { ClientOptions, Collection, ColorResolvable, CommandInteraction, PermissionString } from "discord.js";
 import { Command } from "../Command";
 import { EntityClass, EntityClassGroup } from "@mikro-orm/core/typings";
 import { Listener } from "../Listener";
+import { OptionChoice } from "../OptionChoice";
 
 export interface ArgumentOptions {
     name: string;
     description: string;
+    choices?: OptionChoice[];
     required: boolean;
     type: ArgumentType;
 };
+
+export interface ArgumentOptionOptions {
+    choices: OptionChoice[];
+    description: string;
+    name: string;
+    required: boolean;
+}
 
 export interface CategoryDescriptions {
     listeners: CategoryListenerDescriptions;
@@ -101,9 +110,9 @@ export interface ErrorEmbedOptions {
 };
 
 export interface ListenerOptions {
-    category: string;
+    category: ListenerCategory;
     emitter: Emitter;
-    name: string;
+    name: ListenerType;
 };
 
 export interface ListenerHandlerOptions {

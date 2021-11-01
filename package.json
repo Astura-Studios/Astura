@@ -4,7 +4,7 @@
     "description": "The official Discord bot for the Astura Studios Discord community server.",
     "main": "dist/Index.js",
     "scripts": {
-        "dev": "tsc && node dist/Index.js",
+        "dev": "tsc && node --max-old-space-size=4096 dist/Index.js",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
         "prettier": "prettier dist",

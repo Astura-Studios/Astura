@@ -1,14 +1,15 @@
 import { AsturaClient } from "../client/Client";
 import { Emitter } from "./util/Types";
 import { ExtendedError } from "../extensions/Error";
+import { ListenerCategory, ListenerType } from "./util/Types";
 import { ListenerOptions } from "./util/Interfaces";
 
 export class Listener {
-    public category: string;
+    public category: ListenerCategory;
     public client: AsturaClient;
     public emitter: Emitter;
     public id: string;
-    public name: string;
+    public name: ListenerType;
 
     public constructor(id: string, options: ListenerOptions) {
         this.category = options.category;

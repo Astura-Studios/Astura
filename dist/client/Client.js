@@ -25,6 +25,8 @@ class AsturaClient extends discord_js_1.Client {
         super(Config_1.configOptions.clientOptions);
         this.config = new Configuration_1.Configuration(Config_1.configOptions);
         this.db = new Database_1.Database(this);
+        this.guild = this.guilds.cache.get("760659394370994197");
+        this.guildID = "760659394370994197";
         this.markdown = new Markdown_1.Markdown();
         this.util = new Utilities_1.Utilities(this);
         this.commandHandler = new CommandHandler_1.CommandHandler(this, {

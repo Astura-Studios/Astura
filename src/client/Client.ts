@@ -1,4 +1,4 @@
-import { Client, ClientUser, CommandInteraction } from "discord.js";
+import { Client, ClientUser, CommandInteraction, Guild } from "discord.js";
 import { Command } from "../structures/Command";
 import { CommandHandler } from "../handlers/CommandHandler";
 import { Configuration } from "../structures/Configuration";
@@ -15,6 +15,8 @@ declare module "discord.js" {
         commandHandler: CommandHandler;
         config: Configuration;
         db: Database;
+        guild: Guild;
+        guildID: string;
         listenerHandler: ListenerHandler;
         markdown: Markdown;
         util: Utilities;
@@ -25,6 +27,8 @@ export class AsturaClient extends Client {
     public commandHandler: CommandHandler;
     public config: Configuration;
     public db: Database;
+    public guild: Guild;
+    public guildID: string;
     public listenerHandler: ListenerHandler;
     public markdown: Markdown;
     public util: Utilities;
@@ -34,6 +38,8 @@ export class AsturaClient extends Client {
 
         this.config = new Configuration(configOptions);
         this.db = new Database(this);
+        this.guild = this.guilds.cache.get("760659394370994197") as Guild;
+        this.guildID = "760659394370994197";
         this.markdown = new Markdown();
         this.util = new Utilities(this);
 

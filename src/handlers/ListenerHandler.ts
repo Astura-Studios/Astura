@@ -45,7 +45,7 @@ export class ListenerHandler {
     
                     switch (listener.emitter) {
                         case "client":
-                            this.client.on(listener.name, listener.exec.bind(null, this.client));
+                            this.client.on(listener.name as string, listener.exec.bind(null, this.client));
     
                         case "process":
                             process.on(listener.name, listener.exec.bind(null, process));

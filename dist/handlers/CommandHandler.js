@@ -31,48 +31,50 @@ class CommandHandler {
     }
     ;
     registerCommands(clientID) {
-        const categories = [];
-        for (const category of (0, fs_1.readdirSync)(this.directory)) {
-            categories.push(category.toLowerCase());
-        }
-        ;
-        categories.forEach((category) => __awaiter(this, void 0, void 0, function* () {
-            const categoryName = this.client.util.string.capitalize(category);
-            this.categories.set(categoryName, new Category_1.Category(categoryName, {
-                content: null,
-                description: "",
-                type: "command"
-            }));
-        }));
-        for (const category of categories.values()) {
-            for (const commandFileName of (0, fs_1.readdirSync)(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
-                const commandFile = require(`${this.directory}/${category}/${commandFileName}`).default;
-                const command = new commandFile();
-                this.commands.set(command.id, command);
-                if (command.aliases)
-                    for (const alias of command.aliases) {
-                        this.aliases.set(alias, command);
-                    }
-                ;
+        return __awaiter(this, void 0, void 0, function* () {
+            const categories = [];
+            for (const category of (0, fs_1.readdirSync)(this.directory)) {
+                categories.push(category.toLowerCase());
             }
             ;
-            this.categories.set(this.client.util.string.capitalize(category), new Category_1.Category(this.client.util.string.capitalize(category), {
-                content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
-                description: "",
-                type: "command"
+            categories.forEach((category) => __awaiter(this, void 0, void 0, function* () {
+                const categoryName = this.client.util.string.capitalize(category);
+                this.categories.set(categoryName, new Category_1.Category(categoryName, {
+                    content: null,
+                    description: "",
+                    type: "command"
+                }));
             }));
-            console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Module ] Loaded ${(0, fs_1.readdirSync)(`${this.directory}/${category}`).length} command(s)`);
-        }
-        ;
-        console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
-        return this.rest.put(v9_1.Routes.applicationGuildCommands(clientID, "760659394370994197"), {
-            body: this.commands.toJSON()
-        })
-            .then(() => {
-            return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Successfully registered ${this.commands.toJSON().length} slash commands`);
-        })
-            .catch((error) => {
-            return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] ${error.stack}`);
+            for (const category of categories.values()) {
+                for (const commandFileName of (0, fs_1.readdirSync)(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
+                    const commandFile = require(`${this.directory}/${category}/${commandFileName}`).default;
+                    const command = new commandFile();
+                    this.commands.set(command.id, command);
+                    if (command.aliases)
+                        for (const alias of command.aliases) {
+                            this.aliases.set(alias, command);
+                        }
+                    ;
+                }
+                ;
+                this.categories.set(this.client.util.string.capitalize(category), new Category_1.Category(this.client.util.string.capitalize(category), {
+                    content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
+                    description: "",
+                    type: "command"
+                }));
+                console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Module ] Loaded ${(0, fs_1.readdirSync)(`${this.directory}/${category}`).length} command(s)`);
+            }
+            ;
+            console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
+            return this.rest.put(v9_1.Routes.applicationGuildCommands(clientID, this.client.guildID), {
+                body: this.commands.toJSON()
+            })
+                .then(() => {
+                return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Successfully registered ${this.commands.toJSON().length} slash commands`);
+            })
+                .catch((error) => {
+                return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] ${error.stack}`);
+            });
         });
     }
     ;
@@ -159,13 +161,13 @@ class CommandHandler {
         return __awaiter(this, void 0, void 0, function* () {
             this.client.on("interactionCreate", (interaction) => __awaiter(this, void 0, void 0, function* () {
                 var _a;
-                if (((_a = interaction.guild) === null || _a === void 0 ? void 0 : _a.id) !== "760659394370994197")
+                if (((_a = interaction.guild) === null || _a === void 0 ? void 0 : _a.id) !== this.client.guildID)
                     return;
                 if (interaction.user.bot && this.blockBots)
-                    return;
+                    return console.log("sdfghjh");
                 if (!interaction.isCommand())
                     return;
-                const command = this.commands.get(interaction.commandName);
+                const command = this.commands.get(interaction.commandName); // || this.aliases.get(interaction.commandName);
                 if (!command)
                     return;
                 yield this.runPermissionChecks(command, interaction);

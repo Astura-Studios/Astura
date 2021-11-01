@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../../structures/Command");
 const Config_1 = require("../../client/Config");
+const util_1 = require("util");
 class PingCommand extends Command_1.Command {
     constructor() {
         super("ping", {
@@ -46,6 +47,7 @@ class PingCommand extends Command_1.Command {
     exec(client, interaction) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const wait = (0, util_1.promisify)(setTimeout);
                 yield interaction.reply({
                     embeds: [
                         client.util.embed({
@@ -56,31 +58,30 @@ class PingCommand extends Command_1.Command {
                     fetchReply: true
                 })
                     .then((loadingEmbed) => {
-                    setTimeout(() => __awaiter(this, void 0, void 0, function* () {
-                        const start = process.hrtime();
-                        client.db;
-                        const difference = process.hrtime(start);
-                        return interaction.editReply({
-                            embeds: [
-                                client.util.embed({
-                                    color: client.util.defaults.embed.color,
-                                    author: {
-                                        name: `${client.user.username} - RTT, Websocket Ping and ORM Connection Speed`,
-                                        iconURL: client.user.displayAvatarURL({ dynamic: true }),
-                                    },
-                                    thumbnail: {
-                                        url: client.user.displayAvatarURL({ dynamic: true })
-                                    },
-                                    description: `:ping_pong: ${client.markdown.bold(`Pong! ${client.markdown.userMention(interaction.user.id)}, response was received in \`${Math.floor(loadingEmbed.createdTimestamp - interaction.createdTimestamp).toFixed(2)}ms\``)}`,
-                                    fields: [
-                                        { name: `<a:loading_green_bar:796179271239467018> ${client.markdown.bold("Real-time Text")}`, value: client.markdown.languageCodeBlock(`> ${Math.floor(loadingEmbed.createdTimestamp - interaction.createdTimestamp).toFixed(2)}ms`, "md"), inline: true },
-                                        { name: `<:status_bar:761134398602477568> ${client.markdown.bold("Websocket Ping")}`, value: client.markdown.languageCodeBlock(`> ${client.ws.ping.toFixed(2)}ms`, "md"), inline: true },
-                                        { name: `<:server:761134398619648000> ${client.markdown.bold("ORM Connection")}`, value: client.markdown.languageCodeBlock(`> ${Math.round(difference[1] / 1e3).toFixed(2)}ms`, "md"), inline: true }
-                                    ]
-                                })
-                            ]
-                        });
-                    }), 2000);
+                    wait(2000);
+                    const start = process.hrtime();
+                    client.db;
+                    const difference = process.hrtime(start);
+                    return interaction.editReply({
+                        embeds: [
+                            client.util.embed({
+                                color: client.util.defaults.embed.color,
+                                author: {
+                                    name: `${client.user.username} - RTT, Websocket Ping and ORM Connection Speed`,
+                                    iconURL: client.user.displayAvatarURL({ dynamic: true }),
+                                },
+                                thumbnail: {
+                                    url: client.user.displayAvatarURL({ dynamic: true })
+                                },
+                                description: `:ping_pong: ${client.markdown.bold(`Pong! ${client.markdown.userMention(interaction.user.id)}, response was received in \`${Math.floor(loadingEmbed.createdTimestamp - interaction.createdTimestamp).toFixed(2)}ms\``)}`,
+                                fields: [
+                                    { name: `<a:loading_green_bar:796179271239467018> ${client.markdown.bold("Real-time Text")}`, value: client.markdown.languageCodeBlock(`> ${Math.floor(loadingEmbed.createdTimestamp - interaction.createdTimestamp).toFixed(2)}ms`, "md"), inline: true },
+                                    { name: `<:status_bar:761134398602477568> ${client.markdown.bold("Websocket Ping")}`, value: client.markdown.languageCodeBlock(`> ${client.ws.ping.toFixed(2)}ms`, "md"), inline: true },
+                                    { name: `<:server:761134398619648000> ${client.markdown.bold("ORM Connection")}`, value: client.markdown.languageCodeBlock(`> ${Math.round(difference[1] / 1e3).toFixed(2)}ms`, "md"), inline: true }
+                                ]
+                            })
+                        ]
+                    });
                 });
             }
             catch (error) {

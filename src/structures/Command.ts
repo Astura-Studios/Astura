@@ -53,6 +53,7 @@ export class Command extends SlashCommandBuilder {
                         .setDescription(argument.description)
                         .setRequired(argument.required)
                     );
+                    break;
 
                 case "channel":
                     this.addChannelOption(option => option
@@ -60,6 +61,7 @@ export class Command extends SlashCommandBuilder {
                         .setDescription(argument.description)
                         .setRequired(argument.required)
                     );
+                    break;
 
                 case "integer":
                     this.addIntegerOption(option => option
@@ -67,6 +69,7 @@ export class Command extends SlashCommandBuilder {
                         .setDescription(argument.description)
                         .setRequired(argument.required)
                     );
+                    break;
 
                 case "mentionable":
                     this.addMentionableOption(option => option
@@ -74,6 +77,7 @@ export class Command extends SlashCommandBuilder {
                         .setDescription(argument.description)
                         .setRequired(argument.required)
                     );
+                    break;
 
                 case "number":
                     this.addNumberOption(option => option
@@ -81,6 +85,7 @@ export class Command extends SlashCommandBuilder {
                         .setDescription(argument.description)
                         .setRequired(argument.required)
                     );
+                    break;
 
                 case "role":
                     this.addRoleOption(option => option
@@ -88,13 +93,29 @@ export class Command extends SlashCommandBuilder {
                         .setDescription(argument.description)
                         .setRequired(argument.required)
                     );
+                    break;
 
                 case "string":
-                    this.addStringOption(option => option
-                        .setName(argument.name)
-                        .setDescription(argument.description)
-                        .setRequired(argument.required)
-                    );
+                    if (argument.choices) {
+                        const choices: [string, string][] = [];
+                        argument.choices.forEach(choice => {
+                            return [choice.name, choice.value];
+                        });
+    
+                        this.addStringOption(option => option
+                            .setName(argument.name)
+                            .setDescription(argument.description)
+                            .setRequired(argument.required)
+                            .addChoices(choices)
+                        );
+                    } else {   
+                        this.addStringOption(option => option
+                            .setName(argument.name)
+                            .setDescription(argument.description)
+                            .setRequired(argument.required)
+                        );
+                    };
+                    break;
 
                 case "user":
                     this.addUserOption(option => option
@@ -102,6 +123,7 @@ export class Command extends SlashCommandBuilder {
                         .setDescription(argument.description)
                         .setRequired(argument.required)
                     );
+                    break;
             };
         });
 

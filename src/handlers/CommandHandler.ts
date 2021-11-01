@@ -33,7 +33,7 @@ export class CommandHandler {
         this.rest = new REST({ version: "9" }).setToken(this.client.config.token);
     };
 
-    public registerCommands(clientID: string): Promise<unknown> {
+    public async registerCommands(clientID: string): Promise<unknown> {
         const categories: string[] = [];
 
         for (const category of readdirSync(this.directory)) {
@@ -73,7 +73,7 @@ export class CommandHandler {
 
         console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
 
-        return this.rest.put(Routes.applicationGuildCommands(clientID, "760659394370994197"), {
+        return this.rest.put(Routes.applicationGuildCommands(clientID, this.client.guildID), {
             body: this.commands.toJSON()
         })
             .then(() => {
@@ -167,11 +167,11 @@ export class CommandHandler {
 
     public async load(): Promise<void> {
         this.client.on("interactionCreate", async (interaction: Interaction) => {
-            if (interaction.guild?.id !== "760659394370994197") return;
-            if (interaction.user.bot && this.blockBots) return;
+            if (interaction.guild?.id !== this.client.guildID) return;
+            if (interaction.user.bot && this.blockBots) return console.log("sdfghjh");
             if (!interaction.isCommand()) return;
 
-            const command: Command = this.commands.get(interaction.commandName as string) as Command;
+            const command: Command = this.commands.get(interaction.commandName as string) as Command // || this.aliases.get(interaction.commandName);
             if (!command) return;
 
             await this.runPermissionChecks(command, interaction);

@@ -12,24 +12,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Argument_1 = require("../../structures/Argument");
 const Command_1 = require("../../structures/Command");
 const Config_1 = require("../../client/Config");
-const util_1 = require("util");
-const common_tags_1 = require("common-tags");
 class EvalCommand extends Command_1.Command {
     constructor() {
-        super("eval", {
-            aliases: ["evaluate"],
+        super("shrug", {
             arguments: [
                 new Argument_1.Argument({
-                    name: "input",
-                    description: "The JavaScript code to be executed.",
-                    required: true,
+                    name: "message",
+                    description: "Your message",
+                    required: false,
                     type: "string"
                 })
             ],
-            category: "Utility",
+            category: "Fun",
             channel: "all",
-            cooldown: 5,
-            description: "Evalute JavaScript code with the integrated discord.js library.",
+            cooldown: 1,
+            description: "Appends ¯\\\_(ツ)\_/¯ to your message.",
             enabledByDefault: true,
             examples: [
                 "/eval 2+2",
@@ -43,7 +40,8 @@ class EvalCommand extends Command_1.Command {
             isSubCommand: false,
             permissions: {
                 clientPermissions: [
-                    "SEND_MESSAGES"
+                    "SEND_MESSAGES",
+                    "MANAGE_WEBHOOKS"
                 ],
                 userPermissions: [
                     "SEND_MESSAGES",
@@ -58,26 +56,26 @@ class EvalCommand extends Command_1.Command {
     exec(client, interaction) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const code = interaction.options.getString(this.arguments[0].name);
-                const start = process.hrtime();
-                let output = eval(code);
-                const difference = process.hrtime(start);
-                if (typeof output !== "string")
-                    output = (0, util_1.inspect)(output, {
-                        depth: 2
+                const webhook = yield interaction.channel.createWebhook(interaction.member.nickname || interaction.user.username, {
+                    avatar: interaction.user.displayAvatarURL()
+                });
+                const message = interaction.options.getString(this.arguments[0].name);
+                if (message) {
+                    yield webhook.send(`${message} ¯\\\_(ツ)\_/¯`)
+                        .then(() => {
+                        return webhook.delete();
                     });
-                return interaction.reply((0, common_tags_1.stripIndents) `
-                **Executed in ${difference[0] > 0 ? `${difference[0]}s` : ""}${difference[1] / 1e6}ms**
-                \`\`\`js
-                ${output.length > 1950 ? "Code length exceeds maximum size allowed." : output}
-                \`\`\`
-            `);
+                }
+                else {
+                    yield webhook.send(`¯\\\_(ツ)\_/¯`)
+                        .then(() => {
+                        return webhook.delete();
+                    });
+                }
+                ;
             }
             catch (error) {
-                return interaction.reply((0, common_tags_1.stripIndents) `
-                	**An errror occcured while attempting to evaluate the given code:**
-                    ${client.markdown.codeBlock(error.stack)}
-            `);
+                return console.log(`${client.util.date.getLocalTime()} | [ Shrug Command ] ${error.stack}`);
             }
             ;
         });

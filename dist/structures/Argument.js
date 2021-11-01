@@ -5,6 +5,7 @@ class Argument {
     constructor(options) {
         this.name = options.name;
         this.description = options.description;
+        this.choices = options.choices;
         this.required = options.required;
         this.type = options.type;
     }
