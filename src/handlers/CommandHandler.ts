@@ -40,7 +40,7 @@ export class CommandHandler {
             categories.push(category.toLowerCase());
         };  
 
-        categories.forEach(async category => {
+        categories.forEach(async (category: string) => {
             const categoryName: string = this.client.util.string.capitalize(category);
 
             this.categories.set(categoryName, new Category(categoryName, {
@@ -129,7 +129,7 @@ export class CommandHandler {
         };
 
         if (interaction.guild && command.permissions.clientPermissions && !(interaction.guild.me as GuildMember).permissions.has(command.permissions.clientPermissions)) {
-            const missingPermissionsMessage = this.warnings.clientMissingPermissions(this.client, interaction, (interaction.guild.me as GuildMember).permissions.missing(command.permissions.clientPermissions).length > 1 ?
+            const missingPermissionsMessage: string = this.warnings.clientMissingPermissions(this.client, interaction, (interaction.guild.me as GuildMember).permissions.missing(command.permissions.clientPermissions).length > 1 ?
                 `${(interaction.guild.me as GuildMember).permissions.missing(command.permissions.clientPermissions).slice(0, -1).map((perm: PermissionString) => `\`${perm}\``).join(', ')} and \`${(interaction.guild.me as GuildMember).permissions.missing(command.permissions.clientPermissions).slice(-1)[0]}\`` :
                 `\`${(interaction.guild.me as GuildMember).permissions.missing(command.permissions.clientPermissions)[0]}\``, command);
 
