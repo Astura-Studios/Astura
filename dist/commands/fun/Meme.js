@@ -8,29 +8,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Argument_1 = require("../../structures/Argument");
 const Command_1 = require("../../structures/Command");
 const Config_1 = require("../../client/Config");
-class ShrugCommand extends Command_1.Command {
+const node_fetch_1 = __importDefault(require("node-fetch"));
+class MemeCommand extends Command_1.Command {
     constructor() {
-        super("shrug", {
-            arguments: [
-                new Argument_1.Argument({
-                    name: "message",
-                    description: "Your message",
-                    required: false,
-                    type: "string"
-                })
-            ],
+        super("meme", {
             category: "Fun",
             channel: "all",
-            cooldown: 1,
-            description: "Appends ¯\\\_(ツ)\_/¯ to your message.",
+            cooldown: 5,
+            description: "Fetches a random meme post from Reddit.",
             enabledByDefault: true,
             examples: [
-                "/shrug",
-                "/shrug Hello, World!"
+                "/meme"
             ],
             exceptions: {
                 ignoreCooldown: Config_1.configOptions.owners,
@@ -40,38 +34,43 @@ class ShrugCommand extends Command_1.Command {
             ownerOnly: false,
             permissions: {
                 clientPermissions: [
-                    "SEND_MESSAGES",
-                    "MANAGE_WEBHOOKS"
+                    "SEND_MESSAGES"
                 ],
                 userPermissions: [
-                    "SEND_MESSAGES",
-                    "ADMINISTRATOR"
+                    "SEND_MESSAGES"
                 ]
             },
-            usage: "/shrug [message]"
+            usage: "/meme"
         });
     }
     ;
     exec(client, interaction) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const webhook = yield interaction.channel.createWebhook(interaction.member.nickname || interaction.user.username, {
-                    avatar: interaction.user.displayAvatarURL()
+                (0, node_fetch_1.default)("https://meme-api.herokuapp.com/gimme")
+                    .then((response) => response.json())
+                    .then((content) => {
+                    return interaction.reply({
+                        embeds: [
+                            {
+                                color: client.util.defaults.embed.color,
+                                title: `${content.title} (by ${content.author})`,
+                                url: content.postLink,
+                                image: {
+                                    url: content.url
+                                },
+                                description: `<:thumbs_up_white:796179483253538898> ${content.ups}` /**`, <:thumbs_down_white:796178894809202719> ${memeDownvotes}, <:chat_white_icon:796178895119581224> ${memeComments}`**/
+                            }
+                        ]
+                    });
+                })
+                    .catch((error) => {
+                    console.log(`${client.util.date.getLocalTime()} | [ Shrug Command ] ${error.stack}`);
+                    return interaction.reply({
+                        content: "Something went wrong! Please try again.",
+                        ephemeral: true
+                    });
                 });
-                const message = interaction.options.getString(this.arguments[0].name);
-                if (message) {
-                    yield webhook.send(`${message} ¯\\\_(ツ)\_/¯`)
-                        .then(() => {
-                        return webhook.delete();
-                    });
-                }
-                else {
-                    yield webhook.send(`¯\\\_(ツ)\_/¯`)
-                        .then(() => {
-                        return webhook.delete();
-                    });
-                }
-                ;
             }
             catch (error) {
                 return console.log(`${client.util.date.getLocalTime()} | [ Shrug Command ] ${error.stack}`);
@@ -81,5 +80,5 @@ class ShrugCommand extends Command_1.Command {
     }
     ;
 }
-exports.default = ShrugCommand;
+exports.default = MemeCommand;
 ;

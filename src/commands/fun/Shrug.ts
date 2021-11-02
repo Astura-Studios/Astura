@@ -5,7 +5,7 @@ import { Command } from "../../structures/Command";
 import { CommandInteraction, GuildMember, Message, TextChannel, Webhook } from "discord.js";
 import { configOptions } from "../../client/Config";
 
-export default class EvalCommand extends Command {
+export default class ShrugCommand extends Command {
     public constructor() {
         super("shrug", {
             arguments: [
@@ -22,15 +22,15 @@ export default class EvalCommand extends Command {
             description: "Appends ¯\\\_(ツ)\_/¯ to your message.",
             enabledByDefault: true,
             examples: [
-                "/eval 2+2",
-                "/eval this.client.user.id",
-                "/eval console.log(\"Hello, World!\")"
+                "/shrug",
+                "/shrug Hello, World!"
             ],
             exceptions: {
                 ignoreCooldown: configOptions.owners,
                 ignorePermissions: configOptions.owners
             },
             isSubCommand: false,
+            ownerOnly: false,
             permissions: {
                 clientPermissions: [
                     "SEND_MESSAGES",
@@ -41,8 +41,7 @@ export default class EvalCommand extends Command {
                     "ADMINISTRATOR"
                 ]
             },
-            ownerOnly: true,
-            usage: "/eval <code>"
+            usage: "/shrug [message]"
         });
     };
 

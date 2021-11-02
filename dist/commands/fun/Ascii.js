@@ -12,25 +12,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Argument_1 = require("../../structures/Argument");
 const Command_1 = require("../../structures/Command");
 const Config_1 = require("../../client/Config");
-class ShrugCommand extends Command_1.Command {
+const figlet_1 = require("figlet");
+class AsciiCommand extends Command_1.Command {
     constructor() {
-        super("shrug", {
+        super("ascii", {
             arguments: [
                 new Argument_1.Argument({
-                    name: "message",
-                    description: "Your message",
-                    required: false,
+                    name: "text",
+                    description: "The text you want converted to ascii.",
+                    required: true,
                     type: "string"
                 })
             ],
             category: "Fun",
             channel: "all",
-            cooldown: 1,
-            description: "Appends ¯\\\_(ツ)\_/¯ to your message.",
+            cooldown: 5,
+            description: "Converts input text to ascii text in a codeblock.",
             enabledByDefault: true,
             examples: [
-                "/shrug",
-                "/shrug Hello, World!"
+                "/ascii Hello, World!"
             ],
             exceptions: {
                 ignoreCooldown: Config_1.configOptions.owners,
@@ -41,45 +41,35 @@ class ShrugCommand extends Command_1.Command {
             permissions: {
                 clientPermissions: [
                     "SEND_MESSAGES",
-                    "MANAGE_WEBHOOKS"
                 ],
                 userPermissions: [
-                    "SEND_MESSAGES",
-                    "ADMINISTRATOR"
+                    "SEND_MESSAGES"
                 ]
             },
-            usage: "/shrug [message]"
+            usage: "/ascii <text>"
         });
     }
     ;
     exec(client, interaction) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const webhook = yield interaction.channel.createWebhook(interaction.member.nickname || interaction.user.username, {
-                    avatar: interaction.user.displayAvatarURL()
+                const inputText = interaction.options.getString("text");
+                (0, figlet_1.text)(inputText, (error, result) => {
+                    if (result.length > 2000)
+                        return interaction.reply({
+                            content: "Please provide text shorter than 2000 characters!",
+                            ephemeral: true
+                        });
+                    return interaction.reply(client.markdown.codeBlock(result));
                 });
-                const message = interaction.options.getString(this.arguments[0].name);
-                if (message) {
-                    yield webhook.send(`${message} ¯\\\_(ツ)\_/¯`)
-                        .then(() => {
-                        return webhook.delete();
-                    });
-                }
-                else {
-                    yield webhook.send(`¯\\\_(ツ)\_/¯`)
-                        .then(() => {
-                        return webhook.delete();
-                    });
-                }
-                ;
             }
             catch (error) {
-                return console.log(`${client.util.date.getLocalTime()} | [ Shrug Command ] ${error.stack}`);
+                return console.log(`${client.util.date.getLocalTime()} | [ Ascii Command ] ${error.stack}`);
             }
             ;
         });
     }
     ;
 }
-exports.default = ShrugCommand;
+exports.default = AsciiCommand;
 ;
