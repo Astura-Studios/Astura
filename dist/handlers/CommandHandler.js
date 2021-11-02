@@ -164,7 +164,7 @@ class CommandHandler {
                 if (((_a = interaction.guild) === null || _a === void 0 ? void 0 : _a.id) !== this.client.guildID)
                     return;
                 if (interaction.user.bot && this.blockBots)
-                    return console.log("sdfghjh");
+                    return;
                 if (!interaction.isCommand())
                     return;
                 const command = this.commands.get(interaction.commandName); // || this.aliases.get(interaction.commandName);

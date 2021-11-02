@@ -1,7 +1,7 @@
 import { APIMessage } from "discord-api-types/v9";
 import { AsturaClient } from "../../client/Client";
 import { Command } from "../../structures/Command";
-import { ClientUser, CommandInteraction, Message } from "discord.js";
+import { ClientUser, CommandInteraction, Message, TextChannel } from "discord.js";
 import { TimerOptions } from "timers";
 import { configOptions } from "../../client/Config";
 import { promisify } from "util";
@@ -41,6 +41,36 @@ export default class PingCommand extends Command {
     public async exec(client: AsturaClient, interaction: CommandInteraction): Promise<void> {
         try {
             const wait: <T = void>(delay?: number | undefined, value?: T | undefined, options?: TimerOptions | undefined) => Promise<T> = promisify(setTimeout);
+            
+            /** 
+            const messageOne = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("904562479730937937");
+            const messageTwo = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("904562479730937937");
+            const messageThree = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("904562479730937937");
+            messageOne.react("904556069328666664");
+            messageOne.react("904557368262668331");
+            messageOne.react("784874334577229846");
+            messageOne.react("784874345260384266");
+            messageOne.react("785208179856113694");
+            messageOne.react("7852081918512988484");
+            messageOne.react("785212068466786364");
+            messageOne.react("904557843489898516");
+            messageOne.react("785208883202490413");
+            messageOne.react("902054964019482675");
+            messageOne.react("902054931182264351");
+            messageOne.react("902054876144619540");
+            messageOne.react("902054910844092487");
+
+            messageTwo.react("📢");
+            messageTwo.react("🎬");
+            messageTwo.react("🎮");
+            messageTwo.react("🍕");
+            messageTwo.react("🎉");
+            messageTwo.react("📊");
+
+            messageThree.react("💬");
+            messageThree.react("❓");
+            messageThree.react("🛠️");
+            **/
 
             await interaction.reply({
                 embeds: [
@@ -53,7 +83,7 @@ export default class PingCommand extends Command {
             })
             .then((loadingEmbed: Message<true> | APIMessage | Message<boolean>) => {
                 wait(2000);
-                
+
                 const start: [number, number] = process.hrtime();
                 client.db;
                 const difference: [number, number] = process.hrtime(start);

@@ -28,7 +28,7 @@ export default class SuggestCommand extends Command {
                     ]
                 })
             ],
-            category: "Miscallaneous",
+            category: "Miscellaneous",
             channel: "guild",
             cooldown: 60,
             description: "Add a suggestion to be added to Astura Studio's suggestions channel.",
@@ -52,7 +52,7 @@ export default class SuggestCommand extends Command {
                     "SEND_MESSAGES"
                 ]
             },
-            usage: "/suggest <suggestions>"
+            usage: "/suggest <suggestion>"
         });
     };
 

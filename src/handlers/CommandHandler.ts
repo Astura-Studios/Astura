@@ -38,7 +38,7 @@ export class CommandHandler {
 
         for (const category of readdirSync(this.directory)) {
             categories.push(category.toLowerCase());
-        };
+        };  
 
         categories.forEach(async category => {
             const categoryName: string = this.client.util.string.capitalize(category);
@@ -66,7 +66,7 @@ export class CommandHandler {
                 content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
                 description: "",
                 type: "command"
-            }));
+            }));    
 
             console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Module ] Loaded ${readdirSync(`${this.directory}/${category}`).length} command(s)`);
         };
@@ -168,7 +168,7 @@ export class CommandHandler {
     public async load(): Promise<void> {
         this.client.on("interactionCreate", async (interaction: Interaction) => {
             if (interaction.guild?.id !== this.client.guildID) return;
-            if (interaction.user.bot && this.blockBots) return console.log("sdfghjh");
+            if (interaction.user.bot && this.blockBots) return;
             if (!interaction.isCommand()) return;
 
             const command: Command = this.commands.get(interaction.commandName as string) as Command // || this.aliases.get(interaction.commandName);
