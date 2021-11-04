@@ -28,6 +28,47 @@ export class Utilities {
             }
         };
         this.string = new ExtendedString();
+
+        /** 
+        const messageOne = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("905337770778689606");
+        const messageTwo = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("905337780438200320");
+        const messageThree = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("905337796108107826");
+        **/
+
+        /**
+        await messageOne.react("904556069328666664");
+        await messageOne.react("904557368262668331");
+        await messageOne.react("784874334577229846");
+        await messageOne.react("784874345260384266");
+        await wait(2000);
+        await messageOne.react("785208179856113694");
+        await messageOne.react("785208191851298848");
+        await messageOne.react("785212068466786364");
+        await messageOne.react("904557843489898516");
+        await wait(2000);
+        await messageOne.react("785208883202490413");
+        await messageOne.react("902054964019482675");
+        await messageOne.react("902054931182264351");
+        await messageOne.react("902054876144619540");
+        await wait(2000);
+        await messageOne.react("902054910844092487");
+        **/
+
+        /**
+        await messageTwo.react("📢");
+        await messageTwo.react("🎬");
+        await messageTwo.react("🎮");
+        await messageTwo.react("🍕");
+        await wait(2000);
+        await messageTwo.react("🎉");
+        await messageTwo.react("📊");
+        **/
+
+        /**
+        messageThree.react("💬");
+        messageThree.react("❓");
+        messageThree.react("🛠️");
+        **/
     };
 
     public embed(options: MessageEmbedOptions): MessageEmbed {

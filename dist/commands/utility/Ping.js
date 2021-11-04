@@ -48,35 +48,6 @@ class PingCommand extends Command_1.Command {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const wait = (0, util_1.promisify)(setTimeout);
-                /**
-                const messageOne = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("904562479730937937");
-                const messageTwo = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("904562479730937937");
-                const messageThree = await (interaction.guild?.channels.cache.get("785216134131351562") as TextChannel).messages.fetch("904562479730937937");
-                messageOne.react("904556069328666664");
-                messageOne.react("904557368262668331");
-                messageOne.react("784874334577229846");
-                messageOne.react("784874345260384266");
-                messageOne.react("785208179856113694");
-                messageOne.react("7852081918512988484");
-                messageOne.react("785212068466786364");
-                messageOne.react("904557843489898516");
-                messageOne.react("785208883202490413");
-                messageOne.react("902054964019482675");
-                messageOne.react("902054931182264351");
-                messageOne.react("902054876144619540");
-                messageOne.react("902054910844092487");
-    
-                messageTwo.react("📢");
-                messageTwo.react("🎬");
-                messageTwo.react("🎮");
-                messageTwo.react("🍕");
-                messageTwo.react("🎉");
-                messageTwo.react("📊");
-    
-                messageThree.react("💬");
-                messageThree.react("❓");
-                messageThree.react("🛠️");
-                **/
                 yield interaction.reply({
                     embeds: [
                         client.util.embed({
@@ -86,8 +57,8 @@ class PingCommand extends Command_1.Command {
                     ],
                     fetchReply: true
                 })
-                    .then((loadingEmbed) => {
-                    wait(2000);
+                    .then((loadingEmbed) => __awaiter(this, void 0, void 0, function* () {
+                    yield wait(1000);
                     const start = process.hrtime();
                     client.db;
                     const difference = process.hrtime(start);
@@ -111,7 +82,7 @@ class PingCommand extends Command_1.Command {
                             })
                         ]
                     });
-                });
+                }));
             }
             catch (error) {
                 return console.log(`${client.util.date.getLocalTime()} | [ Ping Command ] ${error.stack}`);

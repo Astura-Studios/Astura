@@ -42,7 +42,7 @@ class ReadyListener extends Listener_1.Listener {
                         status: "online"
                     }));
                 });
-                setActivity
+                yield setActivity
                     .then((presence) => {
                     return console.log(`${client.util.date.getLocalTime()} | [ Astura Client ] ${client.user.tag} is ready and online | Status: ${statuses[presence.status]} | Websocket Ping: ${client.ws.ping.toFixed(2)}ms`);
                 })

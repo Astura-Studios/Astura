@@ -38,7 +38,7 @@ export default class ReadyListener extends Listener {
                 );
             });
 
-            setActivity
+            await setActivity
                 .then((presence: Presence) => {
                     return console.log(`${client.util.date.getLocalTime()} | [ Astura Client ] ${(client.user as ClientUser).tag} is ready and online | Status: ${statuses[presence.status]} | Websocket Ping: ${client.ws.ping.toFixed(2)}ms`);
                 })
