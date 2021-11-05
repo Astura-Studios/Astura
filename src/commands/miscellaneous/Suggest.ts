@@ -19,7 +19,7 @@ export default class SuggestCommand extends Command {
                 }),
                 new Argument({
                     name: "urgent",
-                    description: "Describe whether the suggestion is urgent or not",
+                    description: "Describe whether the suggestion is urgent or not.",
                     required: true,
                     type: "string",
                     choices: [
@@ -89,7 +89,7 @@ export default class SuggestCommand extends Command {
             });
 
             const message: Message = await interaction.channel?.messages.fetch(webhookMessage.id) as Message;
-            message.react("1️⃣")
+            await message.react("1️⃣")
             return message.react("2️⃣");
         } catch (error) {
             return console.log(`${client.util.date.getLocalTime()} | [ Suggest Command ] ${(error as Error).stack}`);

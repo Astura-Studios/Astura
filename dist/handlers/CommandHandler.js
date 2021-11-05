@@ -46,7 +46,7 @@ class CommandHandler {
                 }));
             }));
             for (const category of categories.values()) {
-                for (const commandFileName of (0, fs_1.readdirSync)(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
+                for (const commandFileName of (0, fs_1.readdirSync)(`${this.directory}/${category}`).filter((fileName) => fileName.endsWith(".js"))) {
                     const commandFile = require(`${this.directory}/${category}/${commandFileName}`).default;
                     const command = new commandFile();
                     this.commands.set(command.id, command);

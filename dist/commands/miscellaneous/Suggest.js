@@ -27,7 +27,7 @@ class SuggestCommand extends Command_1.Command {
                 }),
                 new Argument_1.Argument({
                     name: "urgent",
-                    description: "Describe whether the suggestion is urgent or not",
+                    description: "Describe whether the suggestion is urgent or not.",
                     required: true,
                     type: "string",
                     choices: [
@@ -97,7 +97,7 @@ class SuggestCommand extends Command_1.Command {
                     ]
                 });
                 const message = yield ((_b = interaction.channel) === null || _b === void 0 ? void 0 : _b.messages.fetch(webhookMessage.id));
-                message.react("1️⃣");
+                yield message.react("1️⃣");
                 return message.react("2️⃣");
             }
             catch (error) {

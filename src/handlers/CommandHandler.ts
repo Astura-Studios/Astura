@@ -51,7 +51,7 @@ export class CommandHandler {
         });
 
         for (const category of categories.values()) {
-            for (const commandFileName of readdirSync(`${this.directory}/${category}`).filter(fileName => fileName.endsWith(".js"))) {
+            for (const commandFileName of readdirSync(`${this.directory}/${category}`).filter((fileName: string): unknown => fileName.endsWith(".js"))) {
                 const commandFile = require(`${this.directory}/${category}/${commandFileName}`).default;
                 const command: Command = new commandFile();
 
