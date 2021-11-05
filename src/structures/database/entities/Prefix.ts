@@ -10,4 +10,4 @@ export default class PrefixEntity {
 
     @Property()
     prefix!: string;
-}
+};

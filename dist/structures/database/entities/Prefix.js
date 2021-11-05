@@ -28,3 +28,4 @@ PrefixEntity = __decorate([
     (0, core_1.Entity)({ tableName: "PrefixEntity" })
 ], PrefixEntity);
 exports.default = PrefixEntity;
+;

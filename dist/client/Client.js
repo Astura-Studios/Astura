@@ -53,8 +53,8 @@ class AsturaClient extends discord_js_1.Client {
             yield this.commandHandler.registerCommands(this.config.clientID);
             yield this.commandHandler.load();
             yield this.listenerHandler.load();
-            //await this.db.init();
-            //await this.db.connect();
+            yield this.db.init();
+            yield this.db.connect();
         });
     }
     ;

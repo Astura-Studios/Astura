@@ -70,8 +70,8 @@ export class AsturaClient extends Client {
         await this.commandHandler.load();
         await this.listenerHandler.load();
 
-        //await this.db.init();
-        //await this.db.connect();
+        await this.db.init();
+        await this.db.connect();
     };
 
     public async start(): Promise<string | void> {

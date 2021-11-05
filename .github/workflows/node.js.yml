@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
+    - run: npm i discord-api-types discord.js@dev @discordjs/builders @discordjs/collection @discordjs/rest @mikro-orm/cli @mikro-orm/core @mikro-orm/reflection @mikro-orm/sqlite common-tags dotenv express figlet node-fetch@2.6.5 ts-node typescript url
+    - run: npm i @types/common-tags @types/continuation-local-storage @types/dotenv @types/express @types/figlet @types/node @types/node-fetch@2.5.12 @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-prettier husky lint-staged prettier --save-dev
     - run: npm run build --if-present
     - run: npm run dev
