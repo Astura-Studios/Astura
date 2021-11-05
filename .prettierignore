@@ -7,6 +7,7 @@ startup.sh
 
 tsconfig.json
 .eslintrc.json
+.eslintignore
 .prettierrc.json
 
 .gitignore
@@ -15,3 +16,5 @@ README.md
 
 package.json
 package-lock.json
+
+todo
