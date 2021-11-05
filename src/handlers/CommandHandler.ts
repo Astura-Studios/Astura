@@ -69,7 +69,7 @@ export class CommandHandler {
             }));    
 
             console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Module ] Loaded ${readdirSync(`${this.directory}/${category}`).length} command(s)`);
-        };
+        };  
 
         console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Loaded ${this.commands.size} command(s)`);
 

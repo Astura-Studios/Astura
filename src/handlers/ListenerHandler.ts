@@ -11,7 +11,7 @@ export class ListenerHandler {
     private directory: string;
     public listeners: Collection<string, Listener>
 
-    constructor(client: AsturaClient, options: ListenerHandlerOptions) {
+    public constructor(client: AsturaClient, options: ListenerHandlerOptions) {
         this.categories = new Collection();
         this.client = client;
         this.directory = options.directory;
@@ -53,7 +53,7 @@ export class ListenerHandler {
                 };
 
                 const categoryName: string = this.client.util.string.capitalize(category);
-                const categoryListeners: Collection<string, Listener> = this.listeners.filter(listener => listener.category.toLowerCase() === category.toLowerCase())
+                const categoryListeners: Collection<string, Listener> = this.listeners.filter(listener => listener.category.toLowerCase() === category.toLowerCase());
 
                 this.categories.set(categoryName, new Category(categoryName, {
                     content: categoryListeners,
