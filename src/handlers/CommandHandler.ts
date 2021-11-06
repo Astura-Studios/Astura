@@ -167,7 +167,8 @@ export class CommandHandler {
 
     public async load(): Promise<void> {
         this.client.on("interactionCreate", async (interaction: Interaction) => {
-            if (interaction.guild?.id !== this.client.guildID) return;
+            if (!interaction.guild) return;
+            if (interaction.guild && (interaction.guild?.id !== (this.client.guildID || "755687537753718815"))) return;
             if (interaction.user.bot && this.blockBots) return;
             if (!interaction.isCommand()) return;
 

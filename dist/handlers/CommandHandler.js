@@ -161,7 +161,9 @@ class CommandHandler {
         return __awaiter(this, void 0, void 0, function* () {
             this.client.on("interactionCreate", (interaction) => __awaiter(this, void 0, void 0, function* () {
                 var _a;
-                if (((_a = interaction.guild) === null || _a === void 0 ? void 0 : _a.id) !== this.client.guildID)
+                if (!interaction.guild)
+                    return;
+                if (interaction.guild && (((_a = interaction.guild) === null || _a === void 0 ? void 0 : _a.id) !== (this.client.guildID || "755687537753718815")))
                     return;
                 if (interaction.user.bot && this.blockBots)
                     return;
