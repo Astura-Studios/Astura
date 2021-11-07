@@ -19,7 +19,7 @@ class ErrorListener extends Listener_1.Listener {
         });
     }
     ;
-    exec(error) {
+    exec(_client, error) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 return console.log(`${this.client.util.date.getLocalTime()} | [ Error Listener ] ${error.stack}`);

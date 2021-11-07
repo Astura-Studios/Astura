@@ -19,7 +19,7 @@ class MessageReactionAddListener extends Listener_1.Listener {
         });
     }
     ;
-    exec(reaction, user) {
+    exec(_client, reaction, user) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             try {

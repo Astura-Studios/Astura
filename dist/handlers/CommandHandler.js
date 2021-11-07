@@ -27,6 +27,7 @@ class CommandHandler {
         this.categories = new discord_js_1.Collection();
         this.client = client;
         this.commands = new discord_js_1.Collection();
+        this.cooldowns = new discord_js_1.Collection();
         this.rest = new rest_1.REST({ version: "9" }).setToken(this.client.config.token);
     }
     ;
@@ -76,6 +77,25 @@ class CommandHandler {
                 return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] ${error.stack}`);
             });
         });
+    }
+    ;
+    runCooldownChecks(command, interaction) {
+        if (!this.cooldowns.has(command.id))
+            this.cooldowns.set(command.id, new discord_js_1.Collection());
+        const now = Date.now();
+        const timestamps = this.cooldowns.get(command.id);
+        const cooldownAmount = (command.cooldown || 3) * 1000;
+        const expirationTime = timestamps.get(interaction.user.id) + cooldownAmount;
+        const timeLeft = (expirationTime - now) / 1000;
+        if (timestamps.has(interaction.user.id) && !this.client.config.owners.includes(interaction.user.id) && (now < expirationTime) && !command.exceptions.ignoreCooldown.includes(interaction.user.id)) {
+            return interaction.reply({
+                content: this.warnings.cooldownWarning(interaction, timeLeft.toFixed(1), command),
+                ephemeral: true
+            });
+        }
+        ;
+        timestamps.set(interaction.user.id, now);
+        setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
     }
     ;
     runPermissionChecks(command, interaction) {
@@ -169,11 +189,20 @@ class CommandHandler {
                     return;
                 if (!interaction.isCommand())
                     return;
+                if (interaction.channelId === "859549114592395295")
+                    return; // #verification-support
                 const command = this.commands.get(interaction.commandName); // || this.aliases.get(interaction.commandName);
                 if (!command)
                     return;
                 yield this.runPermissionChecks(command, interaction);
+                yield this.runCooldownChecks(command, interaction);
                 return command.exec(this.client, interaction);
+            }));
+            this.client.on("messageCreate", (message) => __awaiter(this, void 0, void 0, function* () {
+                if (this.client.util.cussWords[message.content.toLowerCase()] === 2)
+                    message.delete();
+                if (message.channelId === "902052635127988295" && !message.interaction && !message.webhookId && !message.author.bot)
+                    message.delete();
             }));
         });
     }

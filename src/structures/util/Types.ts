@@ -100,4 +100,5 @@ export type ListenerType =
     // Process events
     | "uncaughtException"    
     | "unhandledRejection"
+    
 export type MarkdownLanguage = "javascript" | "typescript" | "python" | "lua" | "html" | "css" | "cmd" | "svg" | "ruby" | "c" | "c++" | "c#" | "md" | "json" | "asciidoc" | "autohotkey" | "bash" | "shell" | "coffeescript" | "cpp" | "diff" | "ini" | "ml" | "prolog" | "tex" | "xl" | "xml";

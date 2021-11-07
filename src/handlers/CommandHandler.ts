@@ -3,20 +3,21 @@ import { Routes } from "discord-api-types/v9";
 import { Category } from "../structures/Category";
 import { Collection, CommandInteraction, GuildMember, Interaction, Message, PermissionString, TextBasedChannels, TextChannel } from "discord.js";
 import { Command } from "../structures/Command";
-import { CommandHandlerOptions, CommandHandlerWarnings } from "../structures/util/Interfaces";
+import { CommandHandlerOptions, CommandHandlerWarnings, CussWords } from "../structures/util/Interfaces";
 import { REST } from "@discordjs/rest";
 import { readdirSync } from "fs";
 
 export class CommandHandler {
     public aliases: Collection<string, Command>;
-    public allowDirectMessages: boolean;
-    public blockBots: boolean;
+    private allowDirectMessages: boolean;
+    private blockBots: boolean;
     public categories: Collection<string, Category>;
-    public client: AsturaClient;
+    private client: AsturaClient;
     public commands: Collection<string, Command>;
+    private cooldowns: Collection<string, Collection<string, number>>;
     public directory: string;
-    public rest: REST;
-    public warnings: CommandHandlerWarnings;
+    private rest: REST;
+    private warnings: CommandHandlerWarnings;
 
     public constructor(client: AsturaClient, options: CommandHandlerOptions) {
         // Command Handler Options
@@ -30,6 +31,7 @@ export class CommandHandler {
         this.categories = new Collection();
         this.client = client;
         this.commands = new Collection();
+        this.cooldowns = new Collection();
         this.rest = new REST({ version: "9" }).setToken(this.client.config.token);
     };
 
@@ -82,6 +84,26 @@ export class CommandHandler {
             .catch((error: Error) => {
                 return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] ${error.stack}`);
             });
+    };
+
+    private runCooldownChecks(command: Command, interaction: CommandInteraction): Promise<void> | Promise<Message> | undefined {
+        if (!this.cooldowns.has(command.id)) this.cooldowns.set(command.id, new Collection()); 
+
+        const now: number = Date.now();
+        const timestamps: Collection<string, number> = this.cooldowns.get(command.id) as Collection<string, number>;
+        const cooldownAmount: number = (command.cooldown || 3) * 1000;
+        const expirationTime: number = timestamps.get(interaction.user.id) as number + cooldownAmount;
+        const timeLeft: number = (expirationTime - now) / 1000;
+
+        if (timestamps.has(interaction.user.id) && !this.client.config.owners.includes(interaction.user.id) && (now < expirationTime) && !command.exceptions.ignoreCooldown.includes(interaction.user.id)) {
+            return interaction.reply({
+                content: this.warnings.cooldownWarning(interaction, timeLeft.toFixed(1), command),
+                ephemeral: true
+            }); 
+        };
+
+        timestamps.set(interaction.user.id, now);
+        setTimeout((): boolean => timestamps.delete(interaction.user.id), cooldownAmount); 
     };
 
     private runPermissionChecks(command: Command, interaction: CommandInteraction): Promise<void> | Promise<Message> | undefined {
@@ -166,18 +188,25 @@ export class CommandHandler {
     };
 
     public async load(): Promise<void> {
-        this.client.on("interactionCreate", async (interaction: Interaction) => {
+        this.client.on("interactionCreate", async (interaction: Interaction): Promise<any> => {
             if (!interaction.guild) return;
             if (interaction.guild && (interaction.guild?.id !== (this.client.guildID || "755687537753718815"))) return;
             if (interaction.user.bot && this.blockBots) return;
             if (!interaction.isCommand()) return;
+            if (interaction.channelId === "859549114592395295") return; // #verification-support
 
             const command: Command = this.commands.get(interaction.commandName as string) as Command // || this.aliases.get(interaction.commandName);
             if (!command) return;
 
             await this.runPermissionChecks(command, interaction);
+            await this.runCooldownChecks(command, interaction);
 
             return command.exec(this.client, interaction);
+        });
+
+        this.client.on("messageCreate", async (message: Message): Promise<void> => {
+            if ((this.client.util.cussWords as CussWords)[message.content.toLowerCase() as keyof CussWords] === 2) message.delete();
+            if (message.channelId === "902052635127988295" && !message.interaction && !message.webhookId && !message.author.bot) message.delete();
         });
     };
 };

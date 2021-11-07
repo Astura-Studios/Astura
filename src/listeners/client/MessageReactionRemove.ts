@@ -1,3 +1,4 @@
+import { AsturaClient } from "../../client/Client";
 import { Listener } from "../../structures/Listener";
 import { GuildMember, MessageReaction, PartialMessageReaction, PartialUser, User } from "discord.js";
 
@@ -10,7 +11,7 @@ export default class MessageReactionRemoveListener extends Listener {
         });
     };
 
-    public async exec(reaction: MessageReaction | PartialMessageReaction, user: User | PartialUser): Promise<void | GuildMember> {
+    public async exec(_client: AsturaClient, reaction: MessageReaction | PartialMessageReaction, user: User | PartialUser): Promise<void | GuildMember> {
         try {
             if (reaction.message.id === "905337770778689606") {
                 if (reaction.partial) {

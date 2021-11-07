@@ -78,7 +78,7 @@ export default class PingCommand extends Command {
                         })
                     ]
                 });
-            })
+            });
         } catch (error) {
             return console.log(`${client.util.date.getLocalTime()} | [ Ping Command ] ${(error as Error).stack}`);
         };
