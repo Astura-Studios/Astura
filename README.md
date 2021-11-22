@@ -1,15 +1,11 @@
 <img src="assets/images/Banner.svg" alt="Astura Discord Bot banner" align="center" />
-<h1 align="center">Welcome to the repository for Astura👋</h1>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="+https://github.com/Astura-Studios/Astura#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="+https://github.com/Astura-Studios/Astura/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  <a href="https://discord.gg/FtkbxQsWAX" target="_blank">
+    <img alt="Discord" src="https://img.shields.io/badge/discord/760659394370994197" />
   </a>
   <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">
-    <img alt="License: BSD 3 Clause License" src="https://img.shields.io/github/license/+Astura-Studios/astura" />
+    <img alt="License: BSD 3 Clause License" src="https://img.shields.io/github/license/Astura-Studios/Astura" />
   </a>
 </p>
 
