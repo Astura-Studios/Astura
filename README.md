@@ -1,4 +1,6 @@
 <br />
+<br />
+<br />
 <img src="assets/images/Banner.svg" alt="Astura Discord Bot banner" align="center" />
 <br />
 <p align="center">
