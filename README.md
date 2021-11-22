@@ -17,40 +17,45 @@
     </a>
 </p>
 
-> The official Discord bot for the Astura Studios Discord community server.
+## About
+Astura is the official Discord bot for the [Astura Studios](https://github.com/Astura-Studios) Discord community server developed and maintained by [Ascendus](https://github.com/Ascendus/) and the Astura Studios community. 
 
-### 🏠 [Homepage](https://github.com/Astura-Studios/Astura)
+* Written in TypeScript/NodeJS
+* Includes Prettier, ESLint/@typescript-eslint
+* Dynamic handlers
+* Includes API for the Astura Studios website
+* Uses MikroORM with SQLite
 
-### ✨ [Demo](https://github.com/Astura-Studios/Astura)
-
-## Install
-
+## Installation
+**NodeJS v16.6.0 or newer is required**
 ```sh
 npm install
 ```
 
 ## Run tests
-
 ```sh
-npm run test
+npm test
 ```
 
-## Author
+## Running the bot
+For running Lavalink for music: (Java 11 or newer is required)
+```sh
+cd lavalink
+java -jar Lavalink.jar
+```
 
-👤 **Astura-Studios**
+For running the bot:
+```sh
+npm run dev
+```
 
-* Website: https://astura.studio/
-* Github: [@+Astura-Studios](https://github.com/+Astura-Studios)
+## Help
+If you need any help regarding repository contribution, feel free to reach out in our [Discord server](https://discord.gg/FtkbxQsWAX) or direct messaging Ascendus#6316 on Discord.
 
-## 🤝 Contributing
+## Contributing
+Contributions, issues and feature requests are welcome!<br />Feel free to check out the [issues page](https://github.com/Astura-Studios/Astura/issues) to either view past issues or submit a new issue. You can also take a look at the [contributing guide (not available yet)](+https://github.com/Astura-Studios/Astura/blob/master/CONTRIBUTING.md).
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Astura-Studios/Astura/issues). You can also take a look at the [contributing guide](+https://github.com/Astura-Studios/Astura/blob/master/CONTRIBUTING.md).
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-## 📝 License
-
+## License
 Copyright © 2021 [Astura-Studios](https://github.com/+Astura-Studios).<br />
-This project is [BSD 3 Clause License](https://opensource.org/licenses/BSD-3-Clause) licensed.
+This project is licensed under the [BSD 3 Clause License](https://opensource.org/licenses/BSD-3-Clause).
