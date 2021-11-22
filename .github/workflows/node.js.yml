@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -26,7 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i discord-api-types discord-api-types/V9 discord.js@dev @discordjs/builders @discordjs/collection @discordjs/rest @mikro-orm/cli @mikro-orm/core @mikro-orm/reflection @mikro-orm/sqlite common-tags dotenv express figlet node-fetch@2.6.5 ts-node typescript url
-    - run: npm i @types/common-tags @types/continuation-local-storage @types/dotenv @types/express @types/figlet @types/node @types/node-fetch@2.5.12 @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-prettier husky lint-staged prettier --save-dev
+    - run: npm install
     - run: npm run build --if-present
     - run: npm run dev
