@@ -1,4 +1,6 @@
+<br />
 <img src="assets/images/Banner.svg" alt="Astura Discord Bot banner" align="center" />
+<br />
 <p align="center">
     <a href="https://github.com/Astura-Studios/Astura/releases" target="_blank">
         <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?style=for-the-badge&logo=github&cacheSeconds=2592000" />
@@ -57,5 +59,5 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 
 ## License
-Copyright © 2021 [Astura-Studios](https://github.com/+Astura-Studios).<br />
+Copyright :copyright: 2021 [Astura-Studios](https://github.com/+Astura-Studios).<br />
 This project is licensed under the [BSD 3 Clause License](https://opensource.org/licenses/BSD-3-Clause).
