@@ -1,5 +1,5 @@
 import { Argument } from "../../structures/Argument";
-import { APIMessage } from "discord-api-types/V9";
+import { APIMessage } from "discord-api-types/v9";
 import { AsturaClient } from "../../client/Client";
 import { Command } from "../../structures/Command";
 import { CommandInteraction, GuildMember, Message, TextChannel, Webhook } from "discord.js";
