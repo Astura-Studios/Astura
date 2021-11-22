@@ -2,7 +2,7 @@ import { AnyEntity, Connection, Configuration, EntitySchema, IDatabaseDriver, Me
 import { Argument } from "../Argument";
 import { ArgumentType, CategoryType, CommandChannel, Emitter, ErrorEmbedType, ListenerCategory, ListenerType } from "./Types";
 import { AsturaClient } from "../../client/Client";
-import { ClientOptions, Collection, ColorResolvable, CommandInteraction, PermissionString } from "discord.js";
+import { ClientOptions, Collection, ColorResolvable, CommandInteraction, PermissionString, TextChannel } from "discord.js";
 import { Command } from "../Command";
 import { EntityClass, EntityClassGroup } from "@mikro-orm/core/typings";
 import { Listener } from "../Listener";
@@ -129,6 +129,19 @@ export interface Meme {
     author: string;
     ups: number;
     preview: string[];
+};
+
+export interface Node {
+    id: string;
+    host: string; 
+    port: number;
+    password: string;
+};
+
+export interface PlayerOptions {
+    guildID: string;
+    channelID: string;
+    textChannel: TextChannel;
 };
 
 export interface Statuses {

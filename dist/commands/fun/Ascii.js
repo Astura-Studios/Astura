@@ -54,7 +54,7 @@ class AsciiCommand extends Command_1.Command {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const inputText = interaction.options.getString("text");
-                (0, figlet_1.text)(inputText, (error, result) => {
+                (0, figlet_1.text)(inputText, (_error, result) => {
                     if (result.length > 2000)
                         return interaction.reply({
                             content: "Please provide text shorter than 2000 characters!",

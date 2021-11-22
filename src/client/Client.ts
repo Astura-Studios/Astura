@@ -1,14 +1,19 @@
-import { Client, ClientUser, CommandInteraction, Guild } from "discord.js";
+import { Client, ClientUser, Collection, CommandInteraction, Guild } from "discord.js";
 import { Command } from "../structures/Command";
 import { CommandHandler } from "../handlers/CommandHandler";
 import { Configuration } from "../structures/Configuration";
 import { Database } from "../structures/database/Database";
+import { LavalinkNode } from "@lavacord/discord.js";
 import { ListenerHandler } from "../handlers/ListenerHandler";
+import { Manager } from "../structures/music/Manager";
 import { Markdown } from "../structures/util/Markdown";
+import { Node } from "../structures/util/Interfaces";
 import { Utilities } from "../structures/util/Utilities";
+import { Queue } from "../structures/music/Queue";
 
 import { configOptions } from "./Config";
 import { join } from "path";
+import { nodes } from "../structures/music/Nodes";
 
 declare module "discord.js" {
     interface Client {
@@ -18,7 +23,9 @@ declare module "discord.js" {
         guild: Guild;
         guildID: string;
         listenerHandler: ListenerHandler;
+        manager: Manager;
         markdown: Markdown;
+        nodes: Node[];
         util: Utilities;
     }
 };
@@ -30,8 +37,11 @@ export class AsturaClient extends Client {
     public guild: Guild;
     public guildID: string;
     public listenerHandler: ListenerHandler;
+    public manager: Manager;
     public markdown: Markdown;
+    public nodes: Node[];
     public util: Utilities;
+    public queues: Collection<string, Queue>;
 
     public constructor() {
         super(configOptions.clientOptions);
@@ -40,8 +50,11 @@ export class AsturaClient extends Client {
         this.db = new Database(this);
         this.guild = this.guilds.cache.get("760659394370994197") as Guild;
         this.guildID = "760659394370994197";
+        this.manager = new Manager(this);
         this.markdown = new Markdown();
+        this.nodes = nodes;
         this.util = new Utilities(this);
+        this.queues = new Collection();
 
         this.commandHandler = new CommandHandler(this, {
             allowDirectMessages: true,
@@ -72,6 +85,11 @@ export class AsturaClient extends Client {
 
         await this.db.init();
         await this.db.connect();
+
+        await this.manager.connect();
+        this.manager.on("error", (error: unknown, _node: LavalinkNode) => {
+            return console.log(`[ Lavalink Manager ] ${(error as Error).stack}`);
+        });
     };
 
     public async start(): Promise<string | void> {

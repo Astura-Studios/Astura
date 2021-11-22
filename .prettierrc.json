@@ -1,5 +1,8 @@
 {
     "parser": "typescript",
     "singleQuote": false,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "semi": true
 }

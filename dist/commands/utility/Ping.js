@@ -39,7 +39,7 @@ class PingCommand extends Command_1.Command {
                     "SEND_MESSAGES"
                 ]
             },
-            ownerOnly: true,
+            ownerOnly: false,
             usage: "/ping"
         });
     }

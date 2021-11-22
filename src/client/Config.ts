@@ -7,6 +7,10 @@ config();
 export const configOptions: ConfigurationOptions = {
     clientID: process.env.CLIENT_ID as string,
     clientOptions: {
+        allowedMentions: {
+            parse: ["users", "roles"],
+            repliedUser: true
+        },
         intents: [
             Intents.FLAGS.DIRECT_MESSAGES,
             Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,

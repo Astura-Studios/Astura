@@ -33,7 +33,7 @@ export default class PingCommand extends Command {
                     "SEND_MESSAGES"
                 ]
             },
-            ownerOnly: true,
+            ownerOnly: false,
             usage: "/ping"
         });
     };
@@ -41,7 +41,7 @@ export default class PingCommand extends Command {
     public async exec(client: AsturaClient, interaction: CommandInteraction): Promise<void> {
         try {
             const wait: <T = void>(delay?: number | undefined, value?: T | undefined, options?: TimerOptions | undefined) => Promise<T> = promisify(setTimeout);
-            
+
             await interaction.reply({
                 embeds: [
                     client.util.embed({

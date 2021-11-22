@@ -31,7 +31,16 @@ class ReadyListener extends Listener_1.Listener {
                     "invisible": "Offline"
                 };
                 console.log(`${client.util.date.getLocalTime()} | [ discord.js ] discord.js Version: ${discord_js_1.version}`);
-                const setActivity = new Promise((resolve, reject) => {
+                console.log(`${client.util.date.getLocalTime()} | [ Lavalink ] Connecting to Lavalink client...`);
+                this.client.manager.connect()
+                    .then((success) => {
+                    return console.log(`${client.util.date.getLocalTime()} | [ Lavalink ] Connected to ${success.filter(ws => ws !== null).length} Lavalink node(s) out of ${this.client.nodes.length} total node(s).`);
+                })
+                    .catch((error) => {
+                    console.log(`${client.util.date.getLocalTime()} | [ Lavalink ]: ${error.stack}`);
+                    return process.exit(1);
+                });
+                const setActivity = new Promise((resolve, _reject) => {
                     resolve(client.user.setPresence({
                         activities: [
                             {

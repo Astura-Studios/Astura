@@ -15,10 +15,12 @@ const CommandHandler_1 = require("../handlers/CommandHandler");
 const Configuration_1 = require("../structures/Configuration");
 const Database_1 = require("../structures/database/Database");
 const ListenerHandler_1 = require("../handlers/ListenerHandler");
+const Manager_1 = require("../structures/music/Manager");
 const Markdown_1 = require("../structures/util/Markdown");
 const Utilities_1 = require("../structures/util/Utilities");
 const Config_1 = require("./Config");
 const path_1 = require("path");
+const Nodes_1 = require("../structures/music/Nodes");
 ;
 class AsturaClient extends discord_js_1.Client {
     constructor() {
@@ -27,8 +29,11 @@ class AsturaClient extends discord_js_1.Client {
         this.db = new Database_1.Database(this);
         this.guild = this.guilds.cache.get("760659394370994197");
         this.guildID = "760659394370994197";
+        this.manager = new Manager_1.Manager(this);
         this.markdown = new Markdown_1.Markdown();
+        this.nodes = Nodes_1.nodes;
         this.util = new Utilities_1.Utilities(this);
+        this.queues = new discord_js_1.Collection();
         this.commandHandler = new CommandHandler_1.CommandHandler(this, {
             allowDirectMessages: true,
             blockBots: true,
@@ -55,6 +60,10 @@ class AsturaClient extends discord_js_1.Client {
             yield this.listenerHandler.load();
             yield this.db.init();
             yield this.db.connect();
+            yield this.manager.connect();
+            this.manager.on("error", (error, _node) => {
+                return console.log(`[ Lavalink Manager ] ${error.stack}`);
+            });
         });
     }
     ;

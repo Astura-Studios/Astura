@@ -54,12 +54,12 @@ export default class ShrugCommand extends Command {
             
             if (message) {
                 await webhook.send(`${message} ¯\\\_(ツ)\_/¯`)
-                    .then(() => {
+                    .then((): Promise<void> => {
                         return webhook.delete();
                     });
             } else {
                 await webhook.send(`¯\\\_(ツ)\_/¯`)
-                    .then(() => {
+                    .then((): Promise<void> => {
                         return webhook.delete();
                     });
             };

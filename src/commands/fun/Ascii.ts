@@ -47,7 +47,7 @@ export default class AsciiCommand extends Command {
         try {
             const inputText: string = interaction.options.getString("text") as string;
 
-            text(inputText, (error: Error | null, result?: string) => {
+            text(inputText, (_error: Error | null, result?: string): Promise<void> => {
                 if ((result as string).length > 2000) return interaction.reply({
                     content: "Please provide text shorter than 2000 characters!",
                     ephemeral: true
