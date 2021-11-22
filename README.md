@@ -2,7 +2,7 @@
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://discord.gg/FtkbxQsWAX" target="_blank">
-    <img alt="Discord" src="https://img.shields.io/badge/discord/760659394370994197" />
+    <img alt="Discord" src="https://img.shields.io/discord/760659394370994197" />
   </a>
   <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">
     <img alt="License: BSD 3 Clause License" src="https://img.shields.io/github/license/Astura-Studios/Astura" />
