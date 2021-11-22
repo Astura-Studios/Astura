@@ -1,18 +1,20 @@
 <img src="assets/images/Banner.svg" alt="Astura Discord Bot banner" align="center" />
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?style=for-the-badge&logo=github&cacheSeconds=2592000" />
-  <a href="https://discord.gg/FtkbxQsWAX" target="_blank">
-    <img alt="Discord" src="https://img.shields.io/discord/760659394370994197?style=for-the-badge&logo=discord" />
-  </a>
-  <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">
-    <img alt="License: BSD 3 Clause License" src="https://img.shields.io/github/license/Astura-Studios/Astura?style=for-the-badge&logo=github" />
-  </a>
-  <a href="https://github.com/Astura-Studios/Astura/contributors" target="_blank">
-    <img alt="Contributors" src="https://img.shields.io/github/contributors/Astura-Studios/Astura?style=for-the-badge&logo=github">
-  </a>
-  <a href="https://github.com/Astura-Studios/Astura/search?l=typescript" target="_blank">
-    <img alt="Top language" src="https://img.shields.io/github/languages/top/astura-studios/Astura?style=for-the-badge&logo=github">
-  </a>
+    <a href="https://github.com/Astura-Studios/Astura/releases" target="_blank">
+        <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?style=for-the-badge&logo=github&cacheSeconds=2592000" />
+    </a>
+    <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">
+        <img alt="License: BSD 3 Clause License" src="https://img.shields.io/github/license/Astura-Studios/Astura?style=for-the-badge&logo=github" />
+    </a>
+    <a href="https://github.com/Astura-Studios/Astura/contributors" target="_blank">
+        <img alt="Contributors" src="https://img.shields.io/github/contributors/Astura-Studios/Astura?style=for-the-badge&logo=github">
+    </a>
+    <a href="https://github.com/Astura-Studios/Astura/search?l=typescript" target="_blank">
+        <img alt="Top language" src="https://img.shields.io/github/languages/top/astura-studios/Astura?style=for-the-badge&logo=github">
+    </a>
+    <a href="https://discord.gg/FtkbxQsWAX" target="_blank">
+        <img alt="Discord" src="https://img.shields.io/discord/760659394370994197?style=for-the-badge&logo=discord" />
+    </a>
 </p>
 
 > The official Discord bot for the Astura Studios Discord community server.
