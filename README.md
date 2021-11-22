@@ -1,4 +1,4 @@
-![Astura Bot Banner](assets/images/Banner.svg)
+<img src="assets/images/Banner.svg" alt="Astura Discord Bot banner" align="center" />
 <h1 align="center">Welcome to the repository for Astura👋</h1>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
