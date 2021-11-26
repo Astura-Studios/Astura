@@ -32,9 +32,9 @@ class ReadyListener extends Listener_1.Listener {
                 };
                 console.log(`${client.util.date.getLocalTime()} | [ discord.js ] discord.js Version: ${discord_js_1.version}`);
                 console.log(`${client.util.date.getLocalTime()} | [ Lavalink ] Connecting to Lavalink client...`);
-                this.client.manager.connect()
+                client.manager.connect()
                     .then((success) => {
-                    return console.log(`${client.util.date.getLocalTime()} | [ Lavalink ] Connected to ${success.filter(ws => ws !== null).length} Lavalink node(s) out of ${this.client.nodes.length} total node(s).`);
+                    return console.log(`${client.util.date.getLocalTime()} | [ Lavalink ] Connected to ${success.filter(ws => ws !== null).length} Lavalink node(s) out of ${client.nodes.length} total node(s).`);
                 })
                     .catch((error) => {
                     console.log(`${client.util.date.getLocalTime()} | [ Lavalink ]: ${error.stack}`);

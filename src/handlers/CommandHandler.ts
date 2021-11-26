@@ -65,7 +65,7 @@ export class CommandHandler {
             };
 
             this.categories.set(this.client.util.string.capitalize(category), new Category(this.client.util.string.capitalize(category), {
-                content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
+                content: this.commands.filter((cmd: Command): boolean => cmd.category.toLowerCase() === category.toLowerCase()),
                 description: "",
                 type: "command"
             }));    
@@ -78,10 +78,10 @@ export class CommandHandler {
         return this.rest.put(Routes.applicationGuildCommands(clientID, this.client.guildID), {
             body: this.commands.toJSON()
         })
-            .then(() => {
+            .then((): void => {
                 return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] Successfully registered ${this.commands.toJSON().length} slash commands`);
             })
-            .catch((error: Error) => {
+            .catch((error: Error): void => {
                 return console.log(`${this.client.util.date.getLocalTime()} | [ Command Handler ] ${error.stack}`);
             });
     };

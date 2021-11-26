@@ -47,19 +47,27 @@ class MemeCommand extends Command_1.Command {
     exec(client, interaction) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                (0, node_fetch_1.default)("https://meme-api.herokuapp.com/gimme")
+                (0, node_fetch_1.default)("https://www.reddit.com/r/memes/random/.json") //fetch("https://meme-api.herokuapp.com/gimme")
                     .then((response) => response.json())
-                    .then((content) => {
+                    .then((data) => {
+                    const content = data[0].data.children[0].data;
+                    const permalink = content.permalink;
+                    const memeURL = `https://www.reddit.com${permalink}`; // content.postLink
+                    const memeImage = content.url;
+                    const memeTitle = content.title;
+                    const memeUpvotes = content.ups;
+                    const memeDownvotes = content.downs;
+                    const memeComments = content.num_comments;
                     return interaction.reply({
                         embeds: [
                             {
                                 color: client.util.defaults.embed.color,
-                                title: `${content.title} (by ${content.author})`,
-                                url: content.postLink,
+                                title: `${memeTitle}`,
+                                url: memeURL,
                                 image: {
-                                    url: content.url
+                                    url: memeImage // content.url
                                 },
-                                description: `<:thumbs_up_white:796179483253538898> ${content.ups}` /**`, <:thumbs_down_white:796178894809202719> ${memeDownvotes}, <:chat_white_icon:796178895119581224> ${memeComments}`**/
+                                description: `<:thumbs_up_white:796179483253538898> ${memeUpvotes}, <:thumbs_down_white:796178894809202719> ${memeDownvotes}, <:chat_white_icon:796178895119581224> ${memeComments}`
                             }
                         ]
                     });
@@ -73,7 +81,7 @@ class MemeCommand extends Command_1.Command {
                 });
             }
             catch (error) {
-                return console.log(`${client.util.date.getLocalTime()} | [ Shrug Command ] ${error.stack}`);
+                return console.log(`${client.util.date.getLocalTime()} | [ Meme Command ] ${error.stack}`);
             }
             ;
         });

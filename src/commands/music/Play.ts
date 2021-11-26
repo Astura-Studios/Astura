@@ -3,6 +3,7 @@ import { AsturaClient } from "../../client/Client";
 import { Command } from "../../structures/Command";
 import { CommandInteraction, GuildMember, TextChannel } from "discord.js";
 import { Queue } from "../../structures/music/Queue";
+import { Song } from "../../structures/util/Interfaces";
 import { configOptions } from "../../client/Config";
 
 export default class PlayCommand extends Command {
@@ -42,26 +43,43 @@ export default class PlayCommand extends Command {
     public async exec(client: AsturaClient, interaction: CommandInteraction): Promise<void> {
         try {
             if (!(interaction.member as GuildMember).voice.channel) return interaction.reply({
-                content: "You must be in a voice channel to play a song!",
+                embeds: [
+                    {
+                        color: client.util.defaults.embed.color,
+                        author: {
+                            name: "Looks like you've been lost in the void.",
+                            iconURL: interaction.user.avatarURL({ dynamic: true }) as string
+                        },
+                        description: `${client.markdown.userMention(interaction.user.id)}, it seems I was unable to play the song you requested for using your search query as you are not in a voice channel. Please join a voice channel first and then rerun the command.` 
+                    }
+                ],
                 ephemeral: true
             });
+
 
             const inputSong: string = interaction.options.getString("song") as string;
-            if (!inputSong) return interaction.reply({
-                content: "Please provide a song to play!",
-                ephemeral: true
-            });
 
-            const guildQueue: Queue = client.queues.get(interaction.guildId) as Queue;
-            if (guildQueue) client.queues.set(interaction.guildId, new Queue(client, {
+            if (!client.queues.get(interaction.guildId)) client.queues.set(interaction.guildId, new Queue(client, {
                 guildID: interaction.guildId,
                 channelID: (interaction.member as GuildMember).voice.channel?.id as string,
                 textChannel: interaction.channel as TextChannel
             }));
 
-            const { song }: any = await (await guildQueue.search(inputSong)).json();
+            const guildQueue: Queue = client.queues.get(interaction.guildId) as Queue;
+            const result: Song[] | [] = await guildQueue.search(inputSong);
+            const song: Song = result[0];
+
             if (!song) return interaction.reply({
-                content: "Unknown song.",
+                embeds: [
+                    {
+                        color: client.util.defaults.embed.color,
+                        author: {
+                            name: "There seems to have been a glitch...",
+                            iconURL: interaction.user.avatarURL({ dynamic: true }) as string
+                        },
+                        description: `${client.markdown.userMention(interaction.user.id)}, it seems that I was unable to find the song you requested for using your search query. Please ensure you have spelt everything correctly and rerun the command.` 
+                    }
+                ],
                 ephemeral: true
             });
 
@@ -75,7 +93,7 @@ export default class PlayCommand extends Command {
                             title: `Added to queue: ${song.info.author}`,
                             fields: [
                                 { name: "Author", value: song.info.author, inline: true },
-                                { name: "Length", value: client.util.date.convertFromMs(song.info.author), inline: true },
+                                { name: "Length", value: client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max") as string, inline: true },
                                 { name: "Link", value: song.info.uri, inline: true } 
                             ]
                         }

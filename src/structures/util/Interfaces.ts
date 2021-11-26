@@ -120,6 +120,7 @@ export interface ListenerHandlerOptions {
 };
 
 export interface Meme {
+    /**
     postLink: string;
     subreddit: string;
     title: string;
@@ -129,6 +130,13 @@ export interface Meme {
     author: string;
     ups: number;
     preview: string[];
+    **/
+   permalink: string;
+   url: string;
+   title: string;
+   ups: number;
+   downs: number;
+   num_comments: number;
 };
 
 export interface Node {
@@ -144,12 +152,40 @@ export interface PlayerOptions {
     textChannel: TextChannel;
 };
 
+export interface SearchResult {
+    playlistInfo: {};
+    loadType: string; // Add type later
+    tracks: Song[];
+};
+
+export interface Song {
+    track: string;
+    info: SongInformation;
+};
+
+export interface SongInformation {
+    identifier: string;
+    isSeekable: boolean;
+    author: string;
+    length: number;
+    isStream: boolean;
+    position: 0;
+    sourceName: string;
+    title: string;
+    uri: string;
+};
+
 export interface Statuses {
     "online": string;
     "idle": string;
     "dnd": string;
     "offline": string;
     "invisible": string;
+};
+
+export interface Track {
+    track: string;
+    info: SongInformation;
 };
 
 export interface UtilityDefaults {

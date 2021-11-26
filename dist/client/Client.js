@@ -41,10 +41,10 @@ class AsturaClient extends discord_js_1.Client {
             warnings: {
                 dmOnly: (interaction) => `${this.markdown.userMention(interaction.user.id)}, you can only use this command in servers!`,
                 guildOnly: (interaction) => `${this.markdown.userMention(interaction.user.id)}, you can only use this command in direct message channels!`,
-                ownerOnly: (interaction) => `${this.markdown.userMention(interaction.user.id)}, only owners can use this command!`,
+                ownerOnly: (interaction) => `${this.markdown.userMention(interaction.user.id)}, it seems that I was unable to execute the command because it is reserved for the owners of the bot. If you think this is a mistake, feel free to contact the bot developers (${this.markdown.userMention(this.config.owners[0])}).`,
                 clientMissingPermissions: (client, interaction, permissions, command) => `Hey there **${interaction.user.username}**. Unfortunately ${client.user.username} was unable to run the **${command.id}** command as it is missing the following permissions in this server: ${permissions}. If you do not have authorization to do change permissions, let a staff member know.`,
-                missingSendPermissions: (interaction) => `${this.markdown.userMention(interaction.user.id)}, I am missing the following permission(s): \`Send Messages\``,
-                userMissingPermissions: (client, interaction, permissions, command) => `Hey there **${interaction.user.username}**. Unfortunately ${client.user.username} was unable to run the **${command.id}** command as you are missing the following permissions in this server: ${permissions}. If you do not have authorization to do change permissions, let a staff member know.`,
+                missingSendPermissions: (interaction) => `${this.markdown.userMention(interaction.user.id)}, it seems that I was unable to execute the command as I am missing the following permission(s) in the server: \`Send Messages\``,
+                userMissingPermissions: (client, interaction, permissions, command) => `${this.markdown.userMention(interaction.user.id)}, it seems that I was unable to execute the **${command.id}** command as you are missing the following permissions in this server: ${permissions}. Please ensure you have the correct permissions required and rerun the command. If you think this is a mistake, feel free to contact the bot developers (${this.markdown.userMention(this.config.owners[0])}).`,
                 cooldownWarning: (interaction, remaining, command) => `${this.markdown.userMention(interaction.user.id)}, please wait **${remaining}** seconds before reusing the \`${command.id}\` command!`
             }
         });

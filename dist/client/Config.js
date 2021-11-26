@@ -7,6 +7,10 @@ const dotenv_1 = require("dotenv");
 exports.configOptions = {
     clientID: process.env.CLIENT_ID,
     clientOptions: {
+        allowedMentions: {
+            parse: ["users", "roles"],
+            repliedUser: true
+        },
         intents: [
             discord_js_1.Intents.FLAGS.DIRECT_MESSAGES,
             discord_js_1.Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,

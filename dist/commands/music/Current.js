@@ -37,14 +37,18 @@ class NPCommand extends Command_1.Command {
     }
     ;
     exec(client, interaction) {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const guildQueue = client.queues.get(interaction.guildId);
-                if (!guildQueue)
-                    return (_a = interaction.channel) === null || _a === void 0 ? void 0 : _a.send({
-                        content: "Nothing is currently playing."
+                if (!client.queues.get(interaction.guildId))
+                    return interaction.reply({
+                        embeds: [
+                            {
+                                color: client.util.defaults.embed.color,
+                                description: "Nothing is currently playing in a voice channel in the server."
+                            }
+                        ]
                     });
+                const guildQueue = client.queues.get(interaction.guildId);
                 const song = guildQueue.currentlyPlaying;
                 return interaction.reply({
                     embeds: [
@@ -53,7 +57,7 @@ class NPCommand extends Command_1.Command {
                             title: `Currently playing: ${song.info.author}`,
                             fields: [
                                 { name: "Author", value: song.info.author, inline: true },
-                                { name: "Length", value: client.util.date.convertFromMs(song.info.author), inline: true },
+                                { name: "Length", value: client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max"), inline: true },
                                 { name: "Link", value: song.info.uri, inline: true }
                             ]
                         }
@@ -61,7 +65,7 @@ class NPCommand extends Command_1.Command {
                 });
             }
             catch (error) {
-                return console.log(`${client.util.date.getLocalTime()} | [ NP Command ] ${error.stack}`);
+                return console.log(`${client.util.date.getLocalTime()} | [ Current Command ] ${error.stack}`);
             }
             ;
         });

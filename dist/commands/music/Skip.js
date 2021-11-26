@@ -41,15 +41,28 @@ class SkipCommand extends Command_1.Command {
             try {
                 if (!interaction.member.voice.channel)
                     return interaction.reply({
-                        content: "You aren't in a voice channel",
+                        embeds: [
+                            {
+                                color: client.util.defaults.embed.color,
+                                author: {
+                                    name: "Looks like you've been lost in the void.",
+                                    iconURL: interaction.user.avatarURL({ dynamic: true })
+                                },
+                                description: `${client.markdown.userMention(interaction.user.id)}, it seems I was unable to skip the currently playing song as you requested as you are not in a voice channel. Please join a voice channel first and then rerun the command.`
+                            }
+                        ],
                         ephemeral: true
+                    });
+                if (!client.queues.get(interaction.guildId))
+                    return interaction.reply({
+                        embeds: [
+                            {
+                                color: client.util.defaults.embed.color,
+                                description: "Nothing is currently playing in a voice channel in the server."
+                            }
+                        ]
                     });
                 const guildQueue = client.queues.get(interaction.guildId);
-                if (!guildQueue)
-                    return interaction.reply({
-                        content: "Nothing is playing.",
-                        ephemeral: true
-                    });
                 guildQueue.playNext();
             }
             catch (error) {

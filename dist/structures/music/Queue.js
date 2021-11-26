@@ -8,10 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Queue = void 0;
 const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
+const node_fetch_1 = __importDefault(require("node-fetch"));
 class Queue {
     constructor(client, options) {
         this.client = client;
@@ -31,19 +35,19 @@ class Queue {
             const urlRegex = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
             const params = new URLSearchParams();
             params.append("identifier", urlRegex.test(searchQuery) ? searchQuery : `ytsearch:${searchQuery}`);
-            const data = yield fetch(`http://${node.host}:${node.port}/loadtracks?${params}`, {
+            const data = yield (0, node_fetch_1.default)(`http://${node.host}:${node.port}/loadtracks?${params}`, {
                 headers: {
-                    "Authorization": node.password
+                    Authorization: node.password
                 }
-            });
-            console.log(data);
-            return (_a = data.data.tracks) !== null && _a !== void 0 ? _a : [];
+            })
+                .then((res) => res.json());
+            return (_a = data.tracks) !== null && _a !== void 0 ? _a : [];
         });
     }
     ;
-    play(track) {
+    play(song) {
         return __awaiter(this, void 0, void 0, function* () {
-            this.queue.push(track);
+            this.queue.push(song);
             if (!this.currentlyPlaying) {
                 this.playNext();
                 return false;
@@ -72,8 +76,16 @@ class Queue {
                         color: this.client.util.defaults.embed.color,
                         title: `Now playing: ${nextSong.info.title}`,
                         fields: [
-                            { name: "Author", value: nextSong.info.author, inline: true },
-                            { name: "Length", value: this.client.util.date.convertFromMs(nextSong.info.author), inline: true },
+                            {
+                                name: "Author",
+                                value: nextSong.info.author,
+                                inline: true
+                            },
+                            {
+                                name: "Length",
+                                value: this.client.util.date.convertFromMs(nextSong.info.length, true, "d:h:m:s", "max"),
+                                inline: true
+                            },
                             { name: "Link", value: nextSong.info.uri, inline: true }
                         ]
                     }
@@ -85,7 +97,7 @@ class Queue {
                     channel: this.channelID,
                     node: this.manager.idealNodes[0].id
                 });
-                this.player.on("end", data => {
+                this.player.on("end", (data) => {
                     if (data.reason === "REPLACED" || data.reason === "STOPPED")
                         return;
                     this.playNext();

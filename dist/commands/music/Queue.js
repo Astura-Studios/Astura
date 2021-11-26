@@ -37,22 +37,33 @@ class QueueCommand extends Command_1.Command {
     }
     ;
     exec(client, interaction) {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const guildQueue = client.queues.get(interaction.guildId);
-                if (!guildQueue)
-                    return (_a = interaction.channel) === null || _a === void 0 ? void 0 : _a.send({
-                        content: "Nothing is currently playing."
+                if (!client.queues.get(interaction.guildId))
+                    return interaction.reply({
+                        embeds: [
+                            {
+                                color: client.util.defaults.embed.color,
+                                description: "The music queue for the current server is currently empty."
+                            }
+                        ]
                     });
+                const guildQueue = client.queues.get(interaction.guildId);
                 const next = guildQueue.queue;
-                const text = next.map((song, index) => `${++index}) ${song.info.title} - ${song.info.author} - ${client.util.date.convertFromMs(song.info.length)}`);
+                const text = next.map((song, index) => `${++index}) ${song.info.title} - ${song.info.author} - ${client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max")}`);
+                console.log(text);
                 return interaction.reply({
                     embeds: [
                         {
                             color: client.util.defaults.embed.color,
-                            title: "Server Queue",
-                            description: client.markdown.codeBlock(`${text !== null && text !== void 0 ? text : "Nothing in queue"}\n`)
+                            author: {
+                                name: `${interaction.guild.name} - Server Music Queue`,
+                                iconURL: interaction.guild.iconURL({ dynamic: true })
+                            },
+                            thumbnail: {
+                                url: interaction.guild.iconURL({ dynamic: true })
+                            },
+                            description: `${text.length <= 0 ? "**The music queue for the current server is currently empty.**" : text.join("\n")}`
                         }
                     ]
                 });

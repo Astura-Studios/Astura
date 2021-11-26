@@ -53,26 +53,40 @@ class PlayCommand extends Command_1.Command {
             try {
                 if (!interaction.member.voice.channel)
                     return interaction.reply({
-                        content: "You must be in a voice channel to play a song!",
+                        embeds: [
+                            {
+                                color: client.util.defaults.embed.color,
+                                author: {
+                                    name: "Looks like you've been lost in the void.",
+                                    iconURL: interaction.user.avatarURL({ dynamic: true })
+                                },
+                                description: `${client.markdown.userMention(interaction.user.id)}, it seems I was unable to play the song you requested for using your search query as you are not in a voice channel. Please join a voice channel first and then rerun the command.`
+                            }
+                        ],
                         ephemeral: true
                     });
                 const inputSong = interaction.options.getString("song");
-                if (!inputSong)
-                    return interaction.reply({
-                        content: "Please provide a song to play!",
-                        ephemeral: true
-                    });
-                const guildQueue = client.queues.get(interaction.guildId);
-                if (guildQueue)
+                if (!client.queues.get(interaction.guildId))
                     client.queues.set(interaction.guildId, new Queue_1.Queue(client, {
                         guildID: interaction.guildId,
                         channelID: (_a = interaction.member.voice.channel) === null || _a === void 0 ? void 0 : _a.id,
                         textChannel: interaction.channel
                     }));
-                const { song } = yield (yield guildQueue.search(inputSong)).json();
+                const guildQueue = client.queues.get(interaction.guildId);
+                const result = yield guildQueue.search(inputSong);
+                const song = result[0];
                 if (!song)
                     return interaction.reply({
-                        content: "Unknown song.",
+                        embeds: [
+                            {
+                                color: client.util.defaults.embed.color,
+                                author: {
+                                    name: "There seems to have been a glitch...",
+                                    iconURL: interaction.user.avatarURL({ dynamic: true })
+                                },
+                                description: `${client.markdown.userMention(interaction.user.id)}, it seems that I was unable to find the song you requested for using your search query. Please ensure you have spelt everything correctly and rerun the command.`
+                            }
+                        ],
                         ephemeral: true
                     });
                 const isAdded = yield guildQueue.play(song);
@@ -84,7 +98,7 @@ class PlayCommand extends Command_1.Command {
                                 title: `Added to queue: ${song.info.author}`,
                                 fields: [
                                     { name: "Author", value: song.info.author, inline: true },
-                                    { name: "Length", value: client.util.date.convertFromMs(song.info.author), inline: true },
+                                    { name: "Length", value: client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max"), inline: true },
                                     { name: "Link", value: song.info.uri, inline: true }
                                 ]
                             }

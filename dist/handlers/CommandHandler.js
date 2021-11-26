@@ -59,7 +59,7 @@ class CommandHandler {
                 }
                 ;
                 this.categories.set(this.client.util.string.capitalize(category), new Category_1.Category(this.client.util.string.capitalize(category), {
-                    content: this.commands.filter(cmd => cmd.category.toLowerCase() === category.toLowerCase()),
+                    content: this.commands.filter((cmd) => cmd.category.toLowerCase() === category.toLowerCase()),
                     description: "",
                     type: "command"
                 }));

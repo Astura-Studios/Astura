@@ -1,926 +1,629 @@
-2021-11-21 21:31:24.183  WARN 14320 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 21:31:24.209 ERROR 14320 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:31:24.215 ERROR 14320 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:34:26.854  WARN 21024 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 21:34:26.879 ERROR 21024 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]b
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:34:26.906 ERROR 21024 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:42:24.606  WARN 14172 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 21:42:24.627 ERROR 14172 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:42:24.633 ERROR 14172 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:43:09.495  WARN 10720 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 21:43:09.528 ERROR 10720 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:43:09.535 ERROR 10720 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:57:18.663  WARN 14008 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 21:57:18.685 ERROR 14008 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:57:18.694 ERROR 14008 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:58:55.417  WARN 20760 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 21:58:55.442 ERROR 20760 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 21:58:55.447 ERROR 20760 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 22:19:40.813  WARN 15860 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 22:19:40.844 ERROR 15860 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 22:19:40.850 ERROR 15860 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 22:19:55.756  WARN 12636 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 22:19:56.009 ERROR 12636 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 22:19:56.017 ERROR 12636 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 22:21:01.005  WARN 15564 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 22:21:01.043 ERROR 15564 --- [main] lavalink.server.Launcher                 : Application failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 22:21:01.049 ERROR 15564 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-java.lang.UnsupportedClassVersionError: lavalink/server/info/AppInfo has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.defineClass(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.access$100(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.net.URLClassLoader$1.run(Unknown Source) ~[na:1.8.0_51]
-	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.8.0_51]
-	at java.net.URLClassLoader.findClass(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.LaunchedURLClassLoader.loadClass(LaunchedURLClassLoader.java:93) ~[Lavalink.jar:na]
-	at java.lang.ClassLoader.loadClass(Unknown Source) ~[na:1.8.0_51]
-	at lavalink.server.Launcher.getVersionInfo(Launcher.kt:50) [classes!/:na]
-	at lavalink.server.Launcher.getVersionInfo$default(Launcher.kt:49) [classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:118) ~[classes!/:na]
-	at lavalink.server.Launcher$main$1.onApplicationEvent(Launcher.kt:43) ~[classes!/:na]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:76) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:305) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) [classes!/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_51]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_51]
-	at java.lang.reflect.Method.invoke(Unknown Source) ~[na:1.8.0_51]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) [Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) [Lavalink.jar:na]
-
-2021-11-21 22:27:51.414  INFO 4480 --- [main] lavalink.server.Launcher                 : 
-
-[32m       .  [31m _                  _ _       _    [32m__ _ _
-[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
-[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
-[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
-[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
-[0m    =========================================[32m/_/_/_/[0m
-
-	Version:        3.4
-	Build:          1257
-	Build time:     26.10.2021 14:18:37 UTC
-	Branch          master
-	Commit:         a364833
-	Commit time:    26.10.2021 14:15:20 UTC
-	JVM:            17.0.1
-	Lavaplayer      1.3.96-original
-
-2021-11-21 22:27:51.521  INFO 4480 --- [main] lavalink.server.Launcher                 : Starting Launcher on LAPTOP-0K6PG8VA with PID 4480 (C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink\Lavalink.jar started by ascen in C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink)
-2021-11-21 22:27:51.524  INFO 4480 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
-2021-11-21 22:27:51.648  WARN 4480 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 22:27:52.782  WARN 4480 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2021-11-21 22:27:52.806  INFO 4480 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2021-11-21 22:27:52.807  INFO 4480 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1233 ms
-2021-11-21 22:27:53.155  WARN 4480 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
-2021-11-21 22:27:53.422  INFO 4480 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2021-11-21 22:27:53.615  INFO 4480 --- [main] lavalink.server.config.KoeConfiguration  : OS: Windows 10, Arch: amd64
-2021-11-21 22:27:53.615  WARN 4480 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
-2021-11-21 22:27:53.841  INFO 4480 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-11-21 22:27:54.125  INFO 4480 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
-2021-11-21 22:27:54.135  INFO 4480 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
-2021-11-21 22:27:54.198  INFO 4480 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
-2021-11-21 22:27:54.254  INFO 4480 --- [main] lavalink.server.Launcher                 : Started Launcher in 3.329 seconds (JVM running for 3.821)
-2021-11-21 22:27:54.256  INFO 4480 --- [main] lavalink.server.Launcher                 : You can safely ignore the big red warning about illegal reflection. See https://github.com/freyacodes/Lavalink/issues/295
-2021-11-21 22:28:10.041  INFO 15696 --- [main] lavalink.server.Launcher                 : 
-
-[32m       .  [31m _                  _ _       _    [32m__ _ _
-[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
-[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
-[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
-[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
-[0m    =========================================[32m/_/_/_/[0m
-
-	Version:        3.4
-	Build:          1257
-	Build time:     26.10.2021 14:18:37 UTC
-	Branch          master
-	Commit:         a364833
-	Commit time:    26.10.2021 14:15:20 UTC
-	JVM:            17.0.1
-	Lavaplayer      1.3.96-original
-
-2021-11-21 22:28:10.180  INFO 15696 --- [main] lavalink.server.Launcher                 : Starting Launcher on LAPTOP-0K6PG8VA with PID 15696 (C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink\Lavalink.jar started by ascen in C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink)
-2021-11-21 22:28:10.183  INFO 15696 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
-2021-11-21 22:28:10.350  WARN 15696 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 22:28:11.608  WARN 15696 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2021-11-21 22:28:11.634  INFO 15696 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2021-11-21 22:28:11.635  INFO 15696 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1365 ms
-2021-11-21 22:28:12.201  WARN 15696 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
-2021-11-21 22:28:12.613  INFO 15696 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2021-11-21 22:28:12.653  INFO 12568 --- [main] lavalink.server.Launcher                 : 
-
-[32m       .  [31m _                  _ _       _    [32m__ _ _
-[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
-[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
-[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
-[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
-[0m    =========================================[32m/_/_/_/[0m
-
-	Version:        3.4
-	Build:          1257
-	Build time:     26.10.2021 14:18:37 UTC
-	Branch          master
-	Commit:         a364833
-	Commit time:    26.10.2021 14:15:20 UTC
-	JVM:            17.0.1
-	Lavaplayer      1.3.96-original
-
-2021-11-21 22:28:12.786  INFO 12568 --- [main] lavalink.server.Launcher                 : Starting Launcher on LAPTOP-0K6PG8VA with PID 12568 (C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink\Lavalink.jar started by ascen in C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink)
-2021-11-21 22:28:12.788  INFO 12568 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
-2021-11-21 22:28:12.859  INFO 15696 --- [main] lavalink.server.config.KoeConfiguration  : OS: Windows 10, Arch: amd64
-2021-11-21 22:28:12.860  WARN 15696 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
-2021-11-21 22:28:12.983  WARN 12568 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-21 22:28:13.439  INFO 15696 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-11-21 22:28:13.935  INFO 15696 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
-2021-11-21 22:28:13.946  INFO 15696 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
-2021-11-21 22:28:14.015  INFO 15696 --- [main] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2021-11-21 22:28:14.020 ERROR 15696 --- [main] lavalink.server.Launcher                 : Application failed
-
-org.springframework.boot.web.server.PortInUseException: Port 2333 is already in use
-	at org.springframework.boot.web.embedded.undertow.UndertowServletWebServer.start(UndertowServletWebServer.java:154) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:297) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:163) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) ~[classes!/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) ~[Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) ~[Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) ~[Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) ~[Lavalink.jar:na]
-
-2021-11-21 22:28:14.025 ERROR 15696 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 2333 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 2333 or configure this application to listen on another port.
-
-2021-11-21 22:28:14.043  INFO 15696 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-11-21 22:28:14.044  INFO 15696 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2021-11-21 22:28:14.548  WARN 12568 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2021-11-21 22:28:14.572  INFO 12568 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2021-11-21 22:28:14.572  INFO 12568 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1646 ms
-2021-11-21 22:28:14.903  WARN 12568 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
-2021-11-21 22:28:15.162  INFO 12568 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2021-11-21 22:28:15.340  INFO 12568 --- [main] lavalink.server.config.KoeConfiguration  : OS: Windows 10, Arch: amd64
-2021-11-21 22:28:15.341  WARN 12568 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
-2021-11-21 22:28:15.576  INFO 12568 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-11-21 22:28:15.879  INFO 12568 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
-2021-11-21 22:28:15.890  INFO 12568 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
-2021-11-21 22:28:15.950  INFO 12568 --- [main] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2021-11-21 22:28:15.953 ERROR 12568 --- [main] lavalink.server.Launcher                 : Application failed
-
-org.springframework.boot.web.server.PortInUseException: Port 2333 is already in use
-	at org.springframework.boot.web.embedded.undertow.UndertowServletWebServer.start(UndertowServletWebServer.java:154) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:297) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:163) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552) ~[spring-context-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-2.1.8.RELEASE.jar!/:2.1.8.RELEASE]
-	at lavalink.server.Launcher.main(Launcher.kt:127) ~[classes!/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) ~[Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) ~[Lavalink.jar:na]
-	at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) ~[Lavalink.jar:na]
-	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) ~[Lavalink.jar:na]
-
-2021-11-21 22:28:15.956 ERROR 12568 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 2333 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 2333 or configure this application to listen on another port.
-
-2021-11-21 22:28:15.959  INFO 12568 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-11-21 22:28:15.961  INFO 12568 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2021-11-22 11:53:04.365  INFO 5168 --- [main] lavalink.server.Launcher                 : 
-
-[32m       .  [31m _                  _ _       _    [32m__ _ _
-[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
-[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
-[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
-[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
-[0m    =========================================[32m/_/_/_/[0m
-
-	Version:        3.4
-	Build:          1257
-	Build time:     26.10.2021 14:18:37 UTC
-	Branch          master
-	Commit:         a364833
-	Commit time:    26.10.2021 14:15:20 UTC
-	JVM:            11.0.13
-	Lavaplayer      1.3.96-original
-
-2021-11-22 11:53:04.468  INFO 5168 --- [main] lavalink.server.Launcher                 : Starting Launcher on LAPTOP-0K6PG8VA with PID 5168 (C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink\Lavalink.jar started by ascen in C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink)
-2021-11-22 11:53:04.470  INFO 5168 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
-2021-11-22 11:53:04.519  WARN 5168 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-22 11:53:05.755  WARN 5168 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2021-11-22 11:53:05.778  INFO 5168 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2021-11-22 11:53:05.780  INFO 5168 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1266 ms
-2021-11-22 11:53:06.116  WARN 5168 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
-2021-11-22 11:53:06.454  INFO 5168 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2021-11-22 11:53:06.631  INFO 5168 --- [main] lavalink.server.config.KoeConfiguration  : OS: Windows 10, Arch: amd64
-2021-11-22 11:53:06.631  WARN 5168 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
-2021-11-22 11:53:06.851  INFO 5168 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-11-22 11:53:07.164  INFO 5168 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
-2021-11-22 11:53:07.174  INFO 5168 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
-2021-11-22 11:53:07.239  INFO 5168 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
-2021-11-22 11:53:07.266  INFO 5168 --- [main] lavalink.server.Launcher                 : Started Launcher in 3.459 seconds (JVM running for 5.546)
-2021-11-22 11:53:07.269  INFO 5168 --- [main] lavalink.server.Launcher                 : You can safely ignore the big red warning about illegal reflection. See https://github.com/freyacodes/Lavalink/issues/295
-2021-11-22 11:53:23.147  INFO 5168 --- [XNIO-1 task-1] io.undertow.servlet                      : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-22 11:53:57.099  INFO 5168 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-22 11:53:57.110  INFO 5168 --- [XNIO-1 task-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2021-11-22 11:53:57.143 ERROR 5168 --- [XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Authentication failed from /0:0:0:0:0:0:0:1:62055
-2021-11-22 11:53:59.839  INFO 5168 --- [Thread-1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-11-22 11:53:59.840  INFO 5168 --- [Thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring disabled.
-2021-11-22 11:53:59.843  INFO 5168 --- [Thread-1] io.undertow.servlet                      : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2021-11-22 12:21:54.016  INFO 15232 --- [main] lavalink.server.Launcher                 : 
-
-[32m       .  [31m _                  _ _       _    [32m__ _ _
-[32m      /\\ [31m| | __ ___   ____ _| (_)_ __ | | __[32m\ \ \ \
-[32m     ( ( )[31m| |/ _` \ \ / / _` | | | '_ \| |/ /[32m \ \ \ \
-[32m      \\/ [31m| | (_| |\ V / (_| | | | | | |   < [32m  ) ) ) )
-[32m       '  [31m|_|\__,_| \_/ \__,_|_|_|_| |_|_|\_\[32m / / / /
-[0m    =========================================[32m/_/_/_/[0m
-
-	Version:        3.4
-	Build:          1257
-	Build time:     26.10.2021 14:18:37 UTC
-	Branch          master
-	Commit:         a364833
-	Commit time:    26.10.2021 14:15:20 UTC
-	JVM:            11.0.13
-	Lavaplayer      1.3.96-original
-
-2021-11-22 12:21:54.133  INFO 15232 --- [main] lavalink.server.Launcher                 : Starting Launcher on LAPTOP-0K6PG8VA with PID 15232 (C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink\Lavalink.jar started by ascen in C:\Users\ascen\OneDrive\Documents\Programming\Discord Bots\Astura\lavalink)
-2021-11-22 12:21:54.134  INFO 15232 --- [main] lavalink.server.Launcher                 : No active profile set, falling back to default profiles: default
-2021-11-22 12:21:54.211  WARN 15232 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-11-22 12:21:55.758  WARN 15232 --- [main] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
-2021-11-22 12:21:55.787  INFO 15232 --- [main] io.undertow.servlet                      : Initializing Spring embedded WebApplicationContext
-2021-11-22 12:21:55.788  INFO 15232 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1587 ms
-2021-11-22 12:21:56.145  WARN 15232 --- [main] l.server.config.SentryConfiguration      : Turning off sentry
-2021-11-22 12:21:56.495  INFO 15232 --- [main] c.s.d.l.tools.GarbageCollectionMonitor   : GC monitoring enabled, reporting results every 2 minutes.
-2021-11-22 12:21:56.696  INFO 15232 --- [main] lavalink.server.config.KoeConfiguration  : OS: Windows 10, Arch: amd64
-2021-11-22 12:21:56.698  WARN 15232 --- [main] lavalink.server.config.KoeConfiguration  : This system and architecture appears to not support native audio sending! GC pauses may cause your bot to stutter during playback.
-2021-11-22 12:21:56.940  INFO 15232 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-11-22 12:21:57.252  INFO 15232 --- [main] org.xnio                                 : XNIO version 3.3.8.Final
-2021-11-22 12:21:57.268  INFO 15232 --- [main] org.xnio.nio                             : XNIO NIO Implementation Version 3.3.8.Final
-2021-11-22 12:21:57.324  INFO 15232 --- [main] o.s.b.w.e.u.UndertowServletWebServer     : Undertow started on port(s) 2333 (http) with context path ''
-2021-11-22 12:21:57.330  INFO 15232 --- [main] lavalink.server.Launcher                 : Started Launcher in 3.951 seconds (JVM running for 4.761)
-2021-11-22 12:21:57.332  INFO 15232 --- [main] lavalink.server.Launcher                 : You can safely ignore the big red warning about illegal reflection. See https://github.com/freyacodes/Lavalink/issues/295
+2021-11-26 07:59:25.890  INFO 5960 --- [XNIO-1 task-21] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52223
+2021-11-26 07:59:26.496  INFO 5960 --- [XNIO-1 task-21] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 07:59:26.497  WARN 5960 --- [XNIO-1 task-21] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 07:59:28.748  INFO 5960 --- [XNIO-1 task-22] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52226
+2021-11-26 07:59:28.704  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52223 -- CloseStatus[code=1000, reason=]
+2021-11-26 07:59:28.766  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 07:59:28.819  INFO 5960 --- [XNIO-1 task-22] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 07:59:28.821  WARN 5960 --- [XNIO-1 task-22] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 08:01:32.624  INFO 5960 --- [XNIO-1 task-23] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:lost - lost sky"
+2021-11-26 08:01:33.373  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: lost - lost sky
+2021-11-26 08:01:33.383  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"track":"QAAAiAIAHUxvc3QgU2t5IC0gTG9zdCBbTkNTIFJlbGVhc2VdABFOb0NvcHlyaWdodFNvdW5kcwAAAAAAAmVIAAtoLW5IZHFDM3BQcwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWgtbkhkcUMzcFBzAAd5b3V0dWJlAAAAAAAAAAA=","op":"play","guildId":"760659394370994197"}
+2021-11-26 08:01:33.821  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"sessionId":"6b46ca2791f4d15c166575be4a9283b4","event":{"token":"c6dfb1ff01aa2395","guild_id":"760659394370994197","endpoint":"sydney6743.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 08:04:11.243  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op":"destroy","guildId":"760659394370994197"}
+2021-11-26 08:07:34.772  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 0] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 08:11:34.750  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 0] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 08:13:34.173  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52226 -- CloseStatus[code=1006, reason=]
+2021-11-26 08:13:34.461  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 08:13:34.684  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 0] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 11:34:03.819  INFO 5960 --- [XNIO-1 task-25] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49976
+2021-11-26 11:34:04.416  INFO 5960 --- [XNIO-1 task-25] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:34:04.416  WARN 5960 --- [XNIO-1 task-25] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:34:05.609  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49976 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:34:05.624  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:34:05.798  INFO 5960 --- [XNIO-1 task-26] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49986
+2021-11-26 11:34:05.814  INFO 5960 --- [XNIO-1 task-28] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49987
+2021-11-26 11:34:05.833  INFO 5960 --- [XNIO-1 task-26] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:34:05.860  WARN 5960 --- [XNIO-1 task-26] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:34:05.877  INFO 5960 --- [XNIO-1 task-28] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:34:05.907  WARN 5960 --- [XNIO-1 task-28] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:34:06.215  INFO 5960 --- [XNIO-1 task-27] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49988
+2021-11-26 11:34:06.241  INFO 5960 --- [XNIO-1 task-27] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:34:06.253  WARN 5960 --- [XNIO-1 task-27] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:37:26.913  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49986 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:37:26.913  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49987 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:37:26.913  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49988 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:37:26.933  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:37:26.933  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:37:26.934  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:37:47.244  INFO 5960 --- [XNIO-1 task-29] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:54510
+2021-11-26 11:37:47.273  INFO 5960 --- [XNIO-1 task-29] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:37:47.274  WARN 5960 --- [XNIO-1 task-29] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:37:48.556  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:54510 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:37:48.557  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:37:48.572  INFO 5960 --- [XNIO-1 task-30] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:54516
+2021-11-26 11:37:48.572  INFO 5960 --- [XNIO-1 task-31] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:54517
+2021-11-26 11:37:48.574  INFO 5960 --- [XNIO-1 task-32] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:54518
+2021-11-26 11:37:48.596  INFO 5960 --- [XNIO-1 task-30] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:37:48.597  INFO 5960 --- [XNIO-1 task-31] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:37:48.599  WARN 5960 --- [XNIO-1 task-30] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:37:48.601  WARN 5960 --- [XNIO-1 task-31] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:37:48.602  INFO 5960 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:37:48.640  WARN 5960 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:40:55.467  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:54516 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:40:55.467  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:54517 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:40:55.467  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:54518 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:40:55.626  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:40:55.782  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:40:55.782  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:41:22.778  INFO 5960 --- [XNIO-1 task-33] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60095
+2021-11-26 11:41:22.905  INFO 5960 --- [XNIO-1 task-33] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:41:22.906  WARN 5960 --- [XNIO-1 task-33] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:41:24.128  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60095 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:41:24.129  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:41:24.167  INFO 5960 --- [XNIO-1 task-34] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60104
+2021-11-26 11:41:24.167  INFO 5960 --- [XNIO-1 task-35] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60102
+2021-11-26 11:41:24.181  INFO 5960 --- [XNIO-1 task-36] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60103
+2021-11-26 11:41:24.184  INFO 5960 --- [XNIO-1 task-34] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:41:24.200  INFO 5960 --- [XNIO-1 task-35] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:41:24.212  WARN 5960 --- [XNIO-1 task-34] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:41:24.214  WARN 5960 --- [XNIO-1 task-35] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:41:24.217  INFO 5960 --- [XNIO-1 task-36] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:41:24.242  WARN 5960 --- [XNIO-1 task-36] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:47:35.085  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 0] [Bucket 200 = 0] [Bucket 500 = 3] [Bucket 2000 = 0] 
+2021-11-26 11:48:30.272  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60103 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:48:30.272  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60102 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:48:30.272  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60104 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:48:30.317  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:48:30.333  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:48:30.317  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:49:02.508  INFO 5960 --- [XNIO-1 task-37] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60577
+2021-11-26 11:49:02.969  INFO 5960 --- [XNIO-1 task-37] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:49:02.980  WARN 5960 --- [XNIO-1 task-37] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:49:04.196  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60577 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:49:04.198  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:49:04.185  INFO 5960 --- [XNIO-1 task-39] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60584
+2021-11-26 11:49:04.200  INFO 5960 --- [XNIO-1 task-38] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60582
+2021-11-26 11:49:04.226  INFO 5960 --- [XNIO-1 task-40] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60583
+2021-11-26 11:49:04.355  INFO 5960 --- [XNIO-1 task-39] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:49:04.368  WARN 5960 --- [XNIO-1 task-39] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:49:04.368  INFO 5960 --- [XNIO-1 task-38] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:49:04.368  INFO 5960 --- [XNIO-1 task-40] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:49:04.387  WARN 5960 --- [XNIO-1 task-38] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:49:04.387  WARN 5960 --- [XNIO-1 task-40] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:51:48.123  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60584 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:51:48.123  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60583 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:51:48.123  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60582 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:51:48.152  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:51:48.152  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:51:48.152  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:52:11.050  INFO 5960 --- [XNIO-1 task-41] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59899
+2021-11-26 11:52:11.334  INFO 5960 --- [XNIO-1 task-41] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:52:11.335  WARN 5960 --- [XNIO-1 task-41] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:52:12.503  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59899 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:52:12.504  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:52:12.547  INFO 5960 --- [XNIO-1 task-42] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59904
+2021-11-26 11:52:12.563  INFO 5960 --- [XNIO-1 task-43] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59905
+2021-11-26 11:52:12.580  INFO 5960 --- [XNIO-1 task-44] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59903
+2021-11-26 11:52:12.611  INFO 5960 --- [XNIO-1 task-42] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:52:12.613  INFO 5960 --- [XNIO-1 task-44] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:52:12.642  WARN 5960 --- [XNIO-1 task-42] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:52:12.759  WARN 5960 --- [XNIO-1 task-44] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:52:12.757  INFO 5960 --- [XNIO-1 task-43] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:52:12.784  WARN 5960 --- [XNIO-1 task-43] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:53:27.445  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59905 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:53:27.445  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59903 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:53:27.446  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59904 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:53:27.446  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:53:27.446  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:53:27.447  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:53:45.886  INFO 5960 --- [XNIO-1 task-45] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58171
+2021-11-26 11:53:45.890  INFO 5960 --- [XNIO-1 task-45] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:53:45.892  WARN 5960 --- [XNIO-1 task-45] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:53:47.672  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58171 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:53:47.673  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:53:47.685  INFO 5960 --- [XNIO-1 task-46] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58175
+2021-11-26 11:53:47.687  INFO 5960 --- [XNIO-1 task-48] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58177
+2021-11-26 11:53:47.689  INFO 5960 --- [XNIO-1 task-46] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:53:47.690  INFO 5960 --- [XNIO-1 task-47] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58176
+2021-11-26 11:53:47.715  WARN 5960 --- [XNIO-1 task-46] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:53:47.715  INFO 5960 --- [XNIO-1 task-48] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:53:47.734  WARN 5960 --- [XNIO-1 task-48] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:53:47.735  INFO 5960 --- [XNIO-1 task-47] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:53:47.747  WARN 5960 --- [XNIO-1 task-47] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:55:33.902  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58176 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:55:33.902  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58175 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:55:33.902  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58177 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:55:33.907  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:55:33.907  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:55:33.907  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:55:59.923  INFO 5960 --- [XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55634
+2021-11-26 11:56:00.040  INFO 5960 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:56:00.041  WARN 5960 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:56:01.962  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55634 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:56:01.964  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:56:01.973  INFO 5960 --- [XNIO-1 task-2] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55643
+2021-11-26 11:56:01.974  INFO 5960 --- [XNIO-1 task-4] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55642
+2021-11-26 11:56:01.986  INFO 5960 --- [XNIO-1 task-3] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55644
+2021-11-26 11:56:02.002  INFO 5960 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:56:02.003  INFO 5960 --- [XNIO-1 task-2] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:56:02.003  INFO 5960 --- [XNIO-1 task-3] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:56:02.035  WARN 5960 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:56:02.061  WARN 5960 --- [XNIO-1 task-2] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:56:02.076  WARN 5960 --- [XNIO-1 task-3] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:56:30.811  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55642 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:56:30.811  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55644 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:56:30.811  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55643 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:56:30.812  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:56:30.812  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:56:30.812  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:56:52.420  INFO 5960 --- [XNIO-1 task-5] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55738
+2021-11-26 11:56:52.424  INFO 5960 --- [XNIO-1 task-5] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:56:52.425  WARN 5960 --- [XNIO-1 task-5] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:56:53.830  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55738 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:56:53.831  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:56:53.840  INFO 5960 --- [XNIO-1 task-6] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55745
+2021-11-26 11:56:53.840  INFO 5960 --- [XNIO-1 task-7] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55747
+2021-11-26 11:56:53.864  INFO 5960 --- [XNIO-1 task-8] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55746
+2021-11-26 11:56:53.866  INFO 5960 --- [XNIO-1 task-6] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:56:53.881  WARN 5960 --- [XNIO-1 task-6] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:56:53.882  INFO 5960 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:56:53.884  WARN 5960 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:56:53.885  INFO 5960 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:56:53.887  WARN 5960 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:57:16.957  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55746 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:57:16.958  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:57:16.958  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55747 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:57:16.958  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55745 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:57:16.959  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:57:16.962  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:57:37.996  INFO 5960 --- [XNIO-1 task-9] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55828
+2021-11-26 11:57:38.000  INFO 5960 --- [XNIO-1 task-9] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:57:38.000  WARN 5960 --- [XNIO-1 task-9] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:57:39.375  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55828 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:57:39.376  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:57:39.406  INFO 5960 --- [XNIO-1 task-10] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55832
+2021-11-26 11:57:39.422  INFO 5960 --- [XNIO-1 task-11] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55834
+2021-11-26 11:57:39.424  INFO 5960 --- [XNIO-1 task-12] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55833
+2021-11-26 11:57:39.425  INFO 5960 --- [XNIO-1 task-10] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:57:39.438  WARN 5960 --- [XNIO-1 task-10] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:57:39.440  INFO 5960 --- [XNIO-1 task-12] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:57:39.441  WARN 5960 --- [XNIO-1 task-12] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:57:39.442  INFO 5960 --- [XNIO-1 task-11] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:57:39.443  WARN 5960 --- [XNIO-1 task-11] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:58:11.223  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55832 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:58:11.223  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55833 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:58:11.223  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:58:11.224  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:58:11.230  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55834 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:58:11.231  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:58:29.793  INFO 5960 --- [XNIO-1 task-13] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55906
+2021-11-26 11:58:29.799  INFO 5960 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:58:29.799  WARN 5960 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:58:31.029  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55906 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:58:31.030  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:58:31.043  INFO 5960 --- [XNIO-1 task-15] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55910
+2021-11-26 11:58:31.044  INFO 5960 --- [XNIO-1 task-16] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55911
+2021-11-26 11:58:31.055  INFO 5960 --- [XNIO-1 task-14] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55909
+2021-11-26 11:58:31.058  INFO 5960 --- [XNIO-1 task-16] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:58:31.059  INFO 5960 --- [XNIO-1 task-15] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:58:31.072  WARN 5960 --- [XNIO-1 task-16] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:58:31.074  INFO 5960 --- [XNIO-1 task-14] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:58:31.074  WARN 5960 --- [XNIO-1 task-15] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:58:31.075  WARN 5960 --- [XNIO-1 task-14] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:58:57.263  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55909 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:58:57.264  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55910 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:58:57.263  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55911 -- CloseStatus[code=1006, reason=]
+2021-11-26 11:58:57.264  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:58:57.290  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:58:57.290  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:59:16.674  INFO 5960 --- [XNIO-1 task-17] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49970
+2021-11-26 11:59:16.679  INFO 5960 --- [XNIO-1 task-17] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:59:16.680  WARN 5960 --- [XNIO-1 task-17] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:59:17.989  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49970 -- CloseStatus[code=1000, reason=]
+2021-11-26 11:59:17.990  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 11:59:18.002  INFO 5960 --- [XNIO-1 task-18] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49973
+2021-11-26 11:59:18.003  INFO 5960 --- [XNIO-1 task-19] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49974
+2021-11-26 11:59:18.028  INFO 5960 --- [XNIO-1 task-20] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49975
+2021-11-26 11:59:18.031  INFO 5960 --- [XNIO-1 task-18] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:59:18.032  WARN 5960 --- [XNIO-1 task-18] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:59:18.033  INFO 5960 --- [XNIO-1 task-20] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:59:18.034  WARN 5960 --- [XNIO-1 task-20] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 11:59:18.035  INFO 5960 --- [XNIO-1 task-19] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 11:59:18.036  WARN 5960 --- [XNIO-1 task-19] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:00:23.699  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49973 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:00:23.700  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49975 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:00:23.699  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49974 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:00:23.700  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:00:23.700  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:00:23.700  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:00:44.340  INFO 5960 --- [XNIO-1 task-21] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59528
+2021-11-26 12:00:44.345  INFO 5960 --- [XNIO-1 task-21] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:00:44.347  WARN 5960 --- [XNIO-1 task-21] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:00:45.650  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59528 -- CloseStatus[code=1000, reason=]
+2021-11-26 12:00:45.651  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:00:45.668  INFO 5960 --- [XNIO-1 task-22] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59535
+2021-11-26 12:00:45.688  INFO 5960 --- [XNIO-1 task-23] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59536
+2021-11-26 12:00:45.688  INFO 5960 --- [XNIO-1 task-24] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59537
+2021-11-26 12:00:45.691  INFO 5960 --- [XNIO-1 task-22] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:00:45.705  WARN 5960 --- [XNIO-1 task-22] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:00:45.706  INFO 5960 --- [XNIO-1 task-23] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:00:45.707  INFO 5960 --- [XNIO-1 task-24] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:00:45.709  WARN 5960 --- [XNIO-1 task-23] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:00:45.735  WARN 5960 --- [XNIO-1 task-24] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:04:51.836  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59536 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:04:51.836  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59537 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:04:51.836  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59535 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:04:53.508  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:04:54.558  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:04:54.560  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:05:34.685  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 1] [Bucket 50 = 1] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 12:05:38.694  INFO 5960 --- [XNIO-1 task-25] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:50575
+2021-11-26 12:05:38.977  INFO 5960 --- [XNIO-1 task-25] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:05:38.978  WARN 5960 --- [XNIO-1 task-25] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:05:40.570  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:50575 -- CloseStatus[code=1000, reason=]
+2021-11-26 12:05:40.571  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:05:40.591  INFO 5960 --- [XNIO-1 task-26] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:50582
+2021-11-26 12:05:40.592  INFO 5960 --- [XNIO-1 task-27] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:50584
+2021-11-26 12:05:40.592  INFO 5960 --- [XNIO-1 task-28] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:50583
+2021-11-26 12:05:40.629  INFO 5960 --- [XNIO-1 task-26] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:05:40.630  INFO 5960 --- [XNIO-1 task-28] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:05:40.630  INFO 5960 --- [XNIO-1 task-27] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:05:40.639  WARN 5960 --- [XNIO-1 task-26] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:05:40.640  WARN 5960 --- [XNIO-1 task-28] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:05:40.655  WARN 5960 --- [XNIO-1 task-27] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:07:11.589  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:50583 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:07:11.589  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:50582 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:07:11.589  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:50584 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:07:11.622  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:07:11.623  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:07:11.623  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:07:30.335  INFO 5960 --- [XNIO-1 task-29] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55589
+2021-11-26 12:07:30.339  INFO 5960 --- [XNIO-1 task-29] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:07:30.370  WARN 5960 --- [XNIO-1 task-29] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:07:32.013  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55589 -- CloseStatus[code=1000, reason=]
+2021-11-26 12:07:32.014  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:07:32.029  INFO 5960 --- [XNIO-1 task-31] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:56846
+2021-11-26 12:07:32.029  INFO 5960 --- [XNIO-1 task-30] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:56845
+2021-11-26 12:07:32.030  INFO 5960 --- [XNIO-1 task-32] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:56844
+2021-11-26 12:07:32.048  INFO 5960 --- [XNIO-1 task-31] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:07:32.050  INFO 5960 --- [XNIO-1 task-30] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:07:32.050  INFO 5960 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:07:32.051  WARN 5960 --- [XNIO-1 task-31] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:07:32.051  WARN 5960 --- [XNIO-1 task-30] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:07:32.052  WARN 5960 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:09:49.390  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:56846 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:09:49.390  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:56844 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:09:49.390  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:56845 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:09:49.392  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:09:49.392  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:09:49.392  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:10:10.590  INFO 5960 --- [XNIO-1 task-33] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:55147
+2021-11-26 12:10:10.668  INFO 5960 --- [XNIO-1 task-33] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:10:10.669  WARN 5960 --- [XNIO-1 task-33] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:10:11.976  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:55147 -- CloseStatus[code=1000, reason=]
+2021-11-26 12:10:11.978  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:10:11.988  INFO 5960 --- [XNIO-1 task-35] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:64402
+2021-11-26 12:10:12.007  INFO 5960 --- [XNIO-1 task-36] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:64403
+2021-11-26 12:10:12.007  INFO 5960 --- [XNIO-1 task-34] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:64401
+2021-11-26 12:10:12.023  INFO 5960 --- [XNIO-1 task-36] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:10:12.039  INFO 5960 --- [XNIO-1 task-35] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:10:12.025  INFO 5960 --- [XNIO-1 task-34] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:10:12.054  WARN 5960 --- [XNIO-1 task-36] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:10:12.055  WARN 5960 --- [XNIO-1 task-35] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:10:12.070  WARN 5960 --- [XNIO-1 task-34] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:13:35.915  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 1] [Bucket 50 = 0] [Bucket 200 = 0] [Bucket 500 = 0] [Bucket 2000 = 1] 
+2021-11-26 12:15:36.421  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 1] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 12:21:34.775  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 1] [Bucket 200 = 1] [Bucket 500 = 0] [Bucket 2000 = 0] 
+2021-11-26 12:23:34.758  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 1] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 12:25:34.966  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 0] [Bucket 200 = 1] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 12:26:46.399  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:64403 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:26:46.399  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:64402 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:26:46.394  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:64401 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:26:46.435  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:26:46.435  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:26:46.447  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:27:34.676  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 0] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 12:28:07.862  INFO 5960 --- [XNIO-1 task-37] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52809
+2021-11-26 12:28:07.911  INFO 5960 --- [XNIO-1 task-37] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:28:07.912  WARN 5960 --- [XNIO-1 task-37] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:28:09.195  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52809 -- CloseStatus[code=1000, reason=]
+2021-11-26 12:28:09.196  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:28:09.236  INFO 5960 --- [XNIO-1 task-39] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52812
+2021-11-26 12:28:09.236  INFO 5960 --- [XNIO-1 task-38] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52813
+2021-11-26 12:28:09.237  INFO 5960 --- [XNIO-1 task-40] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52814
+2021-11-26 12:28:09.330  INFO 5960 --- [XNIO-1 task-40] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:28:09.330  INFO 5960 --- [XNIO-1 task-38] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:28:09.331  INFO 5960 --- [XNIO-1 task-39] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:28:09.356  WARN 5960 --- [XNIO-1 task-40] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:28:09.358  WARN 5960 --- [XNIO-1 task-38] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:28:09.360  WARN 5960 --- [XNIO-1 task-39] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:33:34.783  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 1] [Bucket 50 = 0] [Bucket 200 = 0] [Bucket 500 = 0] [Bucket 2000 = 1] 
+2021-11-26 12:35:34.679  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 1] [Bucket 200 = 0] [Bucket 500 = 0] [Bucket 2000 = 1] 
+2021-11-26 12:37:34.677  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 1] [Bucket 20 = 1] [Bucket 50 = 0] [Bucket 200 = 1] [Bucket 500 = 0] [Bucket 2000 = 0] 
+2021-11-26 12:39:34.747  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 1] [Bucket 20 = 0] [Bucket 50 = 0] [Bucket 200 = 1] [Bucket 500 = 0] [Bucket 2000 = 0] 
+2021-11-26 12:41:35.162  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 1] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 12:43:35.808  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 0] [Bucket 20 = 0] [Bucket 50 = 1] [Bucket 200 = 0] [Bucket 500 = 1] [Bucket 2000 = 0] 
+2021-11-26 12:47:34.678  WARN 5960 --- [lava-daemon-pool-manager-3-thread-1] c.s.d.l.tools.GarbageCollectionMonitor   : Suspicious GC results for the last 2 minutes: [Bucket 0 = 1] [Bucket 20 = 0] [Bucket 50 = 0] [Bucket 200 = 0] [Bucket 500 = 0] [Bucket 2000 = 1] 
+2021-11-26 12:49:58.340  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52812 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:49:58.332  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52813 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:49:58.332  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52814 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:49:58.546  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:49:58.736  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:49:58.736  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:50:39.159  INFO 5960 --- [XNIO-1 task-41] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60907
+2021-11-26 12:50:39.391  INFO 5960 --- [XNIO-1 task-41] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:50:39.422  WARN 5960 --- [XNIO-1 task-41] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:50:40.631  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60907 -- CloseStatus[code=1000, reason=]
+2021-11-26 12:50:40.632  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:50:40.655  INFO 5960 --- [XNIO-1 task-44] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60913
+2021-11-26 12:50:40.655  INFO 5960 --- [XNIO-1 task-42] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60914
+2021-11-26 12:50:40.670  INFO 5960 --- [XNIO-1 task-43] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60912
+2021-11-26 12:50:40.688  INFO 5960 --- [XNIO-1 task-42] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:50:40.685  INFO 5960 --- [XNIO-1 task-44] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:50:40.718  WARN 5960 --- [XNIO-1 task-42] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:50:40.718  WARN 5960 --- [XNIO-1 task-44] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:50:40.723  INFO 5960 --- [XNIO-1 task-43] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:50:40.733  WARN 5960 --- [XNIO-1 task-43] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:53:59.659  INFO 5960 --- [XNIO-1 task-45] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:lost - lost sky"
+2021-11-26 12:54:00.430  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: lost - lost sky
+2021-11-26 12:54:00.517  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : {"track":"QAAAiAIAHUxvc3QgU2t5IC0gTG9zdCBbTkNTIFJlbGVhc2VdABFOb0NvcHlyaWdodFNvdW5kcwAAAAAAAmVIAAtoLW5IZHFDM3BQcwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWgtbkhkcUMzcFBzAAd5b3V0dWJlAAAAAAAAAAA=","op":"play","guildId":"760659394370994197"}
+2021-11-26 12:54:00.977  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : {"sessionId":"56c897d34c802daebe4addf3b6c3014b","event":{"token":"081655dee7976798","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 12:56:13.605  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : {"op":"destroy","guildId":"760659394370994197"}
+2021-11-26 12:56:27.564  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60913 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:56:27.565  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60912 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:56:27.564  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60914 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:56:27.566  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:56:27.566  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:56:27.566  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:56:44.048  INFO 5960 --- [XNIO-1 task-48] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52992
+2021-11-26 12:56:44.052  INFO 5960 --- [XNIO-1 task-48] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:56:44.053  WARN 5960 --- [XNIO-1 task-48] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:56:45.627  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52992 -- CloseStatus[code=1000, reason=]
+2021-11-26 12:56:45.628  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:56:45.640  INFO 5960 --- [XNIO-1 task-47] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:51343
+2021-11-26 12:56:45.641  INFO 5960 --- [XNIO-1 task-1] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:51345
+2021-11-26 12:56:45.642  INFO 5960 --- [XNIO-1 task-4] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:51344
+2021-11-26 12:56:45.646  INFO 5960 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:56:45.645  INFO 5960 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:56:45.666  WARN 5960 --- [XNIO-1 task-1] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:56:45.667  WARN 5960 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:56:45.669  INFO 5960 --- [XNIO-1 task-47] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:56:45.697  WARN 5960 --- [XNIO-1 task-47] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:56:57.126  INFO 5960 --- [XNIO-1 task-2] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:lost - lost sky"
+2021-11-26 12:56:57.551  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: lost - lost sky
+2021-11-26 12:56:57.592  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"track":"QAAAiAIAHUxvc3QgU2t5IC0gTG9zdCBbTkNTIFJlbGVhc2VdABFOb0NvcHlyaWdodFNvdW5kcwAAAAAAAmVIAAtoLW5IZHFDM3BQcwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWgtbkhkcUMzcFBzAAd5b3V0dWJlAAAAAAAAAAA=","op":"play","guildId":"760659394370994197"}
+2021-11-26 12:56:58.026  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"sessionId":"176ad72595e6370b0ced689b4a161521","event":{"token":"cbacb3df4e2814be","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 12:58:56.950  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op":"destroy","guildId":"760659394370994197"}
+2021-11-26 12:58:59.399  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:51344 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:58:59.399  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:51345 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:58:59.400  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:58:59.400  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:58:59.401  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:51343 -- CloseStatus[code=1006, reason=]
+2021-11-26 12:58:59.402  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:59:19.707  INFO 5960 --- [XNIO-1 task-5] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:57546
+2021-11-26 12:59:19.711  INFO 5960 --- [XNIO-1 task-5] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:59:19.712  WARN 5960 --- [XNIO-1 task-5] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:59:21.068  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57546 -- CloseStatus[code=1000, reason=]
+2021-11-26 12:59:21.082  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 12:59:21.084  INFO 5960 --- [XNIO-1 task-6] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:57549
+2021-11-26 12:59:21.084  INFO 5960 --- [XNIO-1 task-7] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:57550
+2021-11-26 12:59:21.085  INFO 5960 --- [XNIO-1 task-8] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:57551
+2021-11-26 12:59:21.101  INFO 5960 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:59:21.102  INFO 5960 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:59:21.100  INFO 5960 --- [XNIO-1 task-6] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 12:59:21.113  WARN 5960 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:59:21.113  WARN 5960 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:59:21.113  WARN 5960 --- [XNIO-1 task-6] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 12:59:33.209  INFO 5960 --- [XNIO-1 task-9] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:lost lost sky"
+2021-11-26 12:59:33.653  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: lost lost sky
+2021-11-26 12:59:33.675  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : {"track":"QAAAiAIAHUxvc3QgU2t5IC0gTG9zdCBbTkNTIFJlbGVhc2VdABFOb0NvcHlyaWdodFNvdW5kcwAAAAAAAmVIAAtoLW5IZHFDM3BQcwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWgtbkhkcUMzcFBzAAd5b3V0dWJlAAAAAAAAAAA=","op":"play","guildId":"760659394370994197"}
+2021-11-26 12:59:34.134  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : {"sessionId":"2222f3bc7dbe1aab0352b74deabb6b08","event":{"token":"592302a28f29a092","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:00:40.965  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : {"op":"destroy","guildId":"760659394370994197"}
+2021-11-26 13:00:42.979  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57550 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:00:42.979  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57549 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:00:42.982  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57551 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:00:42.990  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:00:42.990  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:00:42.990  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:01:59.627  INFO 5960 --- [XNIO-1 task-12] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49987
+2021-11-26 13:01:59.631  INFO 5960 --- [XNIO-1 task-12] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:01:59.631  WARN 5960 --- [XNIO-1 task-12] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:02:00.855  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49987 -- CloseStatus[code=1000, reason=]
+2021-11-26 13:02:00.856  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:02:00.868  INFO 5960 --- [XNIO-1 task-11] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49991
+2021-11-26 13:02:00.868  INFO 5960 --- [XNIO-1 task-13] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49990
+2021-11-26 13:02:00.892  INFO 5960 --- [XNIO-1 task-16] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49992
+2021-11-26 13:02:00.907  INFO 5960 --- [XNIO-1 task-11] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:02:00.908  INFO 5960 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:02:00.909  INFO 5960 --- [XNIO-1 task-16] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:02:00.909  WARN 5960 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:02:00.909  WARN 5960 --- [XNIO-1 task-11] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:02:00.910  WARN 5960 --- [XNIO-1 task-16] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:02:09.805  INFO 5960 --- [XNIO-1 task-15] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:xtrullor supernova teslax remix"
+2021-11-26 13:02:10.255  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: xtrullor supernova teslax remix
+2021-11-26 13:02:10.271  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : {"track":"QAAAhAIAI1h0cnVsbG9yIC0gU3VwZXJub3ZhIChUZXNsYVggcmVtaXgpAAdUYWx1cnJlAAAAAAAFkcgAC3MzTEdscnN1a2pJAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9czNMR2xyc3VrakkAB3lvdXR1YmUAAAAAAAAAAA==","op":"play","guildId":"760659394370994197"}
+2021-11-26 13:02:11.333  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : {"sessionId":"0cdb9c4baae0054c58e39993168379d9","event":{"token":"7c7586c4f1cf5cd3","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:04:04.373  INFO 5960 --- [XNIO-1 task-17] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:xtrullor"
+2021-11-26 13:04:04.795  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: xtrullor
+2021-11-26 13:07:13.724  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49992 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:07:13.724  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49990 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:07:13.724  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49991 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:07:13.762  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:07:13.762  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2021-11-26 13:07:13.762  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:07:35.289  INFO 5960 --- [XNIO-1 task-20] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52410
+2021-11-26 13:07:35.326  INFO 5960 --- [XNIO-1 task-20] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:07:35.326  WARN 5960 --- [XNIO-1 task-20] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:07:36.606  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52410 -- CloseStatus[code=1000, reason=]
+2021-11-26 13:07:36.607  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:07:36.634  INFO 5960 --- [XNIO-1 task-19] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52419
+2021-11-26 13:07:36.648  INFO 5960 --- [XNIO-1 task-21] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52420
+2021-11-26 13:07:36.649  INFO 5960 --- [XNIO-1 task-22] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52421
+2021-11-26 13:07:36.650  INFO 5960 --- [XNIO-1 task-19] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:07:36.663  WARN 5960 --- [XNIO-1 task-19] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:07:36.665  INFO 5960 --- [XNIO-1 task-21] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:07:36.679  INFO 5960 --- [XNIO-1 task-22] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:07:36.694  WARN 5960 --- [XNIO-1 task-21] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:07:36.694  WARN 5960 --- [XNIO-1 task-22] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:07:51.158  INFO 5960 --- [XNIO-1 task-23] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:xtrullor supernova teslax"
+2021-11-26 13:07:51.716  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: xtrullor supernova teslax
+2021-11-26 13:07:59.164  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : {"track":"QAAAhAIAI1h0cnVsbG9yIC0gU3VwZXJub3ZhIChUZXNsYVggcmVtaXgpAAdUYWx1cnJlAAAAAAAFkcgAC3MzTEdscnN1a2pJAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9czNMR2xyc3VrakkAB3lvdXR1YmUAAAAAAAAAAA==","op":"play","guildId":"760659394370994197"}
+2021-11-26 13:08:00.202  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : {"sessionId":"ffb10315d128aad266529143a969bec8","event":{"token":"dc040217d9dc0ee6","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:09:38.279  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : {"op":"destroy","guildId":"760659394370994197"}
+2021-11-26 13:09:39.682  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52420 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:09:39.682  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52421 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:09:39.682  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52419 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:09:39.683  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:09:39.683  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:09:39.683  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:09:55.724  INFO 5960 --- [XNIO-1 task-25] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59995
+2021-11-26 13:09:55.743  INFO 5960 --- [XNIO-1 task-25] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:09:55.745  WARN 5960 --- [XNIO-1 task-25] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:09:57.081  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59995 -- CloseStatus[code=1000, reason=]
+2021-11-26 13:09:57.091  INFO 5960 --- [XNIO-1 task-26] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59998
+2021-11-26 13:09:57.091  INFO 5960 --- [XNIO-1 task-28] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:59999
+2021-11-26 13:09:57.091  INFO 5960 --- [XNIO-1 task-27] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60000
+2021-11-26 13:09:57.099  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:09:57.103  INFO 5960 --- [XNIO-1 task-28] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:09:57.103  INFO 5960 --- [XNIO-1 task-26] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:09:57.103  INFO 5960 --- [XNIO-1 task-27] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:09:57.115  WARN 5960 --- [XNIO-1 task-28] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:09:57.116  WARN 5960 --- [XNIO-1 task-27] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:09:57.116  WARN 5960 --- [XNIO-1 task-26] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:10:17.995  INFO 5960 --- [XNIO-1 task-29] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:Xtrullor - Supernova (TeslaX remix)"
+2021-11-26 13:10:18.419  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: Xtrullor - Supernova (TeslaX remix)
+2021-11-26 13:10:22.551  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"track":"QAAAhAIAI1h0cnVsbG9yIC0gU3VwZXJub3ZhIChUZXNsYVggcmVtaXgpAAdUYWx1cnJlAAAAAAAFkcgAC3MzTEdscnN1a2pJAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9czNMR2xyc3VrakkAB3lvdXR1YmUAAAAAAAAAAA==","op":"play","guildId":"760659394370994197"}
+2021-11-26 13:10:22.995  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"sessionId":"cde4790fc8239bf34e3b1b8fbffddcf5","event":{"token":"eb19b9f6039b130e","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:11:19.093  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59998 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:11:19.093  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:59999 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:11:19.093  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60000 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:11:19.094  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2021-11-26 13:11:19.094  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:11:19.094  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:12:01.380  INFO 5960 --- [XNIO-1 task-30] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60074
+2021-11-26 13:12:01.387  INFO 5960 --- [XNIO-1 task-30] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:12:01.391  WARN 5960 --- [XNIO-1 task-30] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:12:02.896  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60074 -- CloseStatus[code=1000, reason=]
+2021-11-26 13:12:02.896  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:12:02.909  INFO 5960 --- [XNIO-1 task-32] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60077
+2021-11-26 13:12:02.909  INFO 5960 --- [XNIO-1 task-33] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60078
+2021-11-26 13:12:02.912  INFO 5960 --- [XNIO-1 task-36] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60079
+2021-11-26 13:12:02.915  INFO 5960 --- [XNIO-1 task-33] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:12:02.916  INFO 5960 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:12:02.923  INFO 5960 --- [XNIO-1 task-36] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:12:02.916  WARN 5960 --- [XNIO-1 task-33] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:12:02.932  WARN 5960 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:12:02.933  WARN 5960 --- [XNIO-1 task-36] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:12:17.619  INFO 5960 --- [XNIO-1 task-35] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:Xtrullor Supernova TeslaX"
+2021-11-26 13:12:18.082  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: Xtrullor Supernova TeslaX
+2021-11-26 13:12:27.656  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"track":"QAAAhAIAI1h0cnVsbG9yIC0gU3VwZXJub3ZhIChUZXNsYVggcmVtaXgpAAdUYWx1cnJlAAAAAAAFkcgAC3MzTEdscnN1a2pJAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9czNMR2xyc3VrakkAB3lvdXR1YmUAAAAAAAAAAA==","op":"play","guildId":"760659394370994197"}
+2021-11-26 13:12:28.694  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"sessionId":"c319c1e427badcb7bcec75d19a5b8b93","event":{"token":"48b9e297c81f10bd","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:14:19.587  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60079 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:14:19.587  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60078 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:14:19.589  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2021-11-26 13:14:19.588  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60077 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:14:19.589  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:14:19.593  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:14:37.482  INFO 5960 --- [XNIO-1 task-37] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60175
+2021-11-26 13:14:37.488  INFO 5960 --- [XNIO-1 task-37] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:14:37.489  WARN 5960 --- [XNIO-1 task-37] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:14:38.698  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60175 -- CloseStatus[code=1000, reason=]
+2021-11-26 13:14:38.699  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:14:38.737  INFO 5960 --- [XNIO-1 task-40] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60180
+2021-11-26 13:14:38.738  INFO 5960 --- [XNIO-1 task-38] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60181
+2021-11-26 13:14:38.739  INFO 5960 --- [XNIO-1 task-39] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:60182
+2021-11-26 13:14:38.767  INFO 5960 --- [XNIO-1 task-40] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:14:38.768  INFO 5960 --- [XNIO-1 task-38] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:14:38.783  WARN 5960 --- [XNIO-1 task-40] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:14:38.783  WARN 5960 --- [XNIO-1 task-38] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:14:38.783  INFO 5960 --- [XNIO-1 task-39] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:14:38.786  WARN 5960 --- [XNIO-1 task-39] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:14:41.921  INFO 5960 --- [XNIO-1 task-41] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:xtrullor supernova teslax"
+2021-11-26 13:14:42.360  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: xtrullor supernova teslax
+2021-11-26 13:14:45.429  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"track":"QAAAhAIAI1h0cnVsbG9yIC0gU3VwZXJub3ZhIChUZXNsYVggcmVtaXgpAAdUYWx1cnJlAAAAAAAFkcgAC3MzTEdscnN1a2pJAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9czNMR2xyc3VrakkAB3lvdXR1YmUAAAAAAAAAAA==","op":"play","guildId":"760659394370994197"}
+2021-11-26 13:14:45.863  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"sessionId":"d62aa8f07f3eed5964c0878acf3af536","event":{"token":"8b0e96b377896ad6","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:20:50.655  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op":"destroy","guildId":"760659394370994197"}
+2021-11-26 13:22:01.191  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60182 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:22:01.191  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60181 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:22:01.192  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:22:01.192  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:22:01.191  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60180 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:22:01.194  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:22:19.251  INFO 5960 --- [XNIO-1 task-44] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52812
+2021-11-26 13:22:19.256  INFO 5960 --- [XNIO-1 task-44] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:22:19.256  WARN 5960 --- [XNIO-1 task-44] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:22:20.517  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52812 -- CloseStatus[code=1000, reason=]
+2021-11-26 13:22:20.518  INFO 5960 --- [XNIO-1 I/O-6] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:22:20.531  INFO 5960 --- [XNIO-1 task-43] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52819
+2021-11-26 13:22:20.531  INFO 5960 --- [XNIO-1 task-45] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52820
+2021-11-26 13:22:20.532  INFO 5960 --- [XNIO-1 task-46] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52821
+2021-11-26 13:22:20.534  INFO 5960 --- [XNIO-1 task-45] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:22:20.536  INFO 5960 --- [XNIO-1 task-43] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:22:20.538  INFO 5960 --- [XNIO-1 task-46] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:22:20.538  WARN 5960 --- [XNIO-1 task-45] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:22:20.539  WARN 5960 --- [XNIO-1 task-46] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:22:20.538  WARN 5960 --- [XNIO-1 task-43] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:22:29.592  INFO 5960 --- [XNIO-1 task-48] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:electrolight symbolism"
+2021-11-26 13:22:30.279  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: electrolight symbolism
+2021-11-26 13:22:30.291  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : {"track":"QAAAkgIAJ0VsZWN0cm8tTGlnaHQgLSBTeW1ib2xpc20gW05DUyBSZWxlYXNlXQARTm9Db3B5cmlnaHRTb3VuZHMAAAAAAAR0oAALX19DUldFLUw0NWsAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1fX0NSV0UtTDQ1awAHeW91dHViZQAAAAAAAAAA","op":"play","guildId":"760659394370994197"}
+2021-11-26 13:22:30.760  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : {"sessionId":"253e1733cfdf2897a4daa7afb9df65ba","event":{"token":"4ed298a3c62c1917","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:27:22.270  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : {"op":"destroy","guildId":"760659394370994197"}
+2021-11-26 13:27:37.346  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52821 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:27:37.346  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52820 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:27:37.346  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52819 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:27:37.354  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:27:37.354  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:27:37.355  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:31:34.533  INFO 5960 --- [XNIO-1 task-4] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58976
+2021-11-26 13:31:34.540  INFO 5960 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:31:34.542  WARN 5960 --- [XNIO-1 task-4] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:31:35.790  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58976 -- CloseStatus[code=1000, reason=]
+2021-11-26 13:31:35.791  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:31:35.836  INFO 5960 --- [XNIO-1 task-47] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58990
+2021-11-26 13:31:35.840  INFO 5960 --- [XNIO-1 task-2] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58989
+2021-11-26 13:31:35.843  INFO 5960 --- [XNIO-1 task-3] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58991
+2021-11-26 13:31:35.846  INFO 5960 --- [XNIO-1 task-47] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:31:35.848  WARN 5960 --- [XNIO-1 task-47] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:31:35.850  INFO 5960 --- [XNIO-1 task-2] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:31:35.854  WARN 5960 --- [XNIO-1 task-2] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:31:35.898  INFO 5960 --- [XNIO-1 task-3] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:31:35.898  WARN 5960 --- [XNIO-1 task-3] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:31:46.351  INFO 5960 --- [XNIO-1 task-5] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:lost lost sky"
+2021-11-26 13:31:46.982  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: lost lost sky
+2021-11-26 13:31:55.038  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : {"track":"QAAAiAIAHUxvc3QgU2t5IC0gTG9zdCBbTkNTIFJlbGVhc2VdABFOb0NvcHlyaWdodFNvdW5kcwAAAAAAAmVIAAtoLW5IZHFDM3BQcwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWgtbkhkcUMzcFBzAAd5b3V0dWJlAAAAAAAAAAA=","op":"play","guildId":"760659394370994197"}
+2021-11-26 13:31:56.085  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : {"sessionId":"049491e5f37f9791b0b7424ef5662f8c","event":{"token":"5d90b732b4a1031b","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:32:49.160  INFO 5960 --- [XNIO-1 task-8] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:lost lost sky"
+2021-11-26 13:32:49.568  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: lost lost sky
+2021-11-26 13:34:34.737  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58990 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:34:34.737  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58989 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:34:34.737  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:58991 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:34:34.738  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:34:34.738  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:34:34.738  INFO 5960 --- [XNIO-1 I/O-5] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:34:52.850  INFO 5960 --- [XNIO-1 task-9] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:57772
+2021-11-26 13:34:52.856  INFO 5960 --- [XNIO-1 task-9] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:34:52.856  WARN 5960 --- [XNIO-1 task-9] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:34:54.112  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57772 -- CloseStatus[code=1000, reason=]
+2021-11-26 13:34:54.113  INFO 5960 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:34:54.124  INFO 5960 --- [XNIO-1 task-10] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:57775
+2021-11-26 13:34:54.125  INFO 5960 --- [XNIO-1 task-13] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:57777
+2021-11-26 13:34:54.143  INFO 5960 --- [XNIO-1 task-12] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:57776
+2021-11-26 13:34:54.146  INFO 5960 --- [XNIO-1 task-10] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:34:54.174  WARN 5960 --- [XNIO-1 task-10] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:34:54.174  INFO 5960 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:34:54.174  INFO 5960 --- [XNIO-1 task-12] lavalink.server.io.SocketServer          : Connection successfully established
+2021-11-26 13:34:54.175  WARN 5960 --- [XNIO-1 task-13] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:34:54.175  WARN 5960 --- [XNIO-1 task-12] lavalink.server.io.SocketServer          : Library developers: Please specify a 'Client-Name' header.
+2021-11-26 13:35:05.319  INFO 5960 --- [XNIO-1 task-11] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:lost lost sky"
+2021-11-26 13:35:05.742  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: lost lost sky
+2021-11-26 13:35:05.764  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : {"track":"QAAAiAIAHUxvc3QgU2t5IC0gTG9zdCBbTkNTIFJlbGVhc2VdABFOb0NvcHlyaWdodFNvdW5kcwAAAAAAAmVIAAtoLW5IZHFDM3BQcwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWgtbkhkcUMzcFBzAAd5b3V0dWJlAAAAAAAAAAA=","op":"play","guildId":"760659394370994197"}
+2021-11-26 13:35:06.208  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : {"sessionId":"b1c4be396d51d7117889d699cda203e0","event":{"token":"95f885e4b67f85ce","guild_id":"760659394370994197","endpoint":"sydney4015.discord.media:443"},"op":"voiceUpdate","guildId":"760659394370994197"}
+2021-11-26 13:35:23.048  INFO 5960 --- [XNIO-1 task-15] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:electrolight symbolism"
+2021-11-26 13:35:23.571  INFO 5960 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: electrolight symbolism
+2021-11-26 13:39:01.912  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57777 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:39:01.912  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57775 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:39:01.912  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57776 -- CloseStatus[code=1006, reason=]
+2021-11-26 13:39:01.975  INFO 5960 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:39:01.975  INFO 5960 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-11-26 13:39:01.976  INFO 5960 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.

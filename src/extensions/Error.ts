@@ -1,5 +1,5 @@
 import { AsturaClient } from "../client/Client";
-import { ErrorKey } from "../structures/util/Types";
+import { ErrorKey, ErrorMessage } from "../structures/util/Types";
 
 const Messages = {
     // Module-related
@@ -27,7 +27,8 @@ export class ExtendedError extends Error {
     public code: ErrorKey;
 
     public constructor(key: ErrorKey, client: AsturaClient, ...args: any[]) {
-        const errorMessage = Messages[key];
+        const errorMessage: ErrorMessage  = Messages[key];
+
         if (errorMessage == null) throw new TypeError(`Error key '${key}' does not exist`);
         const message: string = typeof errorMessage === "function" ? errorMessage(args[0], args[1], args[2] as never) : errorMessage;
 

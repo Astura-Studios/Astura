@@ -37,19 +37,28 @@ export default class MemeCommand extends Command {
 
     public async exec(client: AsturaClient, interaction: CommandInteraction): Promise<APIMessage | Message<boolean> | void> {
         try {
-            fetch("https://meme-api.herokuapp.com/gimme")
+            fetch("https://www.reddit.com/r/memes/random/.json") //fetch("https://meme-api.herokuapp.com/gimme")
                 .then((response: Response): any => response.json())
-                .then((content: Meme): Promise<void> => {
+                .then((data): Promise<void> => { // (content: Meme)
+                    const content: Meme = data[0].data.children[0].data;
+                    const permalink: string = content.permalink;
+                    const memeURL: string = `https://www.reddit.com${permalink}`; // content.postLink
+                    const memeImage: string = content.url; 
+                    const memeTitle: string = content.title;
+                    const memeUpvotes: number = content.ups; 
+                    const memeDownvotes: number = content.downs;
+                    const memeComments: number = content.num_comments;
+
                     return interaction.reply({
                         embeds: [
                             {
                                 color: client.util.defaults.embed.color,
-                                title: `${content.title} (by ${content.author})`,
-                                url: content.postLink,
+                                title: `${memeTitle}`, //(by ${content.author})`,
+                                url: memeURL, // content.postLink,
                                 image: {
-                                    url: content.url
+                                    url: memeImage // content.url
                                 },
-                                description: `<:thumbs_up_white:796179483253538898> ${content.ups}`/**`, <:thumbs_down_white:796178894809202719> ${memeDownvotes}, <:chat_white_icon:796178895119581224> ${memeComments}`**/
+                                description: `<:thumbs_up_white:796179483253538898> ${memeUpvotes}, <:thumbs_down_white:796178894809202719> ${memeDownvotes}, <:chat_white_icon:796178895119581224> ${memeComments}`
                             }
                         ]
                     });
@@ -63,7 +72,7 @@ export default class MemeCommand extends Command {
                     });
                 });
         } catch (error) {
-            return console.log(`${client.util.date.getLocalTime()} | [ Shrug Command ] ${(error as Error).stack}`);
+            return console.log(`${client.util.date.getLocalTime()} | [ Meme Command ] ${(error as Error).stack}`);
         };
     };
 };

@@ -1,21 +1,22 @@
 import { AsturaClient } from "../../client/Client";
 import { TextChannel } from "discord.js";
-import { LavalinkNode, Player as LavaPlayer } from "@lavacord/discord.js";
+import { LavalinkEvent, LavalinkNode, Player as LavaPlayer } from "@lavacord/discord.js";
 import { Manager } from "./Manager";
-import { PlayerOptions } from "../util/Interfaces";
-
+import { PlayerOptions, SearchResult, Song } from "../util/Interfaces";
 import { config } from "dotenv";
 config();
 
+import fetch, { Response } from "node-fetch";
+
 export class Queue {
-    public client: AsturaClient
-    public currentlyPlaying: any;
+    public client: AsturaClient;
+    public currentlyPlaying: Song | null;
     public guildID: string;
     public channelID: string;
     public manager: Manager;
     public player: LavaPlayer | null;
     public textChannel: TextChannel;
-    public queue: any[];
+    public queue: Song[];
 
     public constructor(client: AsturaClient, options: PlayerOptions) {
         this.client = client;
@@ -28,25 +29,27 @@ export class Queue {
         this.queue = [];
     };
 
-    public async search(searchQuery: string): Promise<Response> {
+    public async search(searchQuery: string): Promise<Song[] | []> {
         const node: LavalinkNode = this.manager.idealNodes[0];
-        const urlRegex: RegExp = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+        const urlRegex: RegExp = new RegExp( /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
         const params: URLSearchParams = new URLSearchParams();
         params.append("identifier", urlRegex.test(searchQuery) ? searchQuery : `ytsearch:${searchQuery}`);
 
-        const data: Response = await fetch(`http://${node.host}:${node.port}/loadtracks?${params}`, {
-            headers: {
-                "Authorization": node.password
+        const data: SearchResult = await fetch(
+            `http://${node.host}:${node.port}/loadtracks?${params}`,
+            {
+                headers: {
+                    Authorization: node.password
+                }
             }
-        });
+        )
+            .then((res: Response) => res.json())
 
-        console.log(data);
-
-        return (data as any).data.tracks ?? [];
+        return data.tracks ?? [];
     };
 
-    public async play(track: string): Promise<boolean> {
-        this.queue.push(track);
+    public async play(song: Song): Promise<boolean> {
+        this.queue.push(song);
 
         if (!this.currentlyPlaying) {
             this.playNext();
@@ -56,8 +59,8 @@ export class Queue {
         };
     };
 
-    public async playNext() {
-        const nextSong = this.queue.shift();
+    public async playNext(): Promise<void> {
+        const nextSong: Song = this.queue.shift() as Song;
         this.currentlyPlaying = nextSong;
 
         if (!nextSong) {
@@ -74,9 +77,22 @@ export class Queue {
                     color: this.client.util.defaults.embed.color,
                     title: `Now playing: ${nextSong.info.title}`,
                     fields: [
-                        { name: "Author", value: nextSong.info.author, inline: true },
-                        { name: "Length", value: this.client.util.date.convertFromMs(nextSong.info.author), inline: true },
-                        { name: "Link", value: nextSong.info.uri, inline: true } 
+                        {
+                            name: "Author",
+                            value: nextSong.info.author,
+                            inline: true
+                        },
+                        {
+                            name: "Length",
+                            value: this.client.util.date.convertFromMs(
+                                nextSong.info.length,
+                                true,
+                                "d:h:m:s",
+                                "max"
+                            ) as string,
+                            inline: true
+                        },
+                        { name: "Link", value: nextSong.info.uri, inline: true }
                     ]
                 }
             ]
@@ -89,9 +105,8 @@ export class Queue {
                 node: this.manager.idealNodes[0].id
             });
 
-            this.player.on("end", data => {
+            this.player.on("end", (data: LavalinkEvent): void => {
                 if (data.reason === "REPLACED" || data.reason === "STOPPED") return;
-
                 this.playNext();
             });
         };

@@ -15,7 +15,7 @@ const Queue_1 = require("../../structures/music/Queue");
 const Config_1 = require("../../client/Config");
 class SearchCommand extends Command_1.Command {
     constructor() {
-        super("play", {
+        super("search", {
             arguments: [
                 new Argument_1.Argument({
                     name: "query",
@@ -52,41 +52,39 @@ class SearchCommand extends Command_1.Command {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const searchQuery = interaction.options.getString("query");
-                if (!searchQuery)
-                    return interaction.reply({
-                        content: "Please provide a search query.",
-                        ephemeral: true
-                    });
                 if (!interaction.member.voice.channel)
                     return interaction.reply({
                         content: "You are not in a voice channel.",
                         ephemeral: true
                     });
-                const guildQueue = client.queues.get(interaction.guildId);
-                if (guildQueue)
+                if (!client.queues.get(interaction.guildId))
                     client.queues.set(interaction.guildId, new Queue_1.Queue(client, {
                         guildID: interaction.guildId,
                         channelID: (_a = interaction.member.voice.channel) === null || _a === void 0 ? void 0 : _a.id,
                         textChannel: interaction.channel
                     }));
-                const songs = yield (yield guildQueue.search(searchQuery)).json();
+                const guildQueue = client.queues.get(interaction.guildId);
+                const songs = yield guildQueue.search(searchQuery);
                 if (!songs || songs.length === 0)
                     return interaction.reply({
                         content: "Unknown song.",
                         ephemeral: true
                     });
                 const list = songs.slice(0, 5);
-                const options = list.map((song, index) => `${++index}) ${song.info.title} - ${song.info.author} - ${client.util.date.convertFromMs(song.info.length)}`);
+                const options = list.map((song, index) => `**${++index})** ${song.info.title} (${song.info.author}) - ${client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max")}`);
                 interaction.reply({
                     embeds: [
                         {
                             color: client.util.defaults.embed.color,
-                            title: "Search Results",
-                            description: client.markdown.codeBlock(`${options.join("\n")}\n`)
+                            author: {
+                                name: `Search results for: ${searchQuery} (${interaction.user.username})`,
+                                iconURL: interaction.user.displayAvatarURL({ dynamic: true })
+                            },
+                            description: `${options.join("\n")}\n`
                         }
                     ]
                 });
-                const filter = (m) => m.author.id === interaction.user.id && ["1", "2", "3", "4", "5", "cancel"].includes(m.content);
+                const filter = (m) => m.author.id === interaction.user.id && ["1", "2", "3", "4", "5", "cancel"].includes(m.content.toLowerCase());
                 const chosenSong = (_b = (yield (yield interaction.channel.awaitMessages({ filter, max: 1 }))).first()) === null || _b === void 0 ? void 0 : _b.content;
                 if (chosenSong === "cancel")
                     return interaction.reply({
@@ -103,7 +101,7 @@ class SearchCommand extends Command_1.Command {
                                 title: `Added to queue: ${song.info.author}`,
                                 fields: [
                                     { name: "Author", value: song.info.author, inline: true },
-                                    { name: "Length", value: client.util.date.convertFromMs(song.info.author), inline: true },
+                                    { name: "Length", value: client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max"), inline: true },
                                     { name: "Link", value: song.info.uri, inline: true }
                                 ]
                             }

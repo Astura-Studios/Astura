@@ -1,7 +1,8 @@
 import { AsturaClient } from "../../client/Client";
 import { Command } from "../../structures/Command";
-import { CommandInteraction, Message } from "discord.js";
+import { CommandInteraction, Guild, Message } from "discord.js";
 import { Queue } from "../../structures/music/Queue";
+import { Song } from "../../structures/util/Interfaces";
 import { configOptions } from "../../client/Config";
 
 export default class QueueCommand extends Command {
@@ -31,20 +32,31 @@ export default class QueueCommand extends Command {
 
     public async exec(client: AsturaClient, interaction: CommandInteraction): Promise<Message<boolean> | void> {
         try {
-            const guildQueue: Queue = client.queues.get(interaction.guildId) as Queue;
-            if (!guildQueue) return interaction.channel?.send({
-                content: "Nothing is currently playing."
+            if (!client.queues.get(interaction.guildId)) return interaction.reply({
+                embeds: [
+                    {
+                        color: client.util.defaults.embed.color,
+                        description: "The music queue for the current server is currently empty."
+                    }
+                ]
             });
 
-            const next: any[] = guildQueue.queue;
-            const text: string[] = next.map((song, index) => `${++index}) ${song.info.title} - ${song.info.author} - ${client.util.date.convertFromMs(song.info.length)}`);
-
+            const guildQueue: Queue = client.queues.get(interaction.guildId) as Queue;
+            const next: Song[] = guildQueue.queue;
+            const text: string[] = next.map((song: Song, index: number): string => `${++index}) ${song.info.title} - ${song.info.author} - ${client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max") as string}`);
+            console.log(text);
             return interaction.reply({
                 embeds: [
                     {
                         color: client.util.defaults.embed.color,
-                        title: "Server Queue",
-                        description: client.markdown.codeBlock(`${text ?? "Nothing in queue"}\n`)
+                        author: {
+                            name: `${(interaction.guild as Guild).name} - Server Music Queue`,
+                            iconURL: (interaction.guild as Guild).iconURL({ dynamic: true }) as string
+                        },
+                        thumbnail: {
+                            url: (interaction.guild as Guild).iconURL({ dynamic: true }) as string
+                        },
+                        description: `${text.length <= 0 ? "**The music queue for the current server is currently empty.**" : text.join("\n")}`
                     }
                 ]
             });

@@ -63,11 +63,11 @@ export class AsturaClient extends Client {
             warnings: {
                 dmOnly: (interaction: CommandInteraction): string => `${this.markdown.userMention(interaction.user.id)}, you can only use this command in servers!`,
                 guildOnly: (interaction: CommandInteraction): string => `${this.markdown.userMention(interaction.user.id)}, you can only use this command in direct message channels!`,
-                ownerOnly: (interaction: CommandInteraction): string => `${this.markdown.userMention(interaction.user.id)}, only owners can use this command!`,
+                ownerOnly: (interaction: CommandInteraction): string => `${this.markdown.userMention(interaction.user.id)}, it seems that I was unable to execute the command because it is reserved for the owners of the bot. If you think this is a mistake, feel free to contact the bot developers (${this.markdown.userMention(this.config.owners[0])}).`,
 
                 clientMissingPermissions: (client: AsturaClient, interaction: CommandInteraction, permissions: string, command: Command): string => `Hey there **${interaction.user.username}**. Unfortunately ${(client.user as ClientUser).username} was unable to run the **${command.id}** command as it is missing the following permissions in this server: ${permissions}. If you do not have authorization to do change permissions, let a staff member know.`,
-                missingSendPermissions: (interaction: CommandInteraction): string => `${this.markdown.userMention(interaction.user.id)}, I am missing the following permission(s): \`Send Messages\``,
-                userMissingPermissions: (client: AsturaClient, interaction: CommandInteraction, permissions: string, command: Command): string => `Hey there **${interaction.user.username}**. Unfortunately ${(client.user as ClientUser).username} was unable to run the **${command.id}** command as you are missing the following permissions in this server: ${permissions}. If you do not have authorization to do change permissions, let a staff member know.`,
+                missingSendPermissions: (interaction: CommandInteraction): string => `${this.markdown.userMention(interaction.user.id)}, it seems that I was unable to execute the command as I am missing the following permission(s) in the server: \`Send Messages\``,
+                userMissingPermissions: (client: AsturaClient, interaction: CommandInteraction, permissions: string, command: Command): string => `${this.markdown.userMention(interaction.user.id)}, it seems that I was unable to execute the **${command.id}** command as you are missing the following permissions in this server: ${permissions}. Please ensure you have the correct permissions required and rerun the command. If you think this is a mistake, feel free to contact the bot developers (${this.markdown.userMention(this.config.owners[0])}).`,
 
                 cooldownWarning: (interaction: CommandInteraction, remaining: string, command: Command): string => `${this.markdown.userMention(interaction.user.id)}, please wait **${remaining}** seconds before reusing the \`${command.id}\` command!`
             }
@@ -78,7 +78,7 @@ export class AsturaClient extends Client {
         });
     };
 
-    private async init() {
+    private async init(): Promise<void> {
         await this.commandHandler.registerCommands(this.config.clientID);
         await this.commandHandler.load();
         await this.listenerHandler.load();
@@ -87,7 +87,7 @@ export class AsturaClient extends Client {
         await this.db.connect();
 
         await this.manager.connect();
-        this.manager.on("error", (error: unknown, _node: LavalinkNode) => {
+        this.manager.on("error", (error: unknown, _node: LavalinkNode): void => {
             return console.log(`[ Lavalink Manager ] ${(error as Error).stack}`);
         });
     };

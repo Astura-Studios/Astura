@@ -24,9 +24,9 @@ export default class ReadyListener extends Listener {
 
             console.log(`${client.util.date.getLocalTime()} | [ discord.js ] discord.js Version: ${version}`);
             console.log(`${client.util.date.getLocalTime()} | [ Lavalink ] Connecting to Lavalink client...`);
-            this.client.manager.connect()
+            client.manager.connect()
                 .then((success): void => {
-                    return console.log(`${client.util.date.getLocalTime()} | [ Lavalink ] Connected to ${success.filter(ws => ws !== null).length} Lavalink node(s) out of ${this.client.nodes.length} total node(s).`);
+                    return console.log(`${client.util.date.getLocalTime()} | [ Lavalink ] Connected to ${success.filter(ws => ws !== null).length} Lavalink node(s) out of ${client.nodes.length} total node(s).`);
                 })
                 .catch((error: Error): never => {
                     console.log(`${client.util.date.getLocalTime()} | [ Lavalink ]: ${error.stack}`);

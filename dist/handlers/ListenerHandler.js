@@ -47,6 +47,10 @@ class ListenerHandler {
                                 this.client.on(listener.name, listener.exec.bind(null, this.client));
                             case "process":
                                 process.on(listener.name, listener.exec.bind(null, process));
+                            case "commandHandler":
+                                this.client.on(listener.name, listener.exec.bind(null, this.client));
+                            case "player":
+                                this.client.on(listener.name, listener.exec.bind(null, this.client));
                         }
                         ;
                     }

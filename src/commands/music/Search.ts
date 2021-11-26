@@ -3,11 +3,12 @@ import { AsturaClient } from "../../client/Client";
 import { Command } from "../../structures/Command";
 import { CommandInteraction, GuildMember, Message, TextChannel } from "discord.js";
 import { Queue } from "../../structures/music/Queue";
+import { Song } from "../../structures/util/Interfaces";
 import { configOptions } from "../../client/Config";
 
 export default class SearchCommand extends Command {
     public constructor() {
-        super("play", {
+        super("search", {
             arguments: [
                 new Argument({
                     name: "query",
@@ -42,50 +43,50 @@ export default class SearchCommand extends Command {
     public async exec(client: AsturaClient, interaction: CommandInteraction): Promise<any> {
         try {
             const searchQuery: string = interaction.options.getString("query") as string;
-            if (!searchQuery) return interaction.reply({
-                content: "Please provide a search query.",
-                ephemeral: true
-            });
             
             if (!(interaction.member as GuildMember).voice.channel) return interaction.reply({
                 content: "You are not in a voice channel.",
                 ephemeral: true
             });
 
-            const guildQueue: Queue = client.queues.get(interaction.guildId) as Queue;
-            if (guildQueue) client.queues.set(interaction.guildId, new Queue(client, {
+            if (!client.queues.get(interaction.guildId)) client.queues.set(interaction.guildId, new Queue(client, {
                 guildID: interaction.guildId,
                 channelID: (interaction.member as GuildMember).voice.channel?.id as string,
                 textChannel: interaction.channel as TextChannel
             }));
 
-            const songs: any = await (await guildQueue.search(searchQuery)).json();
+            const guildQueue: Queue = client.queues.get(interaction.guildId) as Queue;
+
+            const songs: Song[] | [] = await guildQueue.search(searchQuery);
             if (!songs || songs.length === 0) return interaction.reply({
                 content: "Unknown song.",
                 ephemeral: true
             });
 
-            const list: any = songs.slice(0, 5);
-            const options: any = list.map((song: any, index: any) => `${++index}) ${song.info.title} - ${song.info.author} - ${client.util.date.convertFromMs(song.info.length)}`);
+            const list: Song[] = songs.slice(0, 5);
+            const options: string[] = list.map((song: Song, index: number) => `**${++index})** ${song.info.title} (${song.info.author}) - ${client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max") as string}`);
 
             interaction.reply({
                 embeds: [
                     {
                         color: client.util.defaults.embed.color,
-                        title: "Search Results",
-                        description: client.markdown.codeBlock(`${options.join("\n")}\n`)
-                    }
+                        author: {
+                            name: `Search results for: ${searchQuery} (${interaction.user.username})`,
+                            iconURL: interaction.user.displayAvatarURL({ dynamic: true })
+                        },
+                        description: `${options.join("\n")}\n`
+                    }                    
                 ]
             });
 
-            const filter = (m: Message): boolean => m.author.id === interaction.user.id && ["1", "2", "3", "4", "5", "cancel"].includes(m.content);
+            const filter = (m: Message): boolean => m.author.id === interaction.user.id && ["1", "2", "3", "4", "5", "cancel"].includes(m.content.toLowerCase());
             const chosenSong: string = (await (await (interaction.channel as TextChannel).awaitMessages({ filter, max: 1 }))).first()?.content as string;
             if (chosenSong === "cancel") return interaction.reply({
                 content: "Cancelled search command.",
                 ephemeral: true
             });
 
-            const song: any = list[parseInt(chosenSong) - 1];
+            const song: Song = list[parseInt(chosenSong) - 1];
             const isAdded: boolean = await guildQueue.play(song);
 
             if (isAdded) {
@@ -96,7 +97,7 @@ export default class SearchCommand extends Command {
                             title: `Added to queue: ${song.info.author}`,
                             fields: [
                                 { name: "Author", value: song.info.author, inline: true },
-                                { name: "Length", value: client.util.date.convertFromMs(song.info.author), inline: true },
+                                { name: "Length", value: client.util.date.convertFromMs(song.info.length, true, "d:h:m:s", "max") as string, inline: true },
                                 { name: "Link", value: song.info.uri, inline: true } 
                             ]
                         }
