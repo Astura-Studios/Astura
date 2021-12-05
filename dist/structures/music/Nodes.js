@@ -8,6 +8,6 @@ exports.nodes = [
         id: process.env.NODE_ID,
         host: process.env.NODE_HOST,
         port: parseInt(process.env.NODE_PORT),
-        password: process.env.NODE_PASSWORD,
+        password: process.env.NODE_PASSWORD
     },
 ];

@@ -9,6 +9,7 @@
         "lint:fix": "eslint --fix",
         "prettier": "prettier dist",
         "prettier:fix": "prettier --write dist",
+        "start": "node dist/Index.js",
         "push": "node push.js",
         "test": "node dist/Index.js"
     },

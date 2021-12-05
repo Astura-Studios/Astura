@@ -62,7 +62,7 @@ class ListenerHandler {
                         description: this.client.util.categoryDescriptions.listeners[category.toLowerCase()],
                         type: "listener"
                     }));
-                    console.log(`${this.client.util.date.getLocalTime()} | [ ${this.client.util.string.capitalize(category)} Events ] Loaded ${(0, fs_1.readdirSync)(`${this.directory}/${category}`).length} listener event(s)`);
+                    console.log(`${this.client.util.date.getLocalTime()} | [ ${category === "Commandhandler" ? "Command Handler " : this.client.util.string.capitalize(category)} Events ] Loaded ${(0, fs_1.readdirSync)(`${this.directory}/${category}`).length} listener event(s)`);
                 }
                 ;
                 return console.log(`${this.client.util.date.getLocalTime()} | [ Listener Handler ] Loaded ${this.listeners.size} listener event(s)`);

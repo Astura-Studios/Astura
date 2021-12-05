@@ -14,7 +14,7 @@ export class ExtendedDate extends Date {
             default: return "th";
         };
     };
-
+    
     public getLocalTime(): string {
         return this.toLocaleTimeString("en");
     };
