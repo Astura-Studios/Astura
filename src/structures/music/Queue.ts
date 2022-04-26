@@ -31,12 +31,12 @@ export class Queue {
 
     public async search(searchQuery: string): Promise<Song[] | []> {
         const node: LavalinkNode = this.manager.idealNodes[0];
-        const urlRegex: RegExp = new RegExp( /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+        const urlRegex: RegExp = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
         const params: URLSearchParams = new URLSearchParams();
         params.append("identifier", urlRegex.test(searchQuery) ? searchQuery : `ytsearch:${searchQuery}`);
 
         const data: SearchResult = await fetch(
-            `http://${node.host}:${node.port}/loadtracks?${params}`,
+            `http://${node.host}:${node.port}/loadtracks?${params}`,    
             {
                 headers: {
                     Authorization: node.password
