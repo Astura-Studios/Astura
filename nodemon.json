@@ -1,0 +1,14 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ext": "ts, json",
+    "ignore": [
+        "node_modules",
+        "logs",
+        "typings",
+        ".vscode",
+        ".github"
+    ],
+    "exec": "node build/index.js"
+}

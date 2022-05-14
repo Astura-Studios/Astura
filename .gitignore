@@ -1,0 +1,13 @@
+# dependencies
+node_modules
+
+# logs
+logs
+yarn-error.log
+
+# compilation output
+build
+
+# config
+.env
+astura.config.js

@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "shakram02.bash-beautify",
+        "snowflake107.discordjs-helper",
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "github.copilot",
+        "esbenp.prettier-vscode",
+        "Prisma.prisma"
+    ]
+}

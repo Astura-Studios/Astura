@@ -1,0 +1,30 @@
+# github
+.github
+
+# editor configs
+.idea
+.vscode
+
+# compilation output
+build
+typings
+logs
+
+# dependencies
+node_modules
+
+# prisma
+prisma
+
+# scripts
+scripts
+
+# config files
+astura.config.d.ts
+astura.config.d.ts.map
+astura.config.example.js
+astura.config.js
+
+# json files
+nodemon.json
+tsconfig.json

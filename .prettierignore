@@ -1,0 +1,33 @@
+# github
+.github
+
+# editor configs
+.idea
+.vscode
+
+# compilation output
+build
+typings
+logs
+
+# dependencies
+node_modules
+
+# prisma
+prisma
+
+# scripts
+scripts
+
+# config files
+matrix.config.d.ts
+matrix.config.d.ts.map
+matrix.config.example.js
+matrix.config.js
+
+# json files
+nodemon.json
+tsconfig.json
+
+# other
+test.js
