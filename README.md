@@ -1,7 +1,7 @@
 <br />
 <br />
 <br />
-<img src="assets/images/Banner.svg" alt="Astura Discord Bot banner" align="center" />
+<img src="assets/Banner.svg" alt="Astura Discord Bot banner" align="center" />
 <br />
 <p align="center">
     <a href="https://github.com/Astura-Studios/Astura/releases" target="_blank">
@@ -27,13 +27,12 @@ Astura is the official Discord bot for the [Astura Studios](https://github.com/A
 * Written in TypeScript/NodeJS
 * Includes Prettier, ESLint/@typescript-eslint
 * Dynamic handlers
-* Includes API for the Astura Studios website
-* Uses MikroORM with SQLite
+* Uses Prisma with PostgreSQL
 
 ## Installation
-**NodeJS v16.6.0 or newer is required**
+**NodeJS v16.6.0 or newer and yarn is required**
 ```sh
-npm install
+yarn add
 ```
 
 ## Run tests
@@ -61,5 +60,5 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 
 ## License
-Copyright :copyright: 2022 [Astura-Studios](https://github.com/+Astura-Studios).<br />
+Copyright :copyright: 2022 [Astura-Studios](https://github.com/Astura-Studios).<br />
 This project is licensed under the [BSD 3 Clause License](LICENSE.md).
