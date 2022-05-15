@@ -1,7 +1,7 @@
 <br />
 <br />
 <br />
-<img src="assets/Banner.svg" alt="Astura Discord Bot banner" align="center" />
+<img src="./assets/Banner.svg" alt="Astura Discord Bot banner" align="center" />
 <br />
 <p align="center">
     <a href="https://github.com/Astura-Studios/Astura/releases" target="_blank">
