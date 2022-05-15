@@ -20,10 +20,10 @@ prisma
 scripts
 
 # config files
-matrix.config.d.ts
-matrix.config.d.ts.map
-matrix.config.example.js
-matrix.config.js
+astura.config.d.ts
+astura.config.d.ts.map
+astura.config.example.js
+astura.config.js
 
 # json files
 nodemon.json
