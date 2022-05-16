@@ -1,4 +1,4 @@
-import { APIMessage } from "discord-api-types";
+import { APIMessage } from "discord-api-types/v9";
 import { Argument, Client, MessageEmbedField, SlashCommand } from "../../lib/core/exports";
 import { CommandInteraction, GuildMember, Message, TextChannel, User } from "discord.js";
 import { Constants } from "../../lib/base/constants";
@@ -60,6 +60,7 @@ export default class ReportCommand extends SlashCommand {
             ],
             fetchReply: true
         })
+            // @ts-ignore
             .then(async (message: APIMessage | Message<boolean>): Promise<void> => {
                 do {
                     reportID = Util.generateKey(keyLength);

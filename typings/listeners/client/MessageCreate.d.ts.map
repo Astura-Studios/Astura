@@ -1,0 +1,1 @@
+{"version":3,"file":"MessageCreate.d.ts","sourceRoot":"","sources":["../../../src/listeners/client/MessageCreate.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,QAAQ,EAAE,MAAM,wBAAwB,CAAC;AAE1D,OAAO,EAAE,OAAO,EAAgB,MAAM,YAAY,CAAC;AAEnD,MAAM,CAAC,OAAO,OAAO,qBAAsB,SAAQ,QAAQ;;IAS1C,IAAI,CAAC,OAAO,EAAE,MAAM,EAAE,OAAO,EAAE,OAAO,GAAG,OAAO,CAAC,IAAI,CAAC;CA+CtE"}

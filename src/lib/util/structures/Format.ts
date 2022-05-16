@@ -1,5 +1,5 @@
-import { bold, italic, strikethrough, underscore, spoiler, quote, blockQuote, hyperlink, hideLinkEmbed, inlineCode, codeBlock, time, userMention, memberNicknameMention, channelMention, roleMention, TimestampStylesString } from "@discordjs/builders";
-import { Snowflake } from "discord-api-types";
+import { bold, italic, strikethrough, underscore, spoiler, quote, blockQuote, hyperlink, hideLinkEmbed, inlineCode, codeBlock, time, userMention, channelMention, roleMention, TimestampStylesString } from "@discordjs/builders";
+import { Snowflake } from "discord-api-types/v9";
 
 export class Format {
     public static bold(text: string): `**${string}**` {
@@ -59,7 +59,7 @@ export class Format {
     };
 
     public static memberNicknameMention(id: Snowflake): `<@!${Snowflake}>` {
-        return memberNicknameMention(id);
+        return `<@!${id}>`;
     };
 
     public static channelMention(id: Snowflake): `<#${Snowflake}>` {

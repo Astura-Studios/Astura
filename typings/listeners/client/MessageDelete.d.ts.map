@@ -1,0 +1,1 @@
+{"version":3,"file":"MessageDelete.d.ts","sourceRoot":"","sources":["../../../src/listeners/client/MessageDelete.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,QAAQ,EAAE,MAAM,wBAAwB,CAAC;AAG1D,OAAO,EAAE,OAAO,EAAgD,MAAM,YAAY,CAAC;AAGnF,MAAM,CAAC,OAAO,OAAO,qBAAsB,SAAQ,QAAQ;;IAS1C,IAAI,CAAC,MAAM,EAAE,MAAM,EAAE,OAAO,EAAE,OAAO,GAAG,OAAO,CAAC,IAAI,CAAC;CAgIrE"}

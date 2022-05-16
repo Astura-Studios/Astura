@@ -1,0 +1,1 @@
+{"version":3,"file":"UnhandledRejection.d.ts","sourceRoot":"","sources":["../../../src/listeners/process/UnhandledRejection.ts"],"names":[],"mappings":";AAAA,OAAO,EAAW,QAAQ,EAAE,MAAM,wBAAwB,CAAC;AAE3D,MAAM,CAAC,OAAO,OAAO,0BAA2B,SAAQ,QAAQ;;IAS/C,IAAI,CAAC,QAAQ,EAAE,MAAM,CAAC,OAAO,EAAE,MAAM,EAAE,KAAK,EAAE,OAAO,EAAE,OAAO,CAAC,MAAM,CAAC,GAAG,OAAO,CAAC,IAAI,CAAC;CAItG"}

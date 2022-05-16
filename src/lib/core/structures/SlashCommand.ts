@@ -107,11 +107,11 @@ export class SlashCommand extends SlashCommandBuilder {
                     case "string":
                         if (argument.choices) {
                             this.addStringOption((option: SlashCommandStringOption): Omit<SlashCommandStringOption, "setAutocomplete"> => {
-                                argument.choices.forEach((choice: Choice): Omit<SlashCommandStringOption, "setAutocomplete"> => option.addChoice(choice.name, choice.value));
                                 return option
                                     .setName(argument.name)
                                     .setDescription(argument.description)
-                                    .setRequired(argument.required);
+                                    .setRequired(argument.required)
+                                    .addChoices(...argument.choices.map((choice: Choice) => { return { name: choice.name, value: choice.value }; }));
                             });
                         } else {
                             this.addStringOption((option: SlashCommandStringOption): SlashCommandStringOption => option

@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ModerationCase {
+  id          Int      @id @default(autoincrement())
+  caseID      String   @unique
+  userID      String
+  moderatorID String
+  reason      String?  @default("No reason was provided by the moderator.")
+  time        DateTime @default(now())
+  type        CaseType
+  active      Boolean  @default(true)
+}
+
+model Report {
+  id         Int      @id @default(autoincrement())
+  reportID   String   @unique
+  userID     String
+  reportedID String
+  reason     String?  @default("No reason was provided by the user.")
+  time       DateTime @default(now())
+}
+
+model Tag {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String
+  content     String
+  aliases     String[]
+  updatedAt   DateTime
+}
+
+enum CaseType {
+  TIMEOUT
+  KICK
+  BAN
+  WARN
+  TEMPBAN
+}

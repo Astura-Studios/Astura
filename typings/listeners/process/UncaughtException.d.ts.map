@@ -1,0 +1,1 @@
+{"version":3,"file":"UncaughtException.d.ts","sourceRoot":"","sources":["../../../src/listeners/process/UncaughtException.ts"],"names":[],"mappings":";AAAA,OAAO,EAAW,QAAQ,EAAE,MAAM,wBAAwB,CAAC;AAE3D,MAAM,CAAC,OAAO,OAAO,uBAAwB,SAAQ,QAAQ;;IAS5C,IAAI,CAAC,QAAQ,EAAE,MAAM,CAAC,OAAO,EAAE,KAAK,EAAE,KAAK,EAAE,MAAM,EAAE,MAAM,CAAC,uBAAuB,GAAG,OAAO,CAAC,IAAI,CAAC;CAInH"}

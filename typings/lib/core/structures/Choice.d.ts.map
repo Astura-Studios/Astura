@@ -1,0 +1,1 @@
+{"version":3,"file":"Choice.d.ts","sourceRoot":"","sources":["../../../../src/lib/core/structures/Choice.ts"],"names":[],"mappings":"AAAA,qBAAa,MAAM;IACR,IAAI,EAAE,MAAM,CAAC;IACb,KAAK,EAAE,MAAM,CAAC;gBAEF,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,MAAM;IAKvC,OAAO,CAAC,IAAI,EAAE,MAAM,GAAG,IAAI;IAK3B,QAAQ,CAAC,KAAK,EAAE,MAAM,GAAG,IAAI;CAIvC"}
