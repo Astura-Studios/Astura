@@ -8,17 +8,29 @@ const console: Console = new Console();
 
 const banner: string[] = [
     "\n",
-    "&",
-    "//%",
-    "////(\t\u0020&",
-    "///////&\u0020((#                  __  __       _        _        ____        _  ",
-    "**///////####(               |  \\/  | __ _| |_ _ __(_)_  __ | __ )  ___ | |_ ",
-    "\u0020***///////#####             | |\\/| |/ _` | __| '__| \\ \\/ / |  _ \\ / _ \\| __|",
-    "\u0020\u0020\u0020,**/////(((%%##           | |  | | (_| | |_| |  | |>  <  | |_) | (_) | |_ ",
-    "((((((*/////((((%%%%&        |_|  |_|\\__,_|\\__|_|  |_/_/\\_\\ |____/ \\___/ \\__|",
-    "(((((((#*///(((((#&%%%%",
-    "\u0020%((((((((%/((((####&%%%&",
-    "\u0020\u0020\u0020\u0020\u0020((((((##(((######%&&&&"
+    "KXNW" + "\u0020".repeat("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM".length) + "WXK",
+    "00KKNW" + "\u0020".repeat("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM".length) + "WNKK00",
+    "00000KXNW" + "\u0020".repeat("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM".length) + "WNXK00000",
+    "00000000KXNW" + "\u0020".repeat("MMMMMMMMMMMMMMMMMMMMMMMMMM".length) + "WNXK00000000",
+    "NXK0000OO000kkO0XW" + "\u0020".repeat("MMMMMMMMMMMMMM".length) + "WXKOkk000OO0000KKX",
+    "MWWXKK0xodkkkkkkkOKNW" + "\u0020".repeat("MMMMMMMM".length) + "WNKOkkkkkOkdox0KKXWWM",
+    "\u0020".repeat("MMMM".length) + "WNXkolooodxxkkkk0KNW" + "\u0020".repeat("MM".length) + "WNK0kkxkxxdooolokXNW" + "\u0020".repeat("MMMM".length),
+    "\u0020".repeat("MMMMMM".length) + "W0xdolcclodxkkkkk0000kkkkkxdolcclodx0W" + "\u0020".repeat("MMMMMM".length),
+    "\u0020".repeat("MMMMMM".length) + "WKkxxdlcccclodxkkxxxxkkxdolccccldxxkKW" + "\u0020".repeat("MMMMMM".length) + "\u0020".repeat(5) + "     _        _                   ",
+    "\u0020".repeat("MMMMMM".length) + "WKkxxdlcccclodxkkxxxxkkxdolccccldxxkKW" + "\u0020".repeat("MMMMMM".length) + "\u0020".repeat(5) + "    / \\   ___| |_ _   _ _ __ __ _ ",
+    "\u0020".repeat("MMMMMM".length) + "WKkxxdlcccclodxkkxxxxkkxdolccccldxxkKW" + "\u0020".repeat("MMMMMM".length) + "\u0020".repeat(5) + "   / _ \\ / __| __| | | | '__/ _` |",
+    "\u0020".repeat("MMMMMM".length) + "WKkxxdlcccclodxkkxxxxkkxdolccccldxxkKW" + "\u0020".repeat("MMMMMM".length) + "\u0020".repeat(5) + "  / ___ \\\\__ \\ |_| |_| | | | (_| |",
+    "\u0020".repeat("MMMMMM".length) + "WKkkkxocccccclxkkxxxkkkxlccccccoxkkkKW" + "\u0020".repeat("MMMMMM".length) + "\u0020".repeat(5) + " /_/   \\_\\___/\\__|\\__,_|_|  \\__,_|",
+    "\u0020".repeat("MMMMMM".length) + "WKkkxkxdolccclodxxxxxxdolccclodxxkkkKW" + "\u0020".repeat("MMMMMM".length),
+    "\u0020".repeat("MMMMMMM".length) + "WX0Okkkkxdollllooooooolllodxxkkkk0XW" + "\u0020".repeat("MMMMMMM".length),
+    "\u0020".repeat("MMMMMMMMM".length) + "WNX0kkkkkxxdoc::::cldxxxkkkk0KNW" + "\u0020".repeat("MMMMMMMMM".length),
+    "\u0020".repeat("MMMMMMMMMMMM".length) + "WNK0kxxdddolcclodddxxkOKNW" + "\u0020".repeat("MMMMMMMMMMMM ".length),
+    "\u0020".repeat("MMMMMMMMMMMMMMM".length) + "WKkdoddddddddddodkKW" + "\u0020".repeat("MMMMMMMMMMMMMMM".length),
+    "\u0020".repeat("MMMMMMMMMMMMMMMM".length) + "N0OOkxxddddxxkkO0N" + "\u0020".repeat("MMMMMMMMMMMMMMMM".length),
+    "\u0020".repeat("MMMMMMMMMMMMMMMM".length) + "N00000OkkkkO00000N" + "\u0020".repeat("MMMMMMMMMMMMMMMM".length),
+    "\u0020".repeat("MMMMMMMMMMMMMMMM".length) + "N0000KXNWWNXK0000N" + "\u0020".repeat("MMMMMMMMMMMMMMMM".length),
+    "\u0020".repeat("MMMMMMMMMMMMMMMM".length) + "NKKXNW" + "\u0020".repeat("MMMMMM".length) + "WNXKKN" + "\u0020".repeat("MMMMMMMMMMMMMMMM".length),
+    "\u0020".repeat("MMMMMMMMMMMMMMMM".length) + "NXN" + "\u0020".repeat("MMMMMMMMMMMM".length) + "NXN" + "\u0020".repeat("MMMMMMMMMMMMMMMM".length)
 ];
 
 const details: string[] = [
@@ -45,7 +57,7 @@ exec("git rev-parse --abbrev-ref HEAD", (err: ExecException | null, stdout: stri
 
 const message: string[] = [
     "\n",
-    Chalk.info("intiial bootup and compilation processes completed", "astura.checks"),
+    Chalk.info("Intitial bootup and compilation processes completed", "astura.checks"),
     Chalk.info(`Starting Launcher on ${os.hostname()} with PID ${process.pid}`, "astura.launcher"),
     Chalk.info(`${__filename} started by ${os.userInfo().username}`, "astura.launcher"),
     `\t\t\t\t\t\t\t\t        in ${__dirname}`,
