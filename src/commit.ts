@@ -17,7 +17,7 @@ const exec: (command: string) => PromiseWithChild<ExecOptions> = promisify(_exec
 
 input.question("Enter your commit message: ", async (message: string): Promise<void> => {
     const start: [number, number] = process.hrtime();
-    const { stdout, stderr }: ExecOptions = await exec(`git add . && git commit -m "${message}" && git push origin main`);
+    const { stdout, stderr }: ExecOptions = await exec(`git add . && git commit -m "${message}" && git push origin master`);
     console.log("\n" + chalk.blue(stdout));
     stderr ? console.log(chalk.red(stderr) + "\n" + chalk.yellow(`Executed in ${process.hrtime(start)[1] / 1e6}ms`)) : console.log(chalk.yellow(`Executed in ${process.hrtime(start)[1] / 1e6}ms`));
     input.close();
