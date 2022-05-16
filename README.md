@@ -22,7 +22,7 @@
 </p>
 
 ## About
-Astura is the official Discord bot for the [Astura Studios](https://github.com/Astura-Studios) Discord community server developed and maintained by [Ascendus](https://github.com/Ascendus/) and the Astura Studios community. 
+This is an open-source repository for Astura, the official Discord bot for the [Astura Studios](https://github.com/Astura-Studios) Discord community server developed and maintained by Astura Studios GitHub organisation.
 
 * Written in TypeScript/NodeJS
 * Includes Prettier, ESLint/@typescript-eslint
@@ -53,7 +53,7 @@ npm run dev
 ```
 
 ## Help
-If you need any help regarding repository contribution, feel free to reach out in our [Discord server](https://discord.gg/FtkbxQsWAX) or direct messaging Ascendus#6316 on Discord.
+If you need any help regarding repository contribution, feel free to reach out in our [Discord server](https://discord.gg/FtkbxQsWAX).
 
 ## Contributing
 Contributions, issues and feature requests are welcome!<br />Feel free to check out the [issues page](https://github.com/Astura-Studios/Astura/issues) to either view past issues or submit a new issue. You can also take a look at the [contributing guide (not available yet)](+https://github.com/Astura-Studios/Astura/blob/master/CONTRIBUTING.md).
