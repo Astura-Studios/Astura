@@ -89,7 +89,7 @@ export default class SnipeCommand extends SlashCommand {
                                 name: `Recently deleted message by ${snipe.author.tag}`,
                                 iconURL: snipe.author.displayAvatarURL({ dynamic: true })
                             },
-                            description: `${snipe.author} recently deleted a message in ${snipe.channel} at ${snipe.time}.\n\n${snipe.content}`
+                            description: `${snipe.author} recently deleted a message in ${snipe.channel} at ${snipe.time}.\n\n> ${snipe.content}`
                         });
 
                         if (snipe.image) embed.setImage(snipe.image);

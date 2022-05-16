@@ -14,10 +14,10 @@ export declare enum BaseChannels {
 }
 export declare enum BaseEmojis {
     ASTURA = "<:astura:909222388963606548>",
-    LOADING = "<a:loading:935645537493987328>",
+    LOADING = "<a:discord_loading:796184140378144808>",
     LOADING_GREEN_BAR = "<a:loading_green_bar:936820232775933963>",
-    STATUS_BAR = "<:status_bar:936820214073532536>",
-    SERVER = "<:server:936820213939318865>",
+    STATUS_BAR = "<:status_bar:975624670634209300>",
+    SERVER = "<:server:975624670470606868>",
     ONLINE_CIRCLE = "<:online_circle:896604994827059211>",
     VERIFIED_BOT_DEVELOPER = "<:blurple_verified_bot_developer:922382677439553546>",
     BLURPLE_PARTNER = "<:blurple_partner:923748538867908619>",

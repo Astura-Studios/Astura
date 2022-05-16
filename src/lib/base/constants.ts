@@ -61,7 +61,7 @@ const ErrorCodes: _ErrorCodes = {
     12: "invalid debug argument"
 };
 
-const BaseGuild: string = "755687537753718815";
+const BaseGuild: string = "760659394370994197";
 const Channels: typeof BaseChannels = BaseChannels;
 const Emojis: typeof BaseEmojis = BaseEmojis;
 const Roles: typeof BaseRoles = BaseRoles;
