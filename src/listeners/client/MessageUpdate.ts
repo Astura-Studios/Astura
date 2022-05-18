@@ -14,6 +14,10 @@ export default class MessageEditListener extends Listener {
     }
 
     public async exec(client: Client, oldMessage: Message, newMessage: Message): Promise<void> {
+        if (!oldMessage.guild || !newMessage.guild) return;
+        if (oldMessage.guild.id !== Constants["BaseGuild"]) return;
+        if (newMessage.guild.id !== Constants["BaseGuild"]) return;
+
         if (!newMessage.editedAt) return;
         if (!oldMessage.guild || !newMessage.guild) return;
         if (oldMessage.author.bot || newMessage.author.bot) return;

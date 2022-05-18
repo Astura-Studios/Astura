@@ -7,6 +7,7 @@ const client: Client = new Client({
         repliedUser: true
     },
     makeCache: Options.cacheEverything(),
+    partials: ["REACTION", "MESSAGE"],
     ws: {
         properties: {
             $browser: "discord.js" // "Discord iOS" for mobile

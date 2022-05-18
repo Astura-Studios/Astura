@@ -12,6 +12,10 @@ export default class GuildMemberUpdateListener extends Listener {
     }
 
     public async exec(_client: Client, oldMember: GuildMember, newMember: GuildMember): Promise<void> {
+        if (!oldMember.guild || !newMember.guild) return;
+        if (oldMember.guild.id !== Constants["BaseGuild"]) return;
+        if (newMember.guild.id !== Constants["BaseGuild"]) return;
+
         if (!oldMember.premiumSince && newMember.premiumSince) {
             const BOOST_TIER: GuildChannel = newMember.guild.channels.cache.get(Constants["Channels"].BOOST_TIER) as GuildChannel;
 

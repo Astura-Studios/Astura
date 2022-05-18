@@ -46,6 +46,32 @@ const Embeds = {
     }
 };
 
+const ReactionRoles = {
+    "html": "785217241335201832", // Web development
+    "css": "785217241335201832", // Web development
+    "java": "785217386327310368", // Java
+    "javascript": "785217561921978428", // JavaScript/TypeScript
+    "typescript": "785217561921978428", // JavaScript/TypeScript
+    "c_": "785217785214402610", // C-Langs
+    "cplusplus": "785217785214402610", // C-Langs
+    "csharp": "785217785214402610", // C-Langs
+    "rust": "902051596584763452", // Rust
+    "ruby": "902051870904832010", // Ruby
+    "go": "902051749936914483", // Go
+    "lua": "902051802910973973", // Lua
+
+    "loudspeaker": "859732969816457216", // Server announcements
+    "clapper": "859733205539749909", // YouTube updates
+    "video_game": "904559834974785557", // Game updates
+    "pizza": "859735010852732969", // Server events
+    "tada": "859735124320714773", // Giveaways
+    "bar_chart": "859735320089591838", // Server polls
+    
+    "speech_balloon": "905337796108107826", // Chat revival ping
+    "question": "905337796108107826", // Coding support
+    "tools": "905337796108107826", // Update squad
+};
+
 const ErrorCodes: _ErrorCodes = {
     0: "success",
     1: "uncaught fatal exception",
@@ -77,6 +103,7 @@ export class Constants {
     static Embeds: typeof Embeds = Embeds;
     static Emojis: typeof BaseEmojis = Emojis;
     static ModuleDescriptions: typeof ModuleDescriptions = ModuleDescriptions;
+    static ReactionRoles: typeof ReactionRoles = ReactionRoles;
     static Roles: typeof BaseRoles = Roles;
     static URLs: typeof BaseURLs = URLs;
     static Webhooks: typeof BaseWebhooks = Webhooks;

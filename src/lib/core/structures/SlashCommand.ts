@@ -120,7 +120,7 @@ export class SlashCommand extends SlashCommandBuilder {
                                 .setRequired(argument.required)
                             );
                         }
-                        break;
+                        break;  
 
                     case "user":
                         this.addUserOption((option: SlashCommandUserOption): SlashCommandUserOption => option

@@ -14,6 +14,7 @@ export default class GuildMemberAddListener extends Listener {
     }
 
     public async exec(client: Client, member: GuildMember): Promise<void> {
+        if (!member.guild) return;
         if (member.guild.id !== Constants["BaseGuild"]) return;
 
         client.user?.setPresence({

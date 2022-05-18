@@ -4,6 +4,29 @@ import { Defaults as _Defaults, ErrorCodes as _ErrorCodes } from "./interfaces";
 declare const Embeds: {
     error(interaction: CommandInteraction): MessageEmbed;
 };
+declare const ReactionRoles: {
+    html: string;
+    css: string;
+    java: string;
+    javascript: string;
+    typescript: string;
+    c_: string;
+    cplusplus: string;
+    csharp: string;
+    rust: string;
+    ruby: string;
+    go: string;
+    lua: string;
+    loudspeaker: string;
+    clapper: string;
+    video_game: string;
+    pizza: string;
+    tada: string;
+    bar_chart: string;
+    speech_balloon: string;
+    question: string;
+    tools: string;
+};
 export declare class Constants {
     static BaseGuild: string;
     static ErrorCodes: _ErrorCodes;
@@ -13,6 +36,7 @@ export declare class Constants {
     static Embeds: typeof Embeds;
     static Emojis: typeof BaseEmojis;
     static ModuleDescriptions: typeof ModuleDescriptions;
+    static ReactionRoles: typeof ReactionRoles;
     static Roles: typeof BaseRoles;
     static URLs: typeof BaseURLs;
     static Webhooks: typeof BaseWebhooks;
