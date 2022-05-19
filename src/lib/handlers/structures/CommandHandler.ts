@@ -219,7 +219,7 @@ export class CommandHandler extends EventEmitter {
                             //         content: `Looks like an error has occured:\n${error.stack}`
                             //     });
 
-                            interaction.channel?.send({
+                            interaction.channel && interaction.channel.send({
                                 embeds: [
                                     Constants["Embeds"].error(interaction)
                                 ]
