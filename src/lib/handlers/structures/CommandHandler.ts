@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { AsturaError } from "../../util/exports";
 import { Category, Client, Inhibitor, SlashCommand } from "../../core/exports";
-import { Collection, Interaction, WebhookClient } from "discord.js";
+import { Collection, Interaction } from "discord.js";
 import { CommandHandlerOptions, CommandHandlerWarnings } from "../../base/interfaces";
 import { Constants } from "../../base/constants";
 import { EventEmitter } from "stream";
@@ -214,10 +214,10 @@ export class CommandHandler extends EventEmitter {
                     command.exec(this.client, interaction, await import("discord.js"))
                         .catch((error: Error): Promise<void> => {
                             this.client.console.error(error.stack, "astura.commandHandler", false);
-                            new WebhookClient({ url: Constants["Webhooks"].BOT_LOGS })
-                                .send({
-                                    content: `Looks like an error has occured:\n${error.stack}`
-                                });
+                            // new WebhookClient({ url: Constants["Webhooks"].BOT_LOGS })
+                            //     .send({
+                            //         content: `Looks like an error has occured:\n${error.stack}`
+                            //     });
 
                             interaction.channel?.send({
                                 embeds: [
