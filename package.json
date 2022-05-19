@@ -5,7 +5,7 @@
     "main": "build/index.js",
     "types": "./typings/**/*",
     "scripts": {
-        "commit": "node build/commit.js",
+        "commit": "node build/scripts/commit.js",
         "db:migrate": "npx prisma migrate dev --name init",
         "db:push": "npx prisma db push",
         "db:pull": "npx prisma db pull",
