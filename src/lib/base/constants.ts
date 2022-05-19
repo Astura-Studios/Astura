@@ -60,16 +60,16 @@ const ReactionRoles = {
     "go": "902051749936914483", // Go
     "lua": "902051802910973973", // Lua
 
-    "loudspeaker": "859732969816457216", // Server announcements
-    "clapper": "859733205539749909", // YouTube updates
-    "video_game": "904559834974785557", // Game updates
-    "pizza": "859735010852732969", // Server events
-    "tada": "859735124320714773", // Giveaways
-    "bar_chart": "859735320089591838", // Server polls
+    "📢": "859732969816457216", // Server announcements
+    "🎬": "859733205539749909", // YouTube updates
+    "🎮": "904559834974785557", // Game updates
+    "🍕": "859735010852732969", // Server events
+    "🎉": "859735124320714773", // Giveaways
+    "📊": "859735320089591838", // Server polls
     
-    "speech_balloon": "905337796108107826", // Chat revival ping
-    "question": "905337796108107826", // Coding support
-    "tools": "905337796108107826", // Update squad
+    "💬": "899574312653164634", // Chat revival ping
+    "❓": "767250923932090378", // Coding support
+    "🛠️": "767179621358895134", // Update squad
 };
 
 const ErrorCodes: _ErrorCodes = {

@@ -17,15 +17,15 @@ declare const ReactionRoles: {
     ruby: string;
     go: string;
     lua: string;
-    loudspeaker: string;
-    clapper: string;
-    video_game: string;
-    pizza: string;
-    tada: string;
-    bar_chart: string;
-    speech_balloon: string;
-    question: string;
-    tools: string;
+    "\uD83D\uDCE2": string;
+    "\uD83C\uDFAC": string;
+    "\uD83C\uDFAE": string;
+    "\uD83C\uDF55": string;
+    "\uD83C\uDF89": string;
+    "\uD83D\uDCCA": string;
+    "\uD83D\uDCAC": string;
+    "\u2753": string;
+    "\uD83D\uDEE0\uFE0F": string;
 };
 export declare class Constants {
     static BaseGuild: string;
