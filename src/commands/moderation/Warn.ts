@@ -2,7 +2,7 @@ import { Argument, Client, SlashCommand } from "../../lib/core/exports";
 import { CommandInteraction, DMChannel, Guild, GuildMember, Message, TextChannel, User } from "discord.js";
 import { Constants } from "../../lib/base/constants";
 import { Format, Util } from "../../lib/util/exports";
-import { ModerationCase } from "@prisma/client";
+import { GuildConfig, ModerationCase } from "@prisma/client";
 
 export default class WarnCommand extends SlashCommand {
     public constructor() {
@@ -43,10 +43,17 @@ export default class WarnCommand extends SlashCommand {
 
     public async exec(client: Client, interaction: CommandInteraction, Discord: typeof import("discord.js")): Promise<void> {
         if (!interaction.guild) return;
+
+        const guildConfig: GuildConfig = await client.db.guildConfig.findUnique({
+            where: {
+                guildID: interaction.guildId as string
+            }
+        }) as GuildConfig;
+
         const user: User = interaction.options.getUser("user") as User;
         const member: GuildMember = interaction.guild.members.cache.get(user.id) as GuildMember;
         const reason: string | null = interaction.options.getString("reason");
-        const logChannel: TextChannel = interaction.guild.channels.cache.get(Constants["Channels"].MODERATION_LOGGING) as TextChannel;
+        const logChannel: TextChannel | null = guildConfig.moderationLogChannelID ? interaction.guild.channels.cache.get(guildConfig.moderationLogChannelID) as TextChannel : null;
         const keyLength: number = 15;
         const cases: number = await client.db.moderationCase.count({
             where: {
@@ -118,9 +125,7 @@ export default class WarnCommand extends SlashCommand {
                         })
                         .catch((): null => null)
                         .finally(async (): Promise<void> => {
-                            await client.db.$disconnect();
-
-                            logChannel.send({
+                            logChannel && logChannel.send({
                                 embeds: [
                                     new Discord.MessageEmbed({
                                         color: "RED",

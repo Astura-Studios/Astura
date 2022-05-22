@@ -1,6 +1,7 @@
 import { Client, Listener } from "../../lib/core/exports";
 import { Constants } from "../../lib/base/constants";
 import { Format } from "../../lib/util/exports";
+import { GuildConfig } from "@prisma/client";
 import { Message, MessageAttachment, MessageEmbed, TextChannel } from "discord.js";
 import { Snipe } from "../../lib/base/interfaces";
 
@@ -20,7 +21,13 @@ export default class MessageDeleteListener extends Listener {
         if (message.embeds.length > 0) return;
         if (!client.snipes.get(message.channelId)) client.snipes.set(message.channelId, []);
 
-        const messageLogging: TextChannel = message.guild.channels.cache.get(Constants["Channels"].MESSAGE_LOGGING) as TextChannel;
+        const guildConfig: GuildConfig = await client.db.guildConfig.findUnique({
+            where: {
+                guildID: message.guildId as string
+            }
+        }) as GuildConfig;
+
+        const messageLogging: TextChannel | null = guildConfig.messageLogChannelID ? message.guild.channels.cache.get(guildConfig.messageLogChannelID) as TextChannel : null;
         const snipes: Snipe[] = client.snipes.get(message.channelId) as Snipe[];
         snipes.push({
             content: message.content,
@@ -63,7 +70,7 @@ export default class MessageDeleteListener extends Listener {
                 });
             }
 
-            messageLogging.send({
+            messageLogging && messageLogging.send({
                 embeds: [
                     {
                         color: Constants["Defaults"].embed.color.default,
@@ -93,7 +100,7 @@ export default class MessageDeleteListener extends Listener {
                 });
             }
 
-            messageLogging.send({
+            messageLogging && messageLogging.send({
                 embeds: [
                     {
                         color: Constants["Defaults"].embed.color.default,
@@ -121,7 +128,7 @@ export default class MessageDeleteListener extends Listener {
                 });
             }
 
-            messageLogging.send({
+            messageLogging && messageLogging.send({
                 embeds: [
                     {
                         color: Constants["Defaults"].embed.color.default,
@@ -134,7 +141,7 @@ export default class MessageDeleteListener extends Listener {
                 ]
             });
         } else {
-            messageLogging.send({
+            messageLogging && messageLogging.send({
                 embeds: [
                     embed
                 ]

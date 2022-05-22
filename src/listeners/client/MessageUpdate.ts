@@ -2,6 +2,7 @@ import { Client, Listener } from "../../lib/core/exports";
 import { Constants } from "../../lib/base/constants";
 import { EditSnipe } from "../../lib/base/interfaces";
 import { Format } from "../../lib/util/exports";
+import { GuildConfig } from "@prisma/client";
 import { Message, MessageAttachment, MessageEmbed, TextChannel } from "discord.js";
 
 export default class MessageEditListener extends Listener {
@@ -24,8 +25,14 @@ export default class MessageEditListener extends Listener {
         if (oldMessage.guildId !== Constants["BaseGuild"] || newMessage.guildId !== Constants["BaseGuild"]) return;
         if (oldMessage.embeds.length > 0 || newMessage.embeds.length > 0) return;
         if (!client.editSnipes.get(oldMessage.channelId)) client.editSnipes.set(oldMessage.channelId, []);
-        
-        const messageLogging: TextChannel = oldMessage.guild.channels.cache.get(Constants["Channels"].MESSAGE_LOGGING) as TextChannel || newMessage.guild.channels.cache.get(Constants["Channels"].MESSAGE_LOGGING) as TextChannel;
+
+        const guildConfig: GuildConfig = await client.db.guildConfig.findUnique({
+            where: {
+                guildID: newMessage.guildId
+            }
+        }) as GuildConfig;
+
+        const messageLogging: TextChannel | null = guildConfig.messageLogChannelID ? oldMessage.guild.channels.cache.get(guildConfig.messageLogChannelID) as TextChannel || newMessage.guild.channels.cache.get(guildConfig.messageLogChannelID) as TextChannel : null;
         const editSnipes: EditSnipe[] = client.editSnipes.get(oldMessage.channel.id) as EditSnipe[];
 
         editSnipes.push({
@@ -64,7 +71,7 @@ export default class MessageEditListener extends Listener {
         if (oldMessage.attachments.first()) embed.setImage((oldMessage.attachments.first() as MessageAttachment).proxyURL);
         if (newMessage.attachments.first()) embed.setImage((newMessage.attachments.first() as MessageAttachment).proxyURL);
 
-        messageLogging.send({
+        messageLogging && messageLogging.send({
             embeds: [
                 embed
             ]
@@ -84,7 +91,7 @@ export default class MessageEditListener extends Listener {
                 ]
             });
 
-            messageLogging.send({
+            messageLogging && messageLogging.send({
                 embeds: [
                     {
                         color: Constants["Defaults"].embed.color.default,
@@ -112,7 +119,7 @@ export default class MessageEditListener extends Listener {
                 ]
             });
 
-            messageLogging.send({
+            messageLogging && messageLogging.send({
                 embeds: [
                     {
                         color: Constants["Defaults"].embed.color.default,
@@ -138,7 +145,7 @@ export default class MessageEditListener extends Listener {
                 ]
             });
 
-            messageLogging.send({
+            messageLogging && messageLogging.send({
                 embeds: [
                     {
                         color: Constants["Defaults"].embed.color.default,

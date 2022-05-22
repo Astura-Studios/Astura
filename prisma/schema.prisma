@@ -1,45 +1,69 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 model ModerationCase {
-  id          Int      @id @default(autoincrement())
-  caseID      String   @unique
-  userID      String
-  moderatorID String
-  reason      String?  @default("No reason was provided by the moderator.")
-  time        DateTime @default(now())
-  type        CaseType
-  active      Boolean  @default(true)
+    id          Int      @id @default(autoincrement())
+    caseID      String   @unique
+    userID      String
+    moderatorID String
+    reason      String?  @default("No reason was provided by the moderator.")
+    time        DateTime @default(now())
+    type        CaseType
+    active      Boolean  @default(true)
 }
 
 model Report {
-  id         Int      @id @default(autoincrement())
-  reportID   String   @unique
-  userID     String
-  reportedID String
-  reason     String?  @default("No reason was provided by the user.")
-  time       DateTime @default(now())
+    id         Int      @id @default(autoincrement())
+    reportID   String   @unique
+    userID     String
+    reportedID String
+    reason     String?  @default("No reason was provided by the user.")
+    time       DateTime @default(now())
 }
 
 model Tag {
-  id          Int      @id @default(autoincrement())
-  name        String   @unique
-  description String
-  content     String
-  aliases     String[]
-  updatedAt   DateTime
+    id          Int      @id @default(autoincrement())
+    name        String   @unique
+    description String
+    content     String
+    aliases     String[]
+    updatedAt   DateTime
 }
 
 enum CaseType {
-  TIMEOUT
-  KICK
-  BAN
-  WARN
-  TEMPBAN
+    TIMEOUT
+    KICK
+    BAN
+    WARN
+    TEMPBAN
+}
+
+model GuildConfig {
+    id                      Int      @id @default(autoincrement())  
+    guildID                 String   @unique
+    owners                  String[] @unique
+    verificationChannelID   String?  @unique
+    verificationRoleID      String?  @unique
+    suggestionsChannelID    String?  @unique
+    muteRoleID              String?  @unique
+    serverStatisticsEnabled Boolean? @default(true)
+    totalMembersChannelID   String?  @unique
+    memberCountChannelID    String?  @unique
+    botCountChannelID       String?  @unique
+    goalCountChannelID      String?  @unique
+    goalCount               Int?     @default(100)
+    boostTierChannelID      String?  @unique
+    staffRoleID             String?  @unique
+    adminRoleID             String?  @unique
+    executiveRoleID         String?  @unique
+    messageLogChannelID     String?  @unique
+    moderationLogChannelID  String?  @unique
+    serverLogChannelID      String?  @unique
+    asturaLogChannelID      String?  @unique
 }

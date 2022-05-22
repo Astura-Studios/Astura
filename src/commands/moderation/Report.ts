@@ -3,6 +3,7 @@ import { Argument, Client, MessageEmbedField, SlashCommand } from "../../lib/cor
 import { CommandInteraction, GuildMember, Message, TextChannel, User } from "discord.js";
 import { Constants } from "../../lib/base/constants";
 import { Format, Util } from "../../lib/util/exports";
+import { GuildConfig } from "@prisma/client";
 
 export default class ReportCommand extends SlashCommand {
     public constructor() {
@@ -43,10 +44,17 @@ export default class ReportCommand extends SlashCommand {
 
     public async exec(client: Client, interaction: CommandInteraction, Discord: typeof import("discord.js")): Promise<void> {
         if (!interaction.guild) return;
+
+        const guildConfig: GuildConfig = await client.db.guildConfig.findUnique({
+            where: {
+                guildID: interaction.guildId as string
+            }
+        }) as GuildConfig;
+
         const user: User = interaction.options.getUser("user", true);
         const member: GuildMember = interaction.guild.members.cache.get(user.id) as GuildMember;
         const reason: string = interaction.options.getString("reason", true);
-        const reports: TextChannel = interaction.guild.channels.cache.get(Constants["Channels"].REPORTS) as TextChannel;
+        const reports: TextChannel | null = guildConfig.moderationLogChannelID ? interaction.guild.channels.cache.get(guildConfig.moderationLogChannelID) as TextChannel : null;
         const now: Date = new Date();
         const keyLength: number = 15;
         let reportID: string = Util.generateKey(keyLength);
@@ -70,7 +78,7 @@ export default class ReportCommand extends SlashCommand {
                     }
                 }));
 
-                reports.send({
+                reports && reports.send({
                     embeds: [
                         new Discord.MessageEmbed({
                             color: "RED",

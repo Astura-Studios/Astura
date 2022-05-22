@@ -3,6 +3,7 @@ import { Collection } from "discord.js";
 import { CommandInteraction, Message, TextChannel } from "discord.js";
 import { Constants } from "../../lib/base/constants";
 import { Format } from "../../lib/util/exports";
+import { GuildConfig } from "@prisma/client";
 
 export default class PurgeCommand extends SlashCommand {
     public constructor() {
@@ -43,9 +44,15 @@ export default class PurgeCommand extends SlashCommand {
     }
 
     public async exec(client: Client, interaction: CommandInteraction, Discord: typeof import("discord.js")): Promise<void> {
+        const guildConfig: GuildConfig = await client.db.guildConfig.findUnique({
+            where: {
+                guildID: interaction.guildId as string
+            }
+        }) as GuildConfig;
+
         const amount: number = interaction.options.getNumber("amount") as number;
         const channel: TextChannel | null = interaction.options.getChannel("channel") as TextChannel | null;
-        const logChannel: TextChannel = interaction.guild?.channels.cache.get(Constants["Channels"].MESSAGE_LOGGING) as TextChannel;
+        const logChannel: TextChannel | null = guildConfig.moderationLogChannelID ? interaction.guild?.channels.cache.get(guildConfig.moderationLogChannelID) as TextChannel : null;
 
         if (amount <= 0) {
             return interaction.reply({
@@ -70,7 +77,7 @@ export default class PurgeCommand extends SlashCommand {
         } else if (channel) {
             await channel.bulkDelete(amount, true)
                 .then((messages: Collection<string, Message<boolean>>): NodeJS.Timeout | PromiseLike<NodeJS.Timeout> => {
-                    logChannel.send({
+                    logChannel && logChannel.send({
                         embeds: [
                             {
                                 author: {
@@ -109,7 +116,7 @@ export default class PurgeCommand extends SlashCommand {
         } else {
             await (interaction.channel as TextChannel).bulkDelete(amount, true)
                 .then((messages: Collection<string, Message<boolean>>): NodeJS.Timeout => {
-                    logChannel.send({
+                    logChannel && logChannel.send({
                         embeds: [
                             {
                                 author: {

@@ -16,6 +16,50 @@ export default class ReadyListener extends Listener {
     }
 
     public async exec(client: Client): Promise<void> {
+        // await client.db.guildConfig.delete({
+        //     where: {
+        //         guildID: Constants["BaseGuild"],
+        //     }
+        // });
+
+        if (!(await client.db.guildConfig.findUnique({
+            where: {
+                guildID: Constants["BaseGuild"]
+            }
+        }))) {
+            await client.db.guildConfig.create({
+                data: {
+                    guildID: Constants["BaseGuild"],
+                    adminRoleID: undefined,
+                    asturaLogChannelID: undefined,
+                    boostTierChannelID: undefined,
+                    botCountChannelID: undefined,
+                    executiveRoleID: undefined,
+                    goalCount: undefined,
+                    goalCountChannelID: undefined,
+                    memberCountChannelID: undefined,
+                    messageLogChannelID: undefined,
+                    moderationLogChannelID: undefined,
+                    muteRoleID: undefined,
+                    owners: client.config.owners,
+                    serverLogChannelID: undefined,
+                    serverStatisticsEnabled: undefined,
+                    staffRoleID: undefined,
+                    suggestionsChannelID: undefined,
+                    totalMembersChannelID: undefined,
+                    verificationChannelID: undefined,
+                    verificationRoleID: undefined
+                }
+            })
+                .then((): void => client.console.info("Created default server configuration", "astura.client"));
+        }
+
+        // console.log(await client.db.guildConfig.findUnique({
+        //     where: {
+        //         guildID: Constants["BaseGuild"]
+        //     }
+        // }));
+
         if (client.user) {
             client.user.setPresence({
                 status: "online",

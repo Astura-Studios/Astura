@@ -7,6 +7,7 @@
     "scripts": {
         "commit": "node build/scripts/commit.js",
         "db:migrate": "npx prisma migrate dev --name init",
+        "db:generate": "npx prisma generate",
         "db:push": "npx prisma db push",
         "db:pull": "npx prisma db pull",
         "dev": "SET NODE_ENV=development && tsc && nodemon",

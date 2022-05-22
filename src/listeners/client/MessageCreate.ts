@@ -1,5 +1,6 @@
 import { Client, Listener } from "../../lib/core/exports";
 import { Constants } from "../../lib/base/constants";
+import { GuildConfig } from "@prisma/client";
 import { Message, MessageEmbed } from "discord.js";
 
 export default class MessageCreateListener extends Listener {
@@ -11,11 +12,17 @@ export default class MessageCreateListener extends Listener {
         });
     }
 
-    public async exec(_client: Client, message: Message): Promise<void> {
+    public async exec(client: Client, message: Message): Promise<void> {
+        const guildConfig: GuildConfig = await client.db.guildConfig.findUnique({
+            where: {
+                guildID: message.guildId as string
+            }
+        }) as GuildConfig;
+
         if (message.author.bot) return;
         if (!message.guild) return;
         if (message.guildId !== Constants["BaseGuild"]) return;
-        if (message.channelId === Constants["Channels"].SUGGESTIONS) {
+        if (message.channelId === guildConfig.suggestionsChannelID) {
             message.delete();
 
             message.channel.send({
