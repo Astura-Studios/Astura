@@ -12,7 +12,7 @@ export default class PurgeCommand extends SlashCommand {
             arguments: [
                 new Argument({
                     name: "amount",
-                    description: "The amoubt of messages to purge in the channel.",
+                    description: "The amout of messages to purge in the channel.",
                     required: true,
                     type: "number"
                 }),
