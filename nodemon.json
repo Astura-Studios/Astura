@@ -4,11 +4,13 @@
     ],
     "ext": "ts, json",
     "ignore": [
-        "node_modules",
-        "logs",
-        "typings",
+        ".github",
+        ".idea",
         ".vscode",
-        ".github"
+        "logs",
+        "node_modules",
+        "prisma",
+        "scripts"
     ],
     "exec": "node build/index.js"
 }

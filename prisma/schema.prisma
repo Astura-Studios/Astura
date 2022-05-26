@@ -67,3 +67,14 @@ model GuildConfig {
     serverLogChannelID      String?  @unique
     asturaLogChannelID      String?  @unique
 }
+
+model UserProfile {
+    id          Int     @id @default(autoincrement())
+    userID      String  @unique
+    description String
+}
+
+model ApiUser {
+    id  String @id
+    key String @unique
+}
