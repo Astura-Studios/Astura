@@ -147,7 +147,7 @@ export default class PurgeCommand extends SlashCommand {
                         embeds: [
                             new Discord.MessageEmbed({
                                 color: Constants["Defaults"].embed.color.default,
-                                description: "Looks like an error has occurred! Plesse try again later."
+                                description: "Looks like an error has occurred! Please try again later."
                             })
                         ]
                     });
